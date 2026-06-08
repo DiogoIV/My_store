@@ -17,17 +17,17 @@ function Login() {
 
                     <form className="form-login" onSubmit={handleSubmit}>
 
-                        <h1 className='titulo-login'>Faça Login</h1>
-
+                        <h1 className='titulo-login'>Login</h1>
+                        
                         <div className="campo">
                             <label htmlFor="email">E-mail</label>
                             <input
                                 type="email"
                                 id="email"
-                                placeholder="Digite seu e-mail"
+                                placeholder="Digite seu e-mail" autoComplete='email'
                             />
                         </div>
-
+                           
                         <div className="campo">
                             <label htmlFor="senha">Senha</label>
                             <input
@@ -36,15 +36,16 @@ function Login() {
                                 placeholder="Digite sua senha"
                             />
                         </div>
-
-                        <button type="submit" className="btn-login">
-                            Entrar
-                        </button>
-
-                        <button type="button" className="btn-forgot">
-                            Esqueci minha senha
-                        </button>
-
+                        
+                        <div className='campo container-btn'>
+                            <button type="submit" className="btn-login btn">
+                                Entrar
+                            </button>
+                            <button type="button" className="btn-forgot btn">
+                                Esqueci minha senha
+                            </button>
+                        </div>
+        
                         <p className="texto-cadastro">
                             Não possui conta? <Link to="/esqueci-senha" className='link-registrar'>Registre-se</Link>
 

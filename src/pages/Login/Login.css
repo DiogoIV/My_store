@@ -1,3 +1,5 @@
+/*HEADER-LOGIN*/
+
 .container-header-login {
     display: flex;
     justify-content: center;
@@ -7,8 +9,13 @@
     background-color: var(--green-primary);
 }
 
+.container-header-login  .logo {
+    
+    margin: auto;
+    
+}
 
-/*form-login*/
+/*Container_login*/
 
 .container_principal {
     display: flex;
@@ -19,29 +26,123 @@
     background-color: var(--background);
     background-size: cover;
     background-position: center;
+    
 }
-
 
 .container-login {
     display: flex;
     align-items: center;
     justify-content: center;
     
+    
     background-color: var(--green-primary);
     min-width: 400px;
-    min-height: 400px;
-    padding: 20px;
-    border: 2px solid red;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+/*form-login*/
 
 .form-login {
     display: flex;
     flex-direction: column;
-    align-items: center;
     
-    gap: 10px;
+    
+    width: 100%;
+    gap: 15px;
 }
 
 .form-login h1.titulo-login {
-    margin-bottom: 25px;
+    color: var(--green-light);
+
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+
+
+/*Campo inputs*/
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo label {
+    
+    font-weight: 400;
+}
+
+.campo input {
+    background-color: #f1f5ec;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    transition: .3s;
+}
+
+.campo input:focus {
+    box-shadow: 0 0 0 3px rgba(255,255,255,.3);
+}
+.campo input::placeholder {
+    
+    font-size: 1.1em;
+}
+
+/*btn-login*/
+.container-btn {
+    
+    
+    margin-top: 1rem;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: #f1f5ec;
+    border-radius: 10px;
+    
+    color: #2d3a2e;
+    font-weight: 400;font-weight: 400;
+    font-family: var(--font-poppins);
+    font-size: 1rem;
+    
+    
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/*Registre-se*/
+.texto-cadastro {
+    font-weight: 400;
+    
+    text-align: center;
+}
+
+
+
+.link-registrar {
+    margin-left: 5px;
+    text-decoration: none;
+    color: var(--green-light);
+   
+    
+}
+
+
+
+.link-registrar:hover {
+    text-decoration: underline;
+    
 }

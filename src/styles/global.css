@@ -22,10 +22,11 @@
     --font-inter: "Inter", sans-serif;
 }
 
+
+
 body {
     overflow-x: hidden;
-    height: 100dvh;
-    width: 100%;
     font-family: var(--font-poppins); 
     color: var(--text);
+    
 }
