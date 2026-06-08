@@ -1,16 +1,7 @@
-# React + Vite
+My Store - E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto de e-commerce desenvolvido com React + Vite, com foco em prática de desenvolvimento frontend, criação de interfaces, componentização e navegação entre páginas. O sistema simula uma loja online e responsiva, utilizando React Router para gerenciamento de rotas. O projeto está em evolução e futuramente contará com backend em Node.js e integração com banco de dados para gerenciamento de produtos, usuários e pedidos.
 
-Currently, two official plugins are available:
+🔗 Acesse o projeto: https://my-store-five-plum.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tecnologias utilizadas: React, Vite, JavaScript. Em breve: Node.js e banco de dados.
