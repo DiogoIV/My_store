@@ -30,6 +30,8 @@
     color:var(--green-light);
     gap:8px;
     margin-left: 4em;
+
+    text-decoration: none;
 }
 
 .logo .icon_logo {

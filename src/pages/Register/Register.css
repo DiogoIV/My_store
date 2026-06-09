@@ -1,23 +1,8 @@
-/*HEADER-LOGIN*/
 
-.container-header-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    height: 100px;
-    background-color: var(--green-primary);
-}
 
-.container-header-login  .logo {
-    
-    margin: auto;
-    
-}
 
-/*Container_login*/
 
-.container_principal {
+.container-principal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,11 +14,11 @@
     
 }
 
-.container-login {
+
+.container-register {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     
     
     background-color: var(--green-primary);
@@ -44,19 +29,18 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+/*form register*/
 
-/*form-login*/
-
-.form-login {
+.form-register {
     display: flex;
     flex-direction: column;
-    
     
     width: 100%;
     gap: 15px;
 }
 
-.form-login h1.titulo-login {
+
+.form-register h1.titulo-register {
     color: var(--green-light);
 
     text-align: center;
@@ -65,8 +49,6 @@
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
 }
-
-
 
 /*Campo inputs*/
 .campo {
@@ -96,6 +78,7 @@
     
     font-size: 1.1em;
 }
+
 
 /*btn-login*/
 .container-btn {
@@ -132,12 +115,9 @@
     text-align: center;
 }
 
-.link-esqueci-senha {
-    color: inherit;
-    text-decoration: none;
-}
 
-.link-registrar {
+
+.link-login {
     margin-left: 5px;
     text-decoration: none;
     color: var(--green-light);
@@ -146,8 +126,7 @@
 }
 
 
-
-.link-registrar:hover {
+.link-login:hover {
     text-decoration: underline;
     
 }

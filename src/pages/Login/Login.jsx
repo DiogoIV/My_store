@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 import Header from '../../componentes/Header/Header'
 import './Login.css'
 
+import handleSubmit from '../../utils/HandleSubmit'
+
 function Login() {
 
-    function handleSubmit (event) {
-        event.preventDefault()
-    }
+    
     return (
         <>
             <Header modo="login" />
@@ -42,12 +42,12 @@ function Login() {
                                 Entrar
                             </button>
                             <button type="button" className="btn-forgot btn">
-                                Esqueci minha senha
+                                <Link to="/esqueci-senha" className='link-esqueci-senha'>Esqueci minha senha</Link>
                             </button>
                         </div>
         
                         <p className="texto-cadastro">
-                            Não possui conta? <Link to="/esqueci-senha" className='link-registrar'>Registre-se</Link>
+                            Não possui conta? <Link to="/register" className='link-registrar'>Registre-se</Link>
 
                         </p>
 

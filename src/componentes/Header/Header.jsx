@@ -45,10 +45,11 @@ function Header({ produtos = [], modo, className }) {
 
     return (
         <header className={modo === "login" ? "container-header-login": "container-header"}>
-            <div className="logo">
+            <Link to="/" className="logo">
                 <FaLeaf className="icon_logo" />
                 <h1> Planta Shop</h1>
-            </div>
+            </Link>
+            
             {modo !== "login" && (
                 <>
                     <div className="search-bar">
