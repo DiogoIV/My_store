@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Header from '../../componentes/Header/Header'
 import './EsqueciSenha.css'
-import handleSubmit from '../../utils/HandleSubmit'
+
 import { ValidarEmail } from '../../utils/Validacao'
 
 function EsqueciSenha() {

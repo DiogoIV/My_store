@@ -24,9 +24,11 @@
 
 
 
+
+
 body {
     overflow-x: hidden;
     font-family: var(--font-poppins); 
     color: var(--text);
-    
+    height: 100dvh;
 }

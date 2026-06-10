@@ -4,7 +4,8 @@ import Header from '../../componentes/Header/Header'
 import './Login.css'
 
 import { ValidarEmail, ValidarSenha} from '../../utils/Validacao'
-import handleSubmit from '../../utils/HandleSubmit'
+import Footer from '../../componentes/Footer/Footer'
+
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -87,14 +88,12 @@ function Login() {
                         </p>
 
 
-
+                        
                     </form>
                 </section>
             </main>
 
-            <footer>
-
-            </footer>
+            <Footer/>
 
         </>
 

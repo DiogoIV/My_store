@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 import './Register.css'
-import handleSubmit from '../../utils/HandleSubmit'
 import { validarRegistro } from '../../utils/Validacao'
 
 function Register() {

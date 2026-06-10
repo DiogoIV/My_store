@@ -44,12 +44,12 @@ function Header({ produtos = [], modo, className }) {
 
 
     return (
-        <header className={modo === "login" ? "container-header-login": "container-header"}>
+        <header className={modo === "login" ? "container-header-login" : "container-header"}>
             <Link to="/" className="logo">
                 <FaLeaf className="icon_logo" />
                 <h1> Planta Shop</h1>
             </Link>
-            
+
             {modo !== "login" && (
                 <>
                     <div className="search-bar">
@@ -81,7 +81,7 @@ function Header({ produtos = [], modo, className }) {
                     </div>
                     <div className="user">
                         <button className="btn_user">
-                            <Link to="/login" className="link-login">
+                            <Link to="/login" className="link-style">
                                 <FaRegUser className="icon_user" />
                             </Link>
                         </button>
@@ -92,7 +92,10 @@ function Header({ produtos = [], modo, className }) {
                         </button>
 
                         <button className="btn_user">
-                            <FaCartArrowDown className="icon_user" />
+                            <Link to="/carrinho" className="link-style">
+                                <FaCartArrowDown className="icon_user" />
+
+                            </Link>
 
                         </button>
 
