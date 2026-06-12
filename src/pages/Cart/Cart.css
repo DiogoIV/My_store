@@ -1,3 +1,4 @@
+/*main*/
 .container-pricipal {
     display: flex;
     flex-direction: column;
@@ -6,18 +7,129 @@
     
     gap: 20px;
     height: calc(100vh - 100px);
-    background-color: #f5f5f5;
+    background-color: #ffffff;
 
     
 }
+/*carrinho*/
 
 .container-carrinho {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 30px;
 
+    border-left: 4px solid var(--green-light);
     padding: 20px;
+
     background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 16px;
     width: 100%;
     max-width: 1100px;
 }
+
+
+/*Conteudo do carrinho*/
+
+.container-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    
+    
+}
+
+.container-carrinho .titulo-itens {
+    font-weight: 500;
+}
+
+.container-itens .intens-carrinho {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 16px;
+    background-color: #e9ecef ;
+    border-radius: 15px;
+}
+
+.intens-carrinho .img-item {
+    border-radius: 20px;
+}
+
+.intens-carrinho .img-item img{
+    width: 80px;
+    height: 90px;
+
+    object-fit: cover;
+    border-radius: 10px;
+   
+}
+
+.intens-carrinho .desc-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;  
+    gap: 2px;
+}
+
+.desc-item div.item-titulo {
+    display: flex;
+    gap: 20px
+      
+}
+
+div.item-titulo h3 {
+    font-weight: 400;
+    
+}
+
+/*btn-item*/
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    border: 1px solid var(--green-light);
+    border-radius: 5px;
+    gap: 20px;
+    padding: 3px;
+    transition: .3s ease;
+}
+
+
+.btn-item {
+    
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-item:hover {
+    transform: scale(1.12);
+}
+
+.btn-container button{
+    display: flex;
+    color: var(--green-primary);
+    
+    
+}
+
+.btn-container button:hover{
+    display: flex;
+    color: var(--green-primary);
+    
+    background: var(--green-light);
+    box-shadow: 2px 2px 2px 3px var(--green-light);
+    border-radius: 10px;
+    
+}
+
+
+
+
+

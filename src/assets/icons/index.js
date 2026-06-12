@@ -4,7 +4,9 @@ export {
   FaSearch,
   FaUser,
   FaLeaf,
-  FaRegHeart
+  FaRegHeart,
+  FaPlus,
+  FaMinus
 } from "react-icons/fa";
 /* categorias, setas*/
 
@@ -31,3 +33,9 @@ export {
 export {
   RiFlowerFill
 } from "react-icons/ri";
+
+export {
+  FaRegTrashCan
+} from "react-icons/fa6"
+
+
