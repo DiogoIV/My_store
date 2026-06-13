@@ -1,16 +1,18 @@
 /*main*/
-.container-pricipal {
+.container-principal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
-    gap: 20px;
-    height: calc(100vh - 100px);
-    background-color: #ffffff;
 
-    
+    padding: 20px;
+    gap: 20px;
+
+    min-height: calc(100vh - 100px);
+    height: auto;
+    background-color: #ffffff;
 }
+
+
 /*carrinho*/
 
 .container-carrinho {
@@ -18,14 +20,10 @@
     grid-template-columns: 2fr 1fr;
     gap: 30px;
 
-    border-left: 4px solid var(--green-light);
-    padding: 20px;
-
-    background-color: #f8f9fa;
-    border-radius: 12px;
-    padding: 16px;
     width: 100%;
     max-width: 1100px;
+
+    align-items: start;
 }
 
 
@@ -49,6 +47,8 @@
     align-items: center;
     gap: 20px;
 
+    max-width: 100%;
+    overflow: hidden;
     padding: 16px;
     background-color: #e9ecef ;
     border-radius: 15px;
@@ -72,6 +72,7 @@
     flex-direction: column;
     width: 100%;  
     gap: 2px;
+    
 }
 
 .desc-item div.item-titulo {
@@ -85,6 +86,12 @@ div.item-titulo h3 {
     
 }
 
+.resumo-carrinho {
+    min-width: 0;
+    position: sticky;
+    top: 20px;
+    overflow-wrap: break-word;
+}
 /*btn-item*/
 
 .btn-container {
@@ -127,6 +134,15 @@ div.item-titulo h3 {
     box-shadow: 2px 2px 2px 3px var(--green-light);
     border-radius: 10px;
     
+}
+
+
+.container-frete {
+    font-size: 15px;
+}
+
+.valor-frete {
+    font-size: 12px;
 }
 
 

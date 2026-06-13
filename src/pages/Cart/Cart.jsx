@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { alecrim, jasmim, lavandas, papoulas } from '../../assets/imagens/produtos/flores'
-import {FaPlus, FaMinus, FaRegTrashCan} from '../../assets/icons'
+import { FaPlus, FaMinus, FaRegTrashCan } from '../../assets/icons'
 
 import './Cart.css'
 import Header from "../../componentes/Header/Header";
@@ -9,72 +9,125 @@ import Footer from "../../componentes/Footer/Footer";
 
 
 function Cart() {
-    const produtos = [
+    const frete = 15
+
+    const [produtos, setProdutos] = useState([
         {
             id: 1,
             nome: "Alecrim",
             imagem: alecrim,
-            preco: "R$ 19,90",
+            preco: 19.90,
+            quantidade: 1,
+
 
         },
+
         {
             id: 2,
             nome: "Jasmim",
             imagem: jasmim,
-            preco: "R$ 24,90",
+            preco: 24.90,
+            quantidade: 1
 
         },
+
         {
             id: 3,
             nome: "Lavanda",
             imagem: lavandas,
-            preco: "R$ 22,90",
+            preco: 22.90,
+            quantidade: 1
 
         }
-    ]
+    ])
+
+    /*quantidade*/
+
+    function aumentarQuantidade(ID) {
+        const aumentarProdutos = produtos.map(produto => {
+
+            if (produto.id == ID) {
+                console.log(produto)
+                return {
+                    ...produto,
+                    quantidade: produto.quantidade + 1
+                }
+            }
+
+            return produto
+        })
+
+        return setProdutos(aumentarProdutos)
+    }
+
+    function diminuirQuantidade(ID) {
+        const diminuirProduto = produtos.map(produto => {
+            if(produto.id === ID) {
+                
+                return {
+                    ...produto,
+                    quantidade: Math.max(produto.quantidade - 1, 1)
+
+                
+                }
+            }
+
+            return produto
+        })
+
+        return setProdutos(diminuirProduto)
+    }
+    /* remover intems */
+    function removerIntems(ID) {
+
+        const intemRemovido = produtos.filter(el => el.id !== ID)
+
+        return setProdutos(intemRemovido)
+    }
 
     const produto = produtos.map(el => {
         return (
-            <>
+            <div className="intens-carrinho" key={el.id}>
 
-
-                <div className="intens-carrinho">
-
-                    <div className="img-item">
-                        <img src={el.imagem} alt="" />
-                    </div>
-
-                    <div className="desc-item">
-                        <div className="item-titulo">
-                            <h3>{el.nome}</h3>
-                           
-                            <button className="btn-item">
-                                <FaRegTrashCan/>
-                            </button>
-                                
-                        </div>
-                        <span>{el.preco}</span>
-
-                        <div className="btn-container">
-
-                            <button className="btn-item">
-                                <FaMinus />
-                            </button>
-
-                            <span>0</span>
-
-                            <button className="btn-item">
-
-                                <FaPlus />
-
-                            </button>
-                        </div>
-                    </div>
-
-
+                <div className="img-item">
+                    <img src={el.imagem} alt="" />
                 </div>
 
-            </>
+                <div className="desc-item">
+
+                    <div className="item-titulo">
+                        <h3>{el.nome}</h3>
+
+                        <button className="btn-item" onClick={() => removerIntems(el.id)} >
+                            <FaRegTrashCan />
+                        </button>
+
+                    </div>
+
+                    <span>R$ {el.preco.toFixed(2)}</span>
+                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {frete.toFixed(2)}
+                    </span>
+                    </p>
+
+                    <div className="btn-container">
+
+                        <button className="btn-item" onClick={() => diminuirQuantidade(el.id)}>
+                            <FaMinus />
+                        </button>
+
+                        <span>{el.quantidade}</span>
+
+                        <button className="btn-item" onClick={() => aumentarQuantidade(el.id)}>
+
+                            <FaPlus />
+
+                        </button>
+                    </div>
+                </div>
+
+
+            </div>
+
         )
     })
 
@@ -83,9 +136,9 @@ function Cart() {
         <>
             <Header />
 
-            <main className="container-pricipal">
+            <main className="container-principal">
 
-                <h1>MEU CARRINHO</h1>
+                
 
                 <section className="container-carrinho">
 
