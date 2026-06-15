@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { alecrim, jasmim, lavandas, papoulas } from '../../assets/imagens/produtos/flores'
 import { FaPlus, FaMinus, FaRegTrashCan } from '../../assets/icons'
+
 
 import './Cart.css'
 import Header from "../../componentes/Header/Header";
@@ -9,7 +11,7 @@ import Footer from "../../componentes/Footer/Footer";
 
 
 function Cart() {
-    const frete = 15
+
 
     const [produtos, setProdutos] = useState([
         {
@@ -18,6 +20,7 @@ function Cart() {
             imagem: alecrim,
             preco: 19.90,
             quantidade: 1,
+            frete: 15.50
 
 
         },
@@ -27,7 +30,8 @@ function Cart() {
             nome: "Jasmim",
             imagem: jasmim,
             preco: 24.90,
-            quantidade: 1
+            quantidade: 1,
+            frete: 20.50
 
         },
 
@@ -36,54 +40,11 @@ function Cart() {
             nome: "Lavanda",
             imagem: lavandas,
             preco: 22.90,
-            quantidade: 1
+            quantidade: 1,
+            frete: 30.40
 
         }
     ])
-
-    /*quantidade*/
-
-    function aumentarQuantidade(ID) {
-        const aumentarProdutos = produtos.map(produto => {
-
-            if (produto.id == ID) {
-                console.log(produto)
-                return {
-                    ...produto,
-                    quantidade: produto.quantidade + 1
-                }
-            }
-
-            return produto
-        })
-
-        return setProdutos(aumentarProdutos)
-    }
-
-    function diminuirQuantidade(ID) {
-        const diminuirProduto = produtos.map(produto => {
-            if(produto.id === ID) {
-                
-                return {
-                    ...produto,
-                    quantidade: Math.max(produto.quantidade - 1, 1)
-
-                
-                }
-            }
-
-            return produto
-        })
-
-        return setProdutos(diminuirProduto)
-    }
-    /* remover intems */
-    function removerIntems(ID) {
-
-        const intemRemovido = produtos.filter(el => el.id !== ID)
-
-        return setProdutos(intemRemovido)
-    }
 
     const produto = produtos.map(el => {
         return (
@@ -105,7 +66,7 @@ function Cart() {
                     </div>
 
                     <span>R$ {el.preco.toFixed(2)}</span>
-                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {frete.toFixed(2)}
+                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {el.frete.toFixed(2)}
                     </span>
                     </p>
 
@@ -132,13 +93,87 @@ function Cart() {
     })
 
 
+
+
+
+    /*quantidade*/
+
+    function aumentarQuantidade(ID) {
+        const aumentarProdutos = produtos.map(produto => {
+
+            if (produto.id == ID) {
+                console.log(produto)
+                return {
+                    ...produto,
+                    quantidade: produto.quantidade + 1
+                }
+            }
+
+            return produto
+        })
+
+        return setProdutos(aumentarProdutos)
+    }
+
+    function diminuirQuantidade(ID) {
+        const diminuirProduto = produtos.map(produto => {
+            if (produto.id === ID) {
+
+                return {
+                    ...produto,
+                    quantidade: Math.max(produto.quantidade - 1, 1)
+
+
+                }
+            }
+
+            return produto
+        })
+
+        return setProdutos(diminuirProduto)
+    }
+
+    /* remover intems */
+
+    function removerIntems(ID) {
+
+        const intemRemovido = produtos.filter(el => el.id !== ID)
+
+        return setProdutos(intemRemovido)
+    }
+
+    /*Resumo*/
+
+    function resumo() {
+        let totais = {
+            preco: 0,
+            frete: 0,
+            total: 0
+        }
+
+        for (let i = 0; i !== produtos.length; i++) {
+            totais.preco += produtos[i].preco * produtos[i].quantidade
+
+            totais.frete += produtos[i].frete * produtos[i].quantidade
+
+
+        }
+
+        totais.total = totais.preco + totais.frete
+        console.log(totais.total)
+
+        return totais
+    }
+
+    const resultadoResumo = resumo()
+
     return (
         <>
             <Header />
 
             <main className="container-principal">
 
-                
+
 
                 <section className="container-carrinho">
 
@@ -153,16 +188,42 @@ function Cart() {
                     <div className="resumo-carrinho">
                         <h2>Resumo</h2>
 
-                        <div className="valores">
-                            <p>Subtotal: <span>0</span></p>
-                            <p>Frete: R$ <span>0</span></p>
-                            <p>Total: R$<span>0</span></p>
-                        </div>
+
+                        {produtos.length !== 0 ? (
+                            <>
+                                <div className="valores">
+                                    <p>Subtotal: <span className="valores-calculados"> R$ {resultadoResumo.preco.toFixed(2)}</span></p>
+
+                                    <p>Frete:  <span className="valores-calculados"> R$ {resultadoResumo.frete.toFixed(2)}</span></p>
+                                    <p>Total: <span className="valores-calculados"> R$ {resultadoResumo.total.toFixed(2)}</span></p>
+                                </div>
 
 
-                        <div className="btn-acao">
-                            <button>Finalizar</button>
-                        </div>
+                                <div className="btn-acao">
+                                    <button>Finalizar</button>
+                                </div>
+                            </>
+
+                        ): (
+                            <>
+                                <div className="carrinho-vazio">
+                                    <div className="desc-resumo">
+                                        <h3>🛒 Carrinho vazio</h3>
+                                        <p>Você ainda não adicionou produtos.</p>
+                                    </div>
+
+                                    <div>
+                                        <Link to="#">
+                                            <button className="btn-acao">
+                                                Continuar comprando 
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                        }
+
 
                     </div>
 

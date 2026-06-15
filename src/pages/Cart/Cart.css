@@ -1,4 +1,8 @@
 /*main*/
+
+* {
+    border: none;
+}
 .container-principal {
     display: flex;
     flex-direction: column;
@@ -6,6 +10,7 @@
 
     padding: 20px;
     gap: 20px;
+   
 
     min-height: calc(100vh - 100px);
     height: auto;
@@ -85,13 +90,60 @@ div.item-titulo h3 {
     font-weight: 400;
     
 }
+/*resumo-carrinho*/
 
 .resumo-carrinho {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     min-width: 0;
     position: sticky;
     top: 20px;
     overflow-wrap: break-word;
 }
+
+.resumo-carrinho h2 {
+
+    font-weight: 400;
+
+    border-bottom: 2px solid var(--green-primary);
+    
+}
+
+.resumo-carrinho .valores {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.valores span.valores-calculados {
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+
+.resumo-carrinho .btn-acao > button{
+    padding: 10px;
+    cursor: pointer;
+
+    
+    background-color: var(--green-light);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: 3.s ease;
+
+    font-family: var(--Poppins);
+}
+
+.btn-acao > button:hover {
+    background-color: var(--green-primary);
+    transform: translateY(-2px);
+}
+
 /*btn-item*/
 
 .btn-container {
