@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { alecrim, jasmim, lavandas, papoulas } from '../../assets/imagens/produtos/flores'
 import { FaPlus, FaMinus, FaRegTrashCan } from '../../assets/icons'
 
-
+import { IoCartOutline } from "react-icons/io5";
 import './Cart.css'
 import Header from "../../componentes/Header/Header";
 import Footer from "../../componentes/Footer/Footer";
@@ -207,14 +207,15 @@ function Cart() {
                         ): (
                             <>
                                 <div className="carrinho-vazio">
+
                                     <div className="desc-resumo">
-                                        <h3>🛒 Carrinho vazio</h3>
+                                        <h3><IoCartOutline/> Carrinho vazio</h3>
                                         <p>Você ainda não adicionou produtos.</p>
                                     </div>
 
-                                    <div>
-                                        <Link to="#">
-                                            <button className="btn-acao">
+                                    <div className="btn-vazio">
+                                        <Link to="/">
+                                            <button >
                                                 Continuar comprando 
                                             </button>
                                         </Link>

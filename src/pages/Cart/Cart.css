@@ -127,7 +127,7 @@ div.item-titulo h3 {
     cursor: pointer;
 
     
-    background-color: var(--green-light);
+    background-color: var(--green-primary);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-radius: 10px;
     width: 100%;
@@ -141,6 +141,44 @@ div.item-titulo h3 {
 
 .btn-acao > button:hover {
     background-color: var(--green-primary);
+    transform: translateY(-2px);
+}
+
+/*resumo-carrinho-vazio*/
+
+.carrinho-vazio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.carrinho-vazio .desc-resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.carrinho-vazio h3 {
+    font-weight: 400;
+}
+
+.btn-vazio button {
+    padding: 10px;
+    cursor: pointer;
+
+    
+    background-color: var(--green-primary);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    width: 100%;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: 3.s ease;
+
+    font-family: var(--Poppins);
+}
+
+.btn-vazio button:hover {
     transform: translateY(-2px);
 }
 
