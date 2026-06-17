@@ -5,15 +5,34 @@ import './styles/global.css'
 import App from './App.jsx'
 import Login from './pages/Login/Login.jsx'
 import Register from './pages/Register/Register.jsx'
+
 import Cart from './pages/Cart/Cart.jsx'
+import Favoritos from './pages/Favoritos/Favoritos.jsx'
+import Home from './pages/Home/Home.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import EsqueciSenha from './pages/EsquiciSenha/EsqueciSenha.jsx'
 
 const router = createBrowserRouter([
+
   {
     path: '/',
-    element: <App />,
+    element: <App/>,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: "/carrinho",
+        element: <Cart/>
+      },
+
+      {
+        path: "/favoritos",
+        element: <Favoritos/>
+      }
+    ]
   },
 
   /*Login*/
@@ -30,11 +49,6 @@ const router = createBrowserRouter([
   {
     path: '/esqueci-senha',
     element: <EsqueciSenha/>
-  },
-  /*carrinho*/
-  {
-    path: '/carrinho',
-    element: <Cart/>
   }
 ])
 

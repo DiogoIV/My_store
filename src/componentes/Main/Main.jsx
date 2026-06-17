@@ -83,10 +83,11 @@ function Main({ produtos, categorias }) {
     
 
     const categoriasredender = categorias.map((cat) => {
+        const Icon = cat.icon
         return (
             <div className="card_categorie" key={cat.id}>
                 <button className={`btn_categorie ${cat.nome === categoriaSelecionada ? 'active' : ''}`} onClick={()=> setCategoriaSelecionada(cat.nome)}>
-                    {cat.icon}
+                    <Icon className="icon_categorie"/>
 
                     <span className="desc-categorie">
                         {cat.nome}

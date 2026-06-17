@@ -93,7 +93,7 @@ function Login() {
                 </section>
             </main>
 
-            <Footer/>
+            
 
         </>
 

@@ -169,7 +169,6 @@ function Cart() {
 
     return (
         <>
-            <Header />
 
             <main className="container-principal">
 
@@ -234,7 +233,7 @@ function Cart() {
 
             </main>
 
-            <Footer />
+            
         </>
     )
 }

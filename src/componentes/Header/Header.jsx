@@ -9,7 +9,9 @@ import {
     FaSearch
 } from '../../assets/icons'
 
-function Header({ produtos = [], modo, className }) {
+import { produtos} from "../../data";
+
+function Header({modo, className }) {
 
 
 
@@ -86,18 +88,21 @@ function Header({ produtos = [], modo, className }) {
                             </Link>
                         </button>
 
-                        <button className="btn_user">
-                            <FaRegHeart className="icon_user" />
+                        <Link to="/favoritos">
+                            <button className="btn_user">
+                                <FaRegHeart className="icon_user" />
+                            </button>
+                        </Link>
 
-                        </button>
+                        <Link to="/carrinho" className="link-style">
 
-                        <button className="btn_user">
-                            <Link to="/carrinho" className="link-style">
+                            <button className="btn_user">
+
                                 <FaCartArrowDown className="icon_user" />
 
-                            </Link>
 
-                        </button>
+                            </button>
+                        </Link>
 
                     </div>
                 </>

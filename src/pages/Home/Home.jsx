@@ -1,14 +1,14 @@
-import Header from '../../componentes/Header/Header'
-import Main from '../../componentes/Main/Main'
-import Footer from '../../componentes/Footer/Footer'
+import { produtos, categorias } from '../../data'
 
-function Home({produtos, categorias}) {
-    return(
-        <>
-            <Header produtos={produtos}/>
-            <Main produtos={produtos} categorias={categorias} />
-            <Footer />
-        </>
+
+import Main from '../../componentes/Main/Main'
+
+
+function Home() {
+
+
+    return (
+        <Main produtos={produtos} categorias={categorias} />
     )
 }
 
