@@ -27,6 +27,9 @@
 
 
 body {
+    display: flex;
+    flex-direction: column;
+    
     overflow-x: hidden;
     font-family: var(--font-poppins);
     background-color: var(--background);

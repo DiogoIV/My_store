@@ -1,0 +1,97 @@
+
+
+.container-checkout {
+    display: flex;
+    justify-content: space-around;
+
+    
+    max-width: 900px;
+    margin: 3rem auto;
+    gap: 3rem;
+    padding: 20px;
+}
+
+/*info-entregas*/
+
+.container-checkout .info-entregas {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #ffffff00;
+    flex: 2 1 300px;
+    gap: 20px;
+}
+
+.info-entregas h2, .resumo-pedido h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.intens-entregas {
+    
+    font-size: 13.5px;
+    
+}
+
+.intens-entregas h3 {
+    font-weight: 400;
+    font-size: 1.2em;
+
+
+    
+}
+
+/*resumo-pedido*/
+
+section.resumo-pedido {
+    position: sticky;
+    top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 150px;
+    
+
+    
+}
+
+section.resumo-pedido h2 {
+    border-bottom: 2px solid var(--green-primary);
+    
+}
+
+.produtos-quantidade span {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.resumo-pedido .resumo-valores p{
+    display: flex;
+    justify-content: space-between;
+    
+    margin: 10px 0;
+    gap: 10px;
+    font-weight: 200;
+    font-size: 14px;
+}
+
+.link-confirmar button {
+    font-family: inherit;
+    font-weight: 500;
+
+    background-color: var(--green-primary);
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+
+    transition: .3s ease;
+}
+
+.link-confirmar button:hover {
+    transform: translateY(-2px);
+}

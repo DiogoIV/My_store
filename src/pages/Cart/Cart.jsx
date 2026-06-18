@@ -203,19 +203,19 @@ function Cart() {
                                 </Link>
                             </>
 
-                        ): (
+                        ) : (
                             <>
                                 <div className="carrinho-vazio">
 
                                     <div className="desc-resumo">
-                                        <h3><IoCartOutline/> Carrinho vazio</h3>
+                                        <h3><IoCartOutline /> Carrinho vazio</h3>
                                         <p>Você ainda não adicionou produtos.</p>
                                     </div>
 
                                     <div className="btn-vazio">
                                         <Link to="/">
                                             <button >
-                                                Continuar comprando 
+                                                Continuar comprando
                                             </button>
                                         </Link>
                                     </div>
@@ -233,7 +233,7 @@ function Cart() {
 
             </main>
 
-            
+
         </>
     )
 }
