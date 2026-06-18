@@ -1,0 +1,28 @@
+
+
+.container-header-checkout {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+
+        padding: 20px;
+        height: 80px;
+
+        background-color: var(--green-primary);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+.logo-checkout {
+    display:flex;
+    align-items:center;
+    color:var(--green-light);
+    gap:8px;
+    margin-left: 4em;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+.icon_checkout {
+    font-size: 2em;
+}

@@ -198,9 +198,9 @@ function Cart() {
                                 </div>
 
 
-                                <div className="btn-acao">
+                                <Link to="/checkout" className="btn-acao">
                                     <button>Finalizar</button>
-                                </div>
+                                </Link>
                             </>
 
                         ): (
