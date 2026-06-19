@@ -5,8 +5,7 @@ import { FaPlus, FaMinus, FaRegTrashCan } from '../../assets/icons'
 
 import { IoCartOutline } from "react-icons/io5";
 import './Cart.css'
-import Header from "../../componentes/Header/Header";
-import Footer from "../../componentes/Footer/Footer";
+
 
 
 
@@ -170,7 +169,7 @@ function Cart() {
     return (
         <>
 
-            <main className="container-principal">
+            <main className="container-principal-cart">
 
 
 

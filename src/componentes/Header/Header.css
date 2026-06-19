@@ -15,20 +15,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
-    
+
+
     gap: 20px;
-    padding: 20px;
-    height: 100px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.10);
+    padding: 10px;
+    min-height: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     background-color: var(--green-primary);
 }
 
-.logo{
-    display:flex;
-    align-items:center;
-    color:var(--green-light);
-    gap:8px;
+.logo {
+    display: flex;
+    align-items: center;
+    color: var(--green-light);
+    gap: 8px;
     margin-left: 4em;
 
     text-decoration: none;
@@ -37,17 +37,17 @@
 .logo .icon_logo {
     font-size: 2em;
 
-    
+
 }
 
 .container-header h1 {
-    letter-spacing:1px;
-    font-weight:700;
-    font-size:2rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 2rem;
     text-shadow:
-    0 1px 3px rgba(0,0,0,0.15);
-    
-    
+        0 1px 3px rgba(0, 0, 0, 0.15);
+
+
 }
 
 
@@ -58,9 +58,9 @@ div.search-bar {
     display: flex;
     gap: 20px;
     flex-grow: 1;
-    
+
     max-width: 500px;
-    
+
 }
 
 #container-search {
@@ -69,57 +69,57 @@ div.search-bar {
 
 div.search-bar input#input_search {
     position: relative;
-    width:100%;
+    width: 100%;
 
-    padding:12px 40px 12px 15px;
+    padding: 12px 40px 12px 15px;
 
-    border:none;
+    border: none;
 
-    border-radius:25px;
+    border-radius: 25px;
 
-    outline:none;
-    font-size:1rem;
-    
-    background:#FFFFFF;
+    outline: none;
+    font-size: 1rem;
+
+    background: #FFFFFF;
     box-shadow:
-    0 2px 6px rgba(0,0,0,0.10);
+        0 2px 6px rgba(0, 0, 0, 0.10);
     z-index: 999;
-    
+
 }
 
-.btn_search{
+.btn_search {
     position: absolute;
     top: 56%;
-    right: 10px;  
-    
+    right: 10px;
+
     background: none;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
     font-size: 1em;
     transform: translateY(-50%);
-    
+
 }
 
 /*dropdown*/
 .container_pesquisa {
-  position: absolute;
-  top: 100%;
-  width: 100%;
+    position: absolute;
+    top: 100%;
+    width: 100%;
 
-  
-  max-height: 350px;
 
-  scrollbar-width: thin; 
-  overflow-y: auto;
+    max-height: 350px;
 
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    scrollbar-width: thin;
+    overflow-y: auto;
 
-  
-  padding: 10px;
-  z-index: 998;
-  margin-top: 4px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+
+    padding: 10px;
+    z-index: 998;
+    margin-top: 4px;
 }
 
 .container_pesquisa .resultado_pesquisa {
@@ -145,13 +145,13 @@ div.search-bar input#input_search {
 
 .container_img-pesquisa img {
     object-fit: cover;
-    width: 60px;     
+    width: 60px;
     height: 60px;
     border-radius: 10px;
 }
 
 
-.container_pesquisa .container_desc-pesquisa  h3{
+.container_pesquisa .container_desc-pesquisa h3 {
 
     border-radius: 10px;
     font-weight: 600;
@@ -159,7 +159,7 @@ div.search-bar input#input_search {
     font-size: 1em;
 }
 
-.container_pesquisa .container_desc-pesquisa p{
+.container_pesquisa .container_desc-pesquisa p {
     margin: 2px 0;
     font-size: 14px;
     opacity: 0.7;
@@ -194,26 +194,27 @@ div.search-bar input#input_search {
 
 div.user {
     display: flex;
-    
+
     justify-content: end;
     margin-right: 4em;
     gap: 3em;
 }
+
 div.user .btn_user {
-    
+
     padding: 8px;
     background: none;
     border: none;
-    cursor:pointer;
+    cursor: pointer;
 
     color: var(--green-light);
-    
+
 }
 
 .btn_user .icon_user {
     font-size: 1.5em;
     transition: transform .3s ease, color .3s ease;
-                
+
 }
 
 .btn_user:hover .icon_user {
@@ -222,7 +223,59 @@ div.user .btn_user {
 }
 
 .link-style {
-  text-decoration: none;
-  color: inherit;
-  
+    text-decoration: none;
+    color: inherit;
+
+}
+
+
+@media (max-width: 940px) {
+    .container-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row: auto auto;
+
+        gap: 20px;
+
+    }
+
+    .logo {
+        margin-left: 0;
+        grid-column: 1;
+        grid-row: 1;
+        
+        
+    }
+
+    .container-header h1, .logo .icon_logo {
+        font-size: 1.8em;
+    }
+
+    
+    div.user {
+        margin-right: 0;
+        grid-column: 2;
+        grid-row: 1;
+        justify-content: flex-end;
+        
+
+    }
+
+    div.user .btn_user {
+        font-size: 0.8em;
+    }
+
+    div.search-bar {
+        grid-column: 1 / 3;
+        justify-self: stretch;
+        grid-row: 2;
+        width: 100%;
+        max-width: none;
+        
+
+
+    }
+    #container-search {
+        width: 100%;
+    }
 }

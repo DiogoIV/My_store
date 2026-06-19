@@ -3,17 +3,17 @@
 * {
     border: none;
 }
-.container-principal {
+
+.container-principal-cart {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    padding: 20px;
+    flex: 1;
     gap: 20px;
-   
+    padding: 20px;
 
-    min-height: calc(100vh - 100px);
-    height: auto;
+    
+    
     background-color: #ffffff;
 }
 
@@ -22,9 +22,13 @@
 
 .container-carrinho {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
     gap: 30px;
-
+    
+    
+    margin: 4rem 0px;
     width: 100%;
     max-width: 1000px;
     
@@ -39,13 +43,16 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    flex: 2 1 350px;
-    
+    width: 100%;
+    flex: 2 1 300px;
+    min-width: 300px;
     
 }
 
 .container-carrinho .titulo-itens {
-    font-weight: 500;
+    
+    font-weight: 400;
+    font-size: 1.3em;
 }
 
 .container-itens .intens-carrinho {
@@ -55,7 +62,7 @@
 
     
     max-width: 100%;
-    overflow: hidden;
+    
     padding: 16px;
     background-color: #e9ecef ;
     border-radius: 15px;
@@ -85,39 +92,50 @@
 .desc-item div.item-titulo {
     display: flex;
     gap: 20px
+    
       
 }
 
 div.item-titulo h3 {
+    text-align: center;
     font-weight: 400;
+    font-size: 1.3em;
     
 }
 /*resumo-carrinho*/
 
 .resumo-carrinho {
+    position: sticky;
+    top: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
     
-    position: sticky;
-    top: 20px;
+    
     overflow-wrap: break-word;
-    flex: 1;
-    min-width: 160px;
+    flex: 1 1 220px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .resumo-carrinho h2 {
 
+    
     font-weight: 400;
+    font-size: 1.3em;
 
     border-bottom: 2px solid var(--green-primary);
     
 }
 
-.resumo-carrinho .valores {
+.resumo-carrinho .valores p {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    justify-content: space-between;
+    
+    margin: 10px 0;
+    gap: 10px;
+    font-weight: 200;
+    
 }
 
 .valores span.valores-calculados {
@@ -130,17 +148,17 @@ div.item-titulo h3 {
     padding: 10px;
     cursor: pointer;
 
-    
+    color: #fff;
     background-color: var(--green-primary);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-radius: 10px;
     width: 100%;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1em;
     transition: 3.s ease;
 
-    font-family: var(--Poppins);
+    font-family: inherit;
 }
 
 .btn-acao > button:hover {
@@ -154,6 +172,8 @@ div.item-titulo h3 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    
+    
 }
 
 .carrinho-vazio .desc-resumo {
@@ -169,17 +189,21 @@ div.item-titulo h3 {
     padding: 10px;
     cursor: pointer;
 
-    
+    color: #fff;
     background-color: var(--green-primary);
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border-radius: 10px;
     width: 100%;
     letter-spacing: 1px;
+
+    font-weight: 500;
     font-weight: 600;
     font-size: 15px;
+    font-family: inherit;
+    
     transition: 3.s ease;
 
-    font-family: var(--Poppins);
+   
 }
 
 .btn-vazio button:hover {
@@ -243,9 +267,33 @@ div.item-titulo h3 {
 
 /*media*/
 
-@media (max-width: 600px) {
+@media (max-width: 580px) {
     .container-carrinho {
         
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .container-carrinho .titulo-itens {
+        text-align: center;
+    }
+    .container-itens {
+        flex: none;
+        width: 100%;
+        
+        min-width: 0;
+    }
+    
+   
+    .resumo-carrinho {
+        position: static;
+        flex: none;
+        min-width: 0;
+
+        max-width: 100%;
     }
 }
+
+
 
