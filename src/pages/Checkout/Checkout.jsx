@@ -62,7 +62,7 @@ function Checkout() {
                         <p>Total: <span>R$ {(40).toFixed(2)}</span></p>
                     </div>
 
-                    <Link tp="#" className="link-confirmar">
+                    <Link to="sucesso" className="link-confirmar">
                         <button>Confirmar Pedido</button>
                     </Link>
                         

@@ -6,7 +6,8 @@ export {
   FaLeaf,
   FaRegHeart,
   FaPlus,
-  FaMinus
+  FaMinus,
+  FaCheck 
 } from "react-icons/fa";
 /* categorias, setas*/
 
@@ -35,7 +36,13 @@ export {
 } from "react-icons/ri";
 
 export {
-  FaRegTrashCan
+  FaRegTrashCan,
+  
+  
 } from "react-icons/fa6"
 
+export {
+   FiPackage, FiTruck, FiCalendar, FiCreditCard, FiMapPin
+} from "react-icons/fi"
 
+export { GiCottonFlower } from "react-icons/gi";
