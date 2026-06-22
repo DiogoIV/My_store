@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Favoritos.css'
 import { produtos } from '../../data'
+import { FaRegHeart } from 'react-icons/fa'
 
 function Favoritos () {
     
@@ -8,14 +9,15 @@ function Favoritos () {
 
     const cartfavorito = favorito.map(el => {
         return (
-            <div className='card-favoritos' >
+            <div className='card-favoritos' key={el.id} >
                 <div className='primary-favoritos'>
 
                     <img src={el.imagem} alt={el.alt} />
                     
-                    <div>
-                        <h2>{el.nome}</h2>
-                        <span>R${el.preco}</span>
+                    <div className='primary-valores'>
+                        <h3>{el.nome}</h3>
+                        <p>{el.descricao}</p>
+                        <span>{el.preco}</span>
                     </div>
                     
                 </div>
@@ -35,12 +37,13 @@ function Favoritos () {
     return (
         <main className='container-principal-favorito'>
 
-            <section>
-                <h1>Favoritos</h1>
-                <p>Produtos que vocë salvou.</p>
+            <section className='desc-favoritos'>
+                <span className='icon-favoritos'><FaRegHeart/></span>
+                <h2>Favoritos</h2>
+
             </section>
 
-            <section>
+            <section className='section-favoritos'>
                 {cartfavorito}
             </section>
             

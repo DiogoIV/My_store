@@ -1,0 +1,103 @@
+/*main*/
+
+.container-principal-favorito {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 20px;
+    flex: 1;
+}
+
+/*desc-favoritos*/
+
+.desc-favoritos {
+    display: flex;
+    gap: 5px;
+    padding: 15px;
+    
+}
+
+
+.desc-favoritos h2 {
+    font-weight: 300;
+    
+    font-size: 1.8em;
+}
+
+.desc-favoritos .icon-favoritos {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    
+    color: var(--green-light);
+    padding: 8px;
+    border-radius: 50%;
+
+}
+
+
+/*cards favoritos*/
+
+.section-favoritos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+
+.card-favoritos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    background: #ffffff00;
+    
+    min-width: 350px;
+    
+    gap: 20px;
+}
+
+.primary-favoritos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   
+}
+
+.primary-favoritos img {
+    object-fit: cover;
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.primary-valores h3{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/*secuday-cards*/
+
+
+.secudary-favoritos {
+    display: flex;
+    
+    gap: 20px;
+   
+}
+
+.secudary-favoritos button {
+    cursor: pointer;
+    font-family: inherit;
+    padding: 10px;
+
+
+    background-color: var(--green-primary);
+    color: #ddd;  
+    border-radius: 10px;
+    border: none;
+}
+
