@@ -43,9 +43,10 @@
     padding: 10px;
 }
 
-.campo-info h2 {
+.campo-info h2, .container-resumo h2 {
     font-weight: 500;
     font-size: 1.3em;
+    margin-bottom: 10px;
 }
 
 .campo-info .cart-info {
@@ -60,5 +61,54 @@
 
     
     width: 100%;
-    max-width: 100%;
+    
 }
+
+/* campo resumo */
+
+.campo-resumo{
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    border: 1px solid #ddd;
+   
+    border-radius: 10px;
+    padding: 10px;
+
+    
+    width: 100%;
+    
+    
+}
+
+
+.valores-resumo {
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.campo-links  {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0px;
+    
+    
+}
+
+.btn-pedidos{
+    text-decoration: none;
+    color: var(--green-primary);
+    font-size: 900;
+    border-bottom: 1px solid var(--green-light);
+
+    transition: .3s ease;
+}
+
+.btn-pedidos:hover {
+    
+    transform: translateY(-2px);
+}
+
+

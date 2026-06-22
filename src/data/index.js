@@ -43,6 +43,7 @@ const cactos = [{
     descricao: 'Resistente e fácil de cuidar',
     imagem: cactos_mandacaru,
     categoria: "Cactos",
+   
     preco: 'R$ 29,90'
 
 },
@@ -53,6 +54,7 @@ const cactos = [{
     descricao: 'Possui crescimento lento e pode viver por décadas',
     imagem: cacto_bola,
     categoria: "Cactos",
+    
     preco: 'R$ 20,00'
 },
 
@@ -62,6 +64,7 @@ const cactos = [{
     descricao: 'Crescem bem em sol pleno e solos pobres/secos',
     imagem: echinopsis,
     categoria: "Cactos",
+    
     preco: 'R$ 30,99'
 },
 

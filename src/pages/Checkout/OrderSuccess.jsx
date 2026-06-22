@@ -37,24 +37,24 @@ function OrderSucess() {
 
             </section>
 
-            <section className='campo-resumo'>
+            <section className='container-resumo'>
 
                 <h2>Resumo do pedido</h2>
 
-                <p><span><GiCottonFlower />monstera Deliciosa</span> <span>R$ 89,90</span></p>
-
-                <p>Frete <span>R$12,00</span></p>
-
-                <p>Total <span>R$141,80</span></p>
+                <div className='campo-resumo'>
+                    <p><span><GiCottonFlower />Monstera deliciosa:</span> <span className='valores-resumo'>R$ 89,90</span></p>
+                    <p>Frete: <span className='valores-resumo'>R$12,00</span></p>
+                    <p>Total: <span className='valores-resumo'>R$141,80</span></p>
+                </div>
             </section>
 
             <section className='campo-links'>
 
-                <Link to="/orders" className='btn-primary'>
+                <Link to="/orders" className='btn-primary btn-pedidos'>
                     Ver meus pedidos
                 </Link>
 
-                <Link to="/" className='btn-secondary'>
+                <Link to="/" className='btn-secondary btn-pedidos'>
                     Continuar comprando
                 </Link>
             </section>
