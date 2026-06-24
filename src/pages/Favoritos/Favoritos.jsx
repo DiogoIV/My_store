@@ -6,6 +6,13 @@ import { FaRegHeart } from 'react-icons/fa'
 function Favoritos () {
     
     const [favorito, setFavorito] = useState(produtos)
+    
+    function removercart (ID) {
+        const itensRemovidos = favorito.filter(item => item.id !== ID);
+
+        return setFavorito(itensRemovidos)
+    }
+  
 
     const cartfavorito = favorito.map(el => {
         return (
@@ -26,7 +33,7 @@ function Favoritos () {
 
                     <button>Adicionar ao carrinho</button>
 
-                    <button>
+                    <button onClick={()=> removercart(el.id)}>
                         Remover dos favoritos
                     </button>
                 </div>
