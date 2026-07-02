@@ -43,8 +43,8 @@ const cactos = [{
     descricao: 'Resistente e fácil de cuidar',
     imagem: cactos_mandacaru,
     categoria: "Cactos",
-   
-    preco: 'R$ 29,90'
+    quantidade: 1,
+    preco: 29.90
 
 },
 
@@ -54,8 +54,8 @@ const cactos = [{
     descricao: 'Possui crescimento lento e pode viver por décadas',
     imagem: cacto_bola,
     categoria: "Cactos",
-    
-    preco: 'R$ 20,00'
+    quantidade: 1,
+    preco: 20.00
 },
 
 {
@@ -64,8 +64,8 @@ const cactos = [{
     descricao: 'Crescem bem em sol pleno e solos pobres/secos',
     imagem: echinopsis,
     categoria: "Cactos",
-    
-    preco: 'R$ 30,99'
+    quantidade: 1,
+    preco: 30.00
 },
 
 {
@@ -74,7 +74,8 @@ const cactos = [{
     descricao: 'prospera em ambientes sombreados e úmidos',
     imagem: schlumbergera,
     categoria: "Cactos",
-    preco: 'R$ 29,99'
+    quantidade: 1,
+    preco: 29.90
 },
 ]
 
@@ -84,7 +85,8 @@ const flores = [
         nome: "Alecrim",
         descricao: "Planta aromática resistente, ótima para temperos e ambientes",
         imagem: alecrim,
-        preco: "R$ 19,90",
+        preco: 19.90,
+        quantidade: 1,
         categoria: "Flores"
     },
     {
@@ -92,7 +94,8 @@ const flores = [
         nome: "Jasmim",
         descricao: "Flor perfumada que traz sensação de calma e bem-estar",
         imagem: jasmim,
-        preco: "R$ 24,90",
+        preco: 24.90,
+        quantidade: 1,
         categoria: "Flores"
     },
     {
@@ -100,7 +103,8 @@ const flores = [
         nome: "Lavanda",
         descricao: "Muito usada para relaxamento e decoração de ambientes",
         imagem: lavandas,
-        preco: "R$ 22,90",
+        preco: 22.90,
+        quantidade: 1,
         categoria: "Flores"
     },
     {
@@ -108,7 +112,8 @@ const flores = [
         nome: "Papoula",
         descricao: "Flor delicada e vibrante, símbolo de beleza e leveza",
         imagem: papoulas,
-        preco: "R$ 21,90",
+        preco: 21.90,
+        quantidade: 1,
         categoria: "Flores"
     }
 ];
@@ -119,7 +124,8 @@ const plantasVerdes = [
         nome: "Coníferas",
         descricao: "Plantas resistentes que trazem um visual natural e elegante",
         imagem: coniferas,
-        preco: "R$ 34,90",
+        preco: 34.90,
+        quantidade: 1,
         categoria: "Plantas verdes"
     },
     {
@@ -127,7 +133,8 @@ const plantasVerdes = [
         nome: "Hepáticas",
         descricao: "Plantas delicadas que gostam de ambientes úmidos e sombreados",
         imagem: hepaticas,
-        preco: "R$ 28,90",
+        preco: 89.90,
+        quantidade: 1,
         categoria: "Plantas verdes"
     },
     {
@@ -135,7 +142,8 @@ const plantasVerdes = [
         nome: "Licopódios",
         descricao: "Plantas antigas com visual diferenciado e ornamental",
         imagem: licopodios,
-        preco: "R$ 31,90",
+        preco: 31.90,
+        quantidade: 1,
         categoria: "Plantas verdes"
     },
     {
@@ -143,7 +151,8 @@ const plantasVerdes = [
         nome: "Samambaias",
         descricao: "Clássicas plantas de interior, ideais para ambientes sombreados",
         imagem: samambaias,
-        preco: "R$ 26,90",
+        preco: 26.90,
+        quantidade: 1,
         categoria: "Plantas verdes"
     }
 ];
@@ -154,7 +163,8 @@ const suculentas = [
         nome: "Colar de Pérolas",
         descricao: "Planta pendente com folhas que lembram pequenas pérolas",
         imagem: colar_de_perolas,
-        preco: "R$ 29,90",
+        preco: 29.90,
+        quantidade: 1,
         categoria: "Suculentas"
     },
     {
@@ -162,7 +172,8 @@ const suculentas = [
         nome: "Planta Jade",
         descricao: "Planta suculenta resistente associada à sorte e prosperidade",
         imagem: planta_jade,
-        preco: "R$ 32,90",
+        preco: 32.90,
+        quantidade: 1,
         categoria: "Suculentas"
     },
     {
@@ -170,7 +181,8 @@ const suculentas = [
         nome: "Rabo de Burro",
         descricao: "Suculenta pendente de fácil cultivo e visual decorativo",
         imagem: rabo_de_burro,
-        preco: "R$ 27,90",
+        preco: 27.90,
+        quantidade: 1,
         categoria: "Suculentas"
     },
     {
@@ -178,7 +190,9 @@ const suculentas = [
         nome: "Suculenta Zebra",
         descricao: "Suculenta com listras marcantes e aparência exótica",
         imagem: suculenta_zebra,
-        preco: "R$ 25,90",
+        preco: 25.90,
+        quantidade: 1,
+
         categoria: "Suculentas"
     }
 ];

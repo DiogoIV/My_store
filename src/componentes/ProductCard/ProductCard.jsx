@@ -16,7 +16,8 @@ function ProductCard({produto}) {
                     <p>{produto.descricao}</p>
                     <span className="price">{produto.preco}</span>
 
-                    <button className='btn_buy' onClick={()=> {adicionarProduto(produto)}}>Comprar</button>
+                    <button className='btn_buy' onClick={()=> {  
+                       adicionarProduto(produto)}}>Comprar</button>
             </div>
 
         </div>

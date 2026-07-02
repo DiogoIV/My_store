@@ -1,51 +1,25 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { alecrim, jasmim, lavandas, papoulas } from '../../assets/imagens/produtos/flores'
 import { FaPlus, FaMinus, FaRegTrashCan } from '../../assets/icons'
 
 import { IoCartOutline } from "react-icons/io5";
 import './Cart.css'
+import { CartContext } from "../../Context/CartContext/CartContext";
+
+
 
 
 
 
 function Cart() {
+    const { cart, aumentarQuantidade, diminuirQuantidade, removerProduto, resultadoResumo } = useContext(CartContext)
+    console.log(resultadoResumo)
+    const subtotal = resultadoResumo
+    
+    const frete = subtotal >= 200 ? 0: 15
+    const total = frete + subtotal
 
-
-    const [produtos, setProdutos] = useState([
-        {
-            id: 1,
-            nome: "Alecrim",
-            imagem: alecrim,
-            preco: 19.90,
-            quantidade: 1,
-            frete: 15.50
-
-
-        },
-
-        {
-            id: 2,
-            nome: "Jasmim",
-            imagem: jasmim,
-            preco: 24.90,
-            quantidade: 1,
-            frete: 20.50
-
-        },
-
-        {
-            id: 3,
-            nome: "Lavanda",
-            imagem: lavandas,
-            preco: 22.90,
-            quantidade: 1,
-            frete: 30.40
-
-        }
-    ])
-
-    const produto = produtos.map(el => {
+    const produto = cart.map(el => {
         return (
             <div className="intens-carrinho" key={el.id}>
 
@@ -58,14 +32,14 @@ function Cart() {
                     <div className="item-titulo">
                         <h3>{el.nome}</h3>
 
-                        <button className="btn-item" onClick={() => removerIntems(el.id)} >
+                        <button className="btn-item" onClick={() => removerProduto(el.id)} >
                             <FaRegTrashCan />
                         </button>
 
                     </div>
 
-                    <span>R$ {el.preco.toFixed(2)}</span>
-                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {el.frete.toFixed(2)}
+                    <span>R$ {el.preco}</span>
+                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {frete.toFixed(2)}
                     </span>
                     </p>
 
@@ -92,79 +66,9 @@ function Cart() {
     })
 
 
-
-
-
-    /*quantidade*/
-
-    function aumentarQuantidade(ID) {
-        const aumentarProdutos = produtos.map(produto => {
-
-            if (produto.id == ID) {
-                console.log(produto)
-                return {
-                    ...produto,
-                    quantidade: produto.quantidade + 1
-                }
-            }
-
-            return produto
-        })
-
-        return setProdutos(aumentarProdutos)
-    }
-
-    function diminuirQuantidade(ID) {
-        const diminuirProduto = produtos.map(produto => {
-            if (produto.id === ID) {
-
-                return {
-                    ...produto,
-                    quantidade: Math.max(produto.quantidade - 1, 1)
-
-
-                }
-            }
-
-            return produto
-        })
-
-        return setProdutos(diminuirProduto)
-    }
-
-    /* remover intems */
-
-    function removerIntems(ID) {
-
-        const intemRemovido = produtos.filter(el => el.id !== ID)
-
-        return setProdutos(intemRemovido)
-    }
-
     /*Resumo*/
 
-    function resumo() {
-        let totais = {
-            preco: 0,
-            frete: 0,
-            total: 0
-        }
 
-        for (let i = 0; i !== produtos.length; i++) {
-            totais.preco += produtos[i].preco * produtos[i].quantidade
-
-            totais.frete += produtos[i].frete * produtos[i].quantidade
-
-
-        }
-
-        totais.total = totais.preco + totais.frete
-        console.log(totais.total)
-
-        return totais
-    }
-
-    const resultadoResumo = resumo()
 
     return (
         <>
@@ -187,13 +91,13 @@ function Cart() {
                         <h2>Resumo</h2>
 
 
-                        {produtos.length !== 0 ? (
+                        {cart.length !== 0 ? (
                             <>
                                 <div className="valores">
-                                    <p>Subtotal: <span className="valores-calculados"> R$ {resultadoResumo.preco.toFixed(2)}</span></p>
+                                    <p>Subtotal: <span className="valores-calculados"> R$ {subtotal.toFixed(2)}</span></p>
 
-                                    <p>Frete:  <span className="valores-calculados"> R$ {resultadoResumo.frete.toFixed(2)}</span></p>
-                                    <p>Total: <span className="valores-calculados"> R$ {resultadoResumo.total.toFixed(2)}</span></p>
+                                    <p>Frete:  <span className="valores-calculados"> R$ {frete.toFixed(2)}</span></p>
+                                    <p>Total: <span className="valores-calculados"> R$ {total.toFixed(2)}</span></p>
                                 </div>
 
 
