@@ -10,10 +10,12 @@ export function CartProvider({ children }) {
         const existeNoCarrinho = cart.find(item => item.id === produto.id);
         
         if(existeNoCarrinho) {
-            return aumentarQuantidade(produto)
+            return aumentarQuantidade(produto.id)
         }
+        
+        setCart([...cart, {...produto, quantidade: 1}])
 
-        setCart([...cart, { ...produto, quantidade: 1 }]);
+        
 
     }
 
@@ -25,7 +27,7 @@ export function CartProvider({ children }) {
     function aumentarQuantidade(ID) {
         const aumentarProdutos = cart.map(item => {
 
-            if (item.id == ID) {
+            if (item.id === ID) {
 
                 return {
                     ...item,

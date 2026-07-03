@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Header.css'
 import {
     FaRegUser,
@@ -47,11 +47,13 @@ function Header({modo, className }) {
 
     return (
         <header className={modo === "login" ? "container-header-login" : "container-header"}>
+            {/*Logo Principal*/}
             <Link to="/" className="logo">
                 <FaLeaf className="icon_logo" />
                 <h1> Planta Shop</h1>
             </Link>
 
+            {/*Barra de pesquisa*/}
             {modo !== "login" && (
                 <>
                     <div className="search-bar">
@@ -81,30 +83,31 @@ function Header({modo, className }) {
                         </button>
 
                     </div>
-                    <div className="user">
-                        <button className="btn_user">
-                            <Link to="/login" className="link-style">
-                                <FaRegUser className="icon_user" />
-                            </Link>
-                        </button>
 
-                        <Link to="/favoritos">
-                            <button className="btn_user">
-                                <FaRegHeart className="icon_user" />
-                            </button>
-                        </Link>
+                    {/*Navegação*/}
 
-                        <Link to="/carrinho" className="link-style">
+                    <nav className="user">
 
-                            <button className="btn_user">
+                        <NavLink to='/login' className="link-user">
+                            <FaRegUser className="icon-user" />
+                        </NavLink>
 
-                                <FaCartArrowDown className="icon_user" />
+                        <NavLink to='/favoritos' className="link-user">
+                            <FaRegHeart className="icon-user" />
+                        </NavLink>
+
+                        <NavLink to='/carrinho' className="link-user cart">
+
+                            <FaCartArrowDown className="icon-user" />
+
+                            <span className="badge">
+                                3
+                            </span>
+                        </NavLink>
 
 
-                            </button>
-                        </Link>
-
-                    </div>
+                        
+                   </nav>
                 </>
             )}
 

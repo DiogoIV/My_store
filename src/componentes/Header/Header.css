@@ -12,6 +12,8 @@
 
 
 .container-header {
+    position: sticky;
+    top: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,6 +24,7 @@
     min-height: 100px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
     background-color: var(--green-primary);
+    z-index: 999;
 }
 
 .logo {
@@ -192,7 +195,7 @@ div.search-bar input#input_search {
 
 /* usuario*/
 
-div.user {
+nav.user {
     display: flex;
 
     justify-content: end;
@@ -200,33 +203,45 @@ div.user {
     gap: 3em;
 }
 
-div.user .btn_user {
+nav.user .link-user {
 
     padding: 8px;
     background: none;
     border: none;
     cursor: pointer;
-
-    color: var(--green-light);
-
+    transition: all .3s ease;
 }
 
-.btn_user .icon_user {
-    font-size: 1.5em;
-    transition: transform .3s ease, color .3s ease;
-
-}
-
-.btn_user:hover .icon_user {
+.link-user:hover{
     transform: scale(1.15);
     color: #a3b18a94;
+    
 }
 
-.link-style {
-    text-decoration: none;
-    color: inherit;
-
+.link-user .icon-user {
+    color: var(--green-light);
+    font-size: 1.5em;
+    
+    
 }
+
+.cart{
+     position: relative;
+}
+
+span.badge{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+
+    background-color: red;
+    color: white;
+    padding: 2px 7px;
+    border-radius: 50%;
+}
+
+
+
 
 
 @media (max-width: 940px) {
