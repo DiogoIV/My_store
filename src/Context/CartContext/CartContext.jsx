@@ -7,8 +7,14 @@ export function CartProvider({ children }) {
     
 
     function adicionarProduto(produto) {
+        const existeNoCarrinho = cart.find(item => item.id === produto.id);
+        
+        if(existeNoCarrinho) {
+            return aumentarQuantidade(produto)
+        }
 
-        setCart([...cart, produto])
+        setCart([...cart, { ...produto, quantidade: 1 }]);
+
     }
 
     function removerProduto(id) {
