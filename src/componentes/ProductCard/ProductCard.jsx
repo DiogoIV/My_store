@@ -14,7 +14,7 @@ function ProductCard({produto}) {
                 <div className='cards_desc'>
                     <h3>{produto.nome}</h3>
                     <p>{produto.descricao}</p>
-                    <span className="price">{produto.preco}</span>
+                    <span className="price"> R$ {produto.preco.toFixed(2)}</span>
 
                     <button className='btn_buy' onClick={()=> {  
                        adicionarProduto(produto)}}>Comprar</button>

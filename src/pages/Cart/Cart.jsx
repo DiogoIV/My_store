@@ -14,10 +14,7 @@ import { CartContext } from "../../Context/CartContext/CartContext";
 function Cart() {
     const { cart, aumentarQuantidade, diminuirQuantidade, removerProduto, resultadoResumo } = useContext(CartContext)
     console.log(resultadoResumo)
-    const subtotal = resultadoResumo
     
-    const frete = subtotal >= 200 ? 0: 15
-    const total = frete + subtotal
 
     const produto = cart.map(el => {
         return (
@@ -38,8 +35,8 @@ function Cart() {
 
                     </div>
 
-                    <span>R$ {el.preco}</span>
-                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {frete.toFixed(2)}
+                    <span>R$ {el.preco.toFixed(2)}</span>
+                    <p className="container-frete">Frete: R$  <span className="valor-frete"> {resultadoResumo.frete.toFixed(2)}
                     </span>
                     </p>
 
@@ -94,10 +91,10 @@ function Cart() {
                         {cart.length !== 0 ? (
                             <>
                                 <div className="valores">
-                                    <p>Subtotal: <span className="valores-calculados"> R$ {subtotal.toFixed(2)}</span></p>
+                                    <p>Subtotal: <span className="valores-calculados"> R$ {resultadoResumo.subtotal.toFixed(2)}</span></p>
 
-                                    <p>Frete:  <span className="valores-calculados"> R$ {frete.toFixed(2)}</span></p>
-                                    <p>Total: <span className="valores-calculados"> R$ {total.toFixed(2)}</span></p>
+                                    <p>Frete:  <span className="valores-calculados"> R$ {resultadoResumo.frete.toFixed(2)}</span></p>
+                                    <p>Total: <span className="valores-calculados"> R$ {resultadoResumo.total.toFixed(2)}</span></p>
                                 </div>
 
 

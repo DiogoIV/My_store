@@ -4,18 +4,26 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
     const [cart, setCart] = useState([]);
-    
+
+    function contadorCart() {
+        const total = cart.reduce((total, item) => {
+            return total + item.quantidade;
+        }, 0);
+
+        return total
+    }
+
 
     function adicionarProduto(produto) {
         const existeNoCarrinho = cart.find(item => item.id === produto.id);
-        
-        if(existeNoCarrinho) {
+
+        if (existeNoCarrinho) {
             return aumentarQuantidade(produto.id)
         }
-        
-        setCart([...cart, {...produto, quantidade: 1}])
 
-        
+        setCart([...cart, { ...produto, quantidade: 1 }])
+
+
 
     }
 
@@ -61,16 +69,29 @@ export function CartProvider({ children }) {
 
 
     function resumoPedido() {
-        let subtotal = 0;
+        
 
-        for (let i = 0; i < cart.length; i++) {
-            subtotal += cart[i].preco * cart[i].quantidade;
+        const subtotal = cart.reduce((total, item)=> {
+            return total + (item.preco * item.quantidade)
+        }, 0)
+
+        const frete = subtotal >= 200 ? 0 : 15;
+        const total = subtotal + frete;
+        
+
+        const resumo = {
+            subtotal,
+            frete,
+            total
         }
+        return resumo
 
-        return subtotal;
     }
 
     const resultadoResumo = resumoPedido()
+    const quantidadeCart = contadorCart()
+
+    console.log(resultadoResumo)
 
     return (
         <CartContext.Provider value={{
@@ -80,6 +101,8 @@ export function CartProvider({ children }) {
             removerProduto,
             aumentarQuantidade,
             diminuirQuantidade,
+            contadorCart,
+            quantidadeCart,
             resultadoResumo
         }}
         >

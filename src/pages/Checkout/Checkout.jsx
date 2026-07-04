@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
 import './Checkout.css'
 
+import { useContext } from "react"
+import { CartContext } from "../../Context/CartContext/CartContext"
+
 function Checkout() {
+
+    const {resultadoResumo, quantidadeCart} = useContext(CartContext)
 
     return (
         <>
@@ -53,13 +58,13 @@ function Checkout() {
                     <h2>Resumo do pedido</h2>
 
                     <div className="produtos-quantidade">
-                        <span>3 produtos</span>
+                        <span>{quantidadeCart} produtos</span>
                     </div>
 
                     <div className="resumo-valores">
-                        <p>Subtotal: <span>R$ {(40).toFixed(2)}</span></p>
-                        <p>Frete: <span>R$ {(40).toFixed(2)}</span></p>
-                        <p>Total: <span>R$ {(40).toFixed(2)}</span></p>
+                        <p>Subtotal: <span>R$ {resultadoResumo.subtotal.toFixed(2)}</span></p>
+                        <p>Frete: <span>R$ {resultadoResumo.frete.toFixed(2)}</span></p>
+                        <p>Total: <span>R$ {resultadoResumo.total.toFixed(2)}</span></p>
                     </div>
 
                     <Link to="sucesso" className="link-confirmar">

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext/CartContext";
 import {
     FaRegUser,
     FaCartArrowDown,
@@ -12,8 +14,8 @@ import {
 import { produtos} from "../../data";
 
 function Header({modo, className }) {
-
-
+    
+    const {contadorCart} = useContext(CartContext)
 
     /*pesquisa*/
     const [pesquisa, setpesquisa] = useState("")
@@ -101,7 +103,7 @@ function Header({modo, className }) {
                             <FaCartArrowDown className="icon-user" />
 
                             <span className="badge">
-                                3
+                                {contadorCart()}
                             </span>
                         </NavLink>
 
