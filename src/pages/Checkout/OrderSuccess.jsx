@@ -1,10 +1,30 @@
 import { Link } from 'react-router-dom'
 import './OrderSucess.css'
 
+import { useContext } from 'react';
+import { CartContext } from '../../Context/CartContext/CartContext';
 
 import { FiPackage, FiTruck, FiCalendar, FiCreditCard, FiMapPin, FaCheck, GiCottonFlower } from "../../assets/icons";
 
 function OrderSucess() {
+    const { resultadoResumo, quantidadeCart, cart, setCart } = useContext(CartContext)
+
+    const valorescart = cart.map(item => {
+        return (
+            <div className='cart-resumo-order'>
+
+                <div>
+                    <img src={item.imagem} alt={item.alt} className='img-order' />
+                </div>
+
+
+                <h3>{item.nome}</h3>
+                <span className='quantidade-order'>({item.quantidade}x)</span>
+
+            </div>
+        )
+    })
+    console.log(cart)
     return (
 
         <main className='container-ordersucess'>
@@ -42,9 +62,16 @@ function OrderSucess() {
                 <h2>Resumo do pedido</h2>
 
                 <div className='campo-resumo'>
-                    <p><span><GiCottonFlower />Monstera deliciosa:</span> <span className='valores-resumo'>R$ 89,90</span></p>
-                    <p>Frete: <span className='valores-resumo'>R$12,00</span></p>
-                    <p>Total: <span className='valores-resumo'>R$141,80</span></p>
+
+                    {valorescart}
+
+                    <div className='resultado-resumo'>
+                        <p>Subtotal: <span className='valores-resumo'>R$ {resultadoResumo.subtotal.toFixed(2)}</span></p>
+
+                        <p>Frete: <span className='valores-resumo'>R$ {resultadoResumo.frete.toFixed(2)}</span></p>
+
+                        <p>Total: <span className='valores-resumo'>R${resultadoResumo.total.toFixed(2)}</span></p>
+                    </div>
                 </div>
             </section>
 
@@ -54,7 +81,7 @@ function OrderSucess() {
                     Ver meus pedidos
                 </Link>
 
-                <Link to="/" className='btn-secondary btn-pedidos'>
+                <Link to="/" className='btn-secondary btn-pedidos' onClick={ () => setCart([])}>
                     Continuar comprando
                 </Link>
             </section>

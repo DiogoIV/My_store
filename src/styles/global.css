@@ -21,6 +21,7 @@
 
 
  body {
+    
     overflow-x: hidden;
     font-family: var(--font-poppins);
     background-color: var(--background);
@@ -30,5 +31,7 @@
 
 
 #root {
-    height: 100dvb;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvb;
 }

@@ -4,15 +4,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     height: 100px;
     background-color: var(--green-primary);
 }
 
-.container-header-login  .logo {
-    
+.container-header-login .logo {
+
     margin: auto;
-    
+
 }
 
 /*Container_login*/
@@ -21,21 +21,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 100px);
-    
+    flex: 1;
+
     background-color: var(--background);
-   
-    
+
+
 }
 
 .container-login {
     display: flex;
-    
+
     align-items: center;
     justify-content: center;
-    
-    
-    
+
+
+
     background-color: var(--green-primary);
     min-width: 400px;
     max-width: 500px;
@@ -50,8 +50,8 @@
 .form-login {
     display: flex;
     flex-direction: column;
-    
-    
+
+
     width: 100%;
     gap: 15px;
 }
@@ -76,7 +76,7 @@
 }
 
 .campo label {
-    
+
     font-weight: 400;
 }
 
@@ -90,17 +90,18 @@
 }
 
 .campo input:focus {
-    box-shadow: 0 0 0 3px rgba(255,255,255,.3);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .3);
 }
+
 .campo input::placeholder {
-    
+
     font-size: 1.1em;
 }
 
 /*btn-login*/
 .container-btn {
-    
-    
+
+
     margin-top: 1rem;
 }
 
@@ -111,13 +112,14 @@
     border: none;
     background-color: #f1f5ec;
     border-radius: 10px;
-    
+
     color: #2d3a2e;
-    font-weight: 400;font-weight: 400;
+    font-weight: 400;
+    font-weight: 400;
     font-family: var(--font-poppins);
     font-size: 1rem;
-    
-    
+
+
     transition: 0.3s;
 }
 
@@ -128,7 +130,7 @@
 /*Registre-se*/
 .texto-cadastro {
     font-weight: 400;
-    
+
     text-align: center;
 }
 
@@ -141,16 +143,17 @@
     margin-left: 5px;
     text-decoration: none;
     color: var(--green-light);
-   
-    
+
+
 }
 
 
 
 .link-registrar:hover {
     text-decoration: underline;
-    
+
 }
+
 /*Aviso erro*/
 
 .mensagem-erro {
@@ -170,4 +173,13 @@
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
+}
+
+
+@media (max-width: 500px) {
+    .container-login {            
+        min-width: 315px;
+        
+        
+    }
 }

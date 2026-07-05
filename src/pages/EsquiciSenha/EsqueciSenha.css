@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 100px);
+    flex: 1;
     
     background-color: var(--background);
     background-size: cover;
@@ -128,4 +128,11 @@
     text-align: center;
     font-size: 1rem;
     font-weight: 500;
+}
+
+
+@media (max-width: 500px) {
+    .container-esqueci-senha {
+        min-width: 315px;
+    }
 }
