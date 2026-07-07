@@ -15,6 +15,7 @@ import EsqueciSenha from './pages/EsquiciSenha/EsqueciSenha.jsx'
 import Checkout from './pages/Checkout/Checkout.jsx'
 import CheckoutLayout from './pages/Checkout/CheckoutLayout.jsx'
 import OrderSuccess from './pages/Checkout/OrderSuccess.jsx'
+import MeusPedidos from './pages/MeusPedidos/MeusPedidos.jsx';
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "favoritos",
         element: <Favoritos/>
+      },
+      {
+        path:"meuspedidos",
+        element: <MeusPedidos/>
       }
     ]
   },
