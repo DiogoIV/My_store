@@ -1,0 +1,40 @@
+
+
+.principal-meuspedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1;
+    padding: 2rem 20px;
+
+
+}
+
+/*titulos pedidos*/
+
+
+
+.principal-meuspedidos  h1 {
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+/*cart pedidos*/
+
+.container-pedido {
+    display: flex;
+    flex-direction: column;
+    
+    
+    max-width: 900px;
+    gap: 20px;
+}
+.container-pedido .pedido {
+    border: 1px solid gray;
+    border-radius: 10px;
+    
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    
+}

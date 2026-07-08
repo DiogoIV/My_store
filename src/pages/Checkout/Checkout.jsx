@@ -3,10 +3,25 @@ import './Checkout.css'
 
 import { useContext } from "react"
 import { CartContext } from "../../Context/CartContext/CartContext"
+import { PedidoContext } from "../../Context/pedidoContext/PedidoContext"
 
 function Checkout() {
 
-    const {resultadoResumo, quantidadeCart} = useContext(CartContext)
+    const {resultadoResumo, quantidadeCart, cart} = useContext(CartContext)
+    const {adicionarpedido} = useContext(PedidoContext)
+
+     function confirmarPedido() {
+
+        const novoPedido = {
+            id: Date.now(),
+            data: new Date().toLocaleDateString(),
+            status: "Em preparação",
+            produtos: [...cart],
+            total: calcularTotal()
+        };
+
+        adicionarPedido(novoPedido);
+    }
 
     return (
         <>
@@ -68,7 +83,7 @@ function Checkout() {
                     </div>
 
                     <Link to="sucesso" className="link-confirmar">
-                        <button>Confirmar Pedido</button>
+                        <button onClick={()=> adicionarpedido(cart)}>Confirmar Pedido</button>
                     </Link>
                         
                     

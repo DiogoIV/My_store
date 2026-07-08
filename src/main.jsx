@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { CartProvider } from "./Context/CartContext/CartContext";
 import './styles/global.css'
+import { PedidoProvider } from './Context/pedidoContext/PedidoContext.jsx';
 
 import App from './App.jsx'
 import Cart from './pages/Cart/Cart.jsx'
@@ -86,7 +87,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <CartProvider>
-      <RouterProvider router={router} />
+      <PedidoProvider>
+        <RouterProvider router={router} />
+      </PedidoProvider>
     </CartProvider>
   </StrictMode>
 )
