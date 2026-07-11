@@ -1,8 +1,43 @@
 import './MeusPedidos.css'
 import { Link } from 'react-router-dom'
-
+import { useContext } from 'react'
+import { PedidoContext } from '../../Context/pedidoContext/PedidoContext'
 
 function MeusPedidos() {
+    const {pedidos} = useContext(PedidoContext)
+
+
+    const cartPedidos = pedidos.map(ped => {
+        return (
+            <div className="pedido" key={ped.id}>
+                    <header className="pedido-topo">
+                        <span>Pedido {ped.id}</span>
+                        <span className="status">{ped.status}</span>
+                    </header>
+                    <section className="pedido-corpo">
+                        <p>Data: {ped.data}</p>
+
+                        {ped.produtos.map(produto => (
+
+                            <div key={produto.id}>
+                                <img src={produto.imagem} alt={produto.alt} />
+                                <p>{produto.nome}</p>
+                                <span>
+                                    Quantidade: {produto.quantidade}
+                                </span>
+                            </div>
+                        ))}
+                        
+                    </section>
+                    <footer className="pedido-rodape">
+                        <span>Total: {ped.total}</span>
+                        <Link to="">
+                            Ver detalhes
+                        </Link>
+                    </footer>
+                </div>
+        )
+    })
     return (
         <main className="principal-meuspedidos">
 
@@ -10,26 +45,7 @@ function MeusPedidos() {
 
 
 
-            <section className='container-pedido'>
-                <div className="pedido">
-                    <header className="pedido-topo">
-                        <span>Pedido #1025</span>
-                        <span className="status entregue">Entregue</span>
-                    </header>
-                    <section className="pedido-corpo">
-                        <p>Data: 06/07/2026</p>
-                        <p>Notebook Dell</p>
-                    </section>
-                    <footer className="pedido-rodape">
-                        <span>Total: R$ 4.350,50</span>
-                        <Link to="">
-                            Ver detalhes
-                        </Link>
-                    </footer>
-                </div>
-
-                
-                
+            <section className='container-pedido'>                       {cartPedidos}         
             </section>
 
         </main>

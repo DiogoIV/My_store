@@ -7,20 +7,22 @@ import { PedidoContext } from "../../Context/pedidoContext/PedidoContext"
 
 function Checkout() {
 
-    const {resultadoResumo, quantidadeCart, cart} = useContext(CartContext)
-    const {adicionarpedido} = useContext(PedidoContext)
+    const { resultadoResumo, quantidadeCart, cart } = useContext(CartContext)
+    const { adicionarpedido } = useContext(PedidoContext)
 
-     function confirmarPedido() {
+    
+
+    function confirmarPedido() {
 
         const novoPedido = {
             id: Date.now(),
             data: new Date().toLocaleDateString(),
             status: "Em preparação",
             produtos: [...cart],
-            total: calcularTotal()
+            total: resultadoResumo
         };
 
-        adicionarPedido(novoPedido);
+        return adicionarPedido(novoPedido);
     }
 
     return (
@@ -83,10 +85,10 @@ function Checkout() {
                     </div>
 
                     <Link to="sucesso" className="link-confirmar">
-                        <button onClick={()=> adicionarpedido(cart)}>Confirmar Pedido</button>
+                        <button onClick={() => confirmarPedido}>Confirmar Pedido</button>
                     </Link>
-                        
-                    
+
+
 
                 </section>
             </main>

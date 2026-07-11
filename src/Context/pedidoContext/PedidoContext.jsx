@@ -13,7 +13,7 @@ export function PedidoProvider({ children }) {
             pedido
         ]);
     }
-
+    console.log(pedidos)
 
     function limparPedido() {
         setPedidos([]);
