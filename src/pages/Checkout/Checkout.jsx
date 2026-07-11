@@ -8,7 +8,7 @@ import { PedidoContext } from "../../Context/pedidoContext/PedidoContext"
 function Checkout() {
 
     const { resultadoResumo, quantidadeCart, cart } = useContext(CartContext)
-    const { adicionarpedido } = useContext(PedidoContext)
+    const { adicionarPedido } = useContext(PedidoContext)
 
     
 
@@ -22,7 +22,7 @@ function Checkout() {
             total: resultadoResumo
         };
 
-        return adicionarPedido(novoPedido);
+        adicionarPedido(novoPedido);
     }
 
     return (
@@ -85,7 +85,7 @@ function Checkout() {
                     </div>
 
                     <Link to="sucesso" className="link-confirmar">
-                        <button onClick={() => confirmarPedido}>Confirmar Pedido</button>
+                        <button onClick={confirmarPedido}>Confirmar Pedido</button>
                     </Link>
 
 

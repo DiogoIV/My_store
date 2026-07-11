@@ -30,11 +30,37 @@
     gap: 20px;
 }
 .container-pedido .pedido {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
     border: 1px solid gray;
     border-radius: 10px;
     
     width: 100%;
     max-width: 500px;
-    padding: 10px;
+    padding: 15px;
     
+}
+
+
+.pedido .pedido-topo {
+    display: flex;
+    justify-content: space-between;
+
+    
+}
+
+.pedido-topo .span-pedido{
+    font-weight: 500;
+}
+
+
+
+.img-produtos{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
 }
