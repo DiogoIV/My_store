@@ -24,7 +24,8 @@
 .container-pedido {
     display: flex;
     flex-direction: column;
-    
+    font-weight: 500;
+    width: 100%;
     
     max-width: 900px;
     gap: 20px;
@@ -44,23 +45,97 @@
     
 }
 
+/*header pedido*/
+
 
 .pedido .pedido-topo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
 
+.valor-pedido {
+    font-weight: 600;
+}
+.pedido-valores {
+    font-weight: 300;
     
 }
 
-.pedido-topo .span-pedido{
-    font-weight: 500;
+.pedido-status {
+    background: #e9f5ec;
+    color: #4A7C59;
+    padding: 5px 12px;
+    border-radius: 20px;
+
 }
-
-
 
 .img-produtos{
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+/*body pedido */
+
+.pedido-corpo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.pedido-corpo .pedido-produto {
+    display: flex;
+    gap: 20px;
+    
+}
+
+.produto-valores {
+    
+}
+
+.pedido-quantidade{
+    display: flex;
+    
+    gap: 5px;
+}
+
+.pedido-quantidade span{
+    font-weight: 500;
+}
+
+/*pedido footer */
+
+.pedido-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pedido-total {
+    font-size: 17px;
+    font-weight: 600;
+    
+}
+
+.btn-detalhes {
+    padding: 6px 16px;
+    border: 1px solid var(--green-primary);
+    border-radius: 8px;
+   
+    color: #4A7C59;
+    text-decoration: none;
+    background: transparent;
+
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.btn-detalhes:hover {
+    text-decoration: underline;
+    
 }

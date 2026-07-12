@@ -12,32 +12,42 @@ function MeusPedidos() {
             <div className="pedido" key={ped.id}>
 
                     <header className="pedido-topo">
-                        <span className='span-pedido'>Pedido: {ped.id}</span>
-                        <span className="status">{ped.status}</span>
+                        <p className='valor-pedido'>
+                            Pedido: <span className='pedido-valores'>#{ped.id}</span>
+                        </p>
+                        
+                        <span className="pedido-valores pedido-status">{ped.status}</span>
 
                     </header>
 
                     <section className="pedido-corpo">
 
-                        <p>Data: {ped.data}</p>
+                        <p>Data: <span className="pedido-valores">{ped.data}</span></p>
 
                         {ped.produtos.map(produto => (
 
-                            <div key={produto.id}>
+                            <div key={produto.id} className='pedido-produto'>
                                 <img src={produto.imagem} alt={produto.alt}  className='img-produtos'/>
-                                <p>{produto.nome}</p>
-                                <span>
-                                    Quantidade: {produto.quantidade}
-                                </span>
+
+                                <div className='produto-valores'>
+                                    <p className=''>{produto.nome}</p>
+                                    <p className='pedido-valores pedido-quantidade'>
+                                        Quantidade: 
+                                        <span >{produto.quantidade}</span>
+                                    </p>
+                                    
+                                </div>
                             </div>
                         ))}
                         
                     </section>
                     <footer className="pedido-rodape">
 
-                        <span>Total: {ped.total.total.toFixed(2)}</span>
+                        <p className='pedido-total'>
+                            Total: <span className='pedido-valores'>R${ped.total.total.toFixed(2)}</span>
+                        </p>
 
-                        <Link to="">
+                        <Link to="" className='btn-detalhes'>
                             Ver detalhes
                         </Link>
 
