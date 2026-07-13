@@ -98,6 +98,7 @@ function Main({ produtos, categorias }) {
         )
     })
     /* cards*/
+    
     const produtosFiltrados = categoriaSelecionada === "Todos" ? produtos : produtos.filter(el => el.categoria === categoriaSelecionada)
 
 

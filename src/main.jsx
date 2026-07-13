@@ -7,6 +7,7 @@ import { PedidoProvider } from './Context/pedidoContext/PedidoContext.jsx';
 import App from './App.jsx'
 import Cart from './pages/Cart/Cart.jsx'
 import Favoritos from './pages/Favoritos/Favoritos.jsx'
+import Produtos from './pages/Produtos/Produtos.jsx';
 import Home from './pages/Home/Home.jsx'
 
 import Login from './pages/Login/Login.jsx'
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:"meuspedidos",
         element: <MeusPedidos/>
+      },
+      {
+        path:"produtos/:id",
+        element: <Produtos/>
       }
     ]
   },

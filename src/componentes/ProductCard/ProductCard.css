@@ -10,6 +10,7 @@
     height: 100%;
     width: 100%;
     
+    gap: 5px;
     
     background: #fff;
     border-radius: 12px;
@@ -25,8 +26,34 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
+/*desc*/
+
+.btn-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+
+
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-cards:hover img {
+    transform: scale(1.02);
+}
+
+.cards_desc {
+    display: flex;
+    font-family: var(--font-inter);
+    gap: 7px;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+
 .img_cards {
     width: 100%;
+    
 }
 .img_cards img {
     width: 100%;
@@ -38,20 +65,24 @@
 
 
 
-.cards_desc {
-    display: flex;
-    font-family: var(--font-inter);
-    gap: 7px;
-    justify-content: center;
-    flex-flow: column nowrap;
-}
-
-.cards_desc h3 {
+h3 {
     color: var(--green-primary);
     text-align: center;
 }
 
-.cards_desc .btn_buy {
+
+
+/*acoes */
+
+.acoes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.btn_buy {
     color: white;
     font-weight: 700;
     background-color: var(--green-primary);
