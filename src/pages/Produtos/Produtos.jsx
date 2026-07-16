@@ -1,7 +1,7 @@
 import './Produtos.css'
 import { useParams } from 'react-router-dom'
 import { jasmim } from '../../assets/imagens/produtos/flores'
-
+import { FaStar } from 'react-icons/fa'
 
 function Produtos() {
     const { id } = useParams()
@@ -12,33 +12,47 @@ function Produtos() {
             <section className='produtos-card'>
 
                 <div className='descricao-imagem'>
-                        <img src={jasmim} alt="" />
+                    <img src={jasmim} alt="" />
                 </div>
 
                 <div className='card-desc'>
 
                     <div className='card-valores'>
-                        <div>
-                            <h1>Jasmim </h1>
-                            <p>⭐⭐⭐⭐⭐ (42 avaliações)</p>
+
+                        <h1>Jasmim </h1>
+
+                        <div className='avaliacoes'>
+                            <div className='estrelas'>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                                <FaStar/>
+                            </div>
+
+                            <span className='avaliacoes-quantidade'>4.8 (42 avaliações)</span>
                         </div>
 
-                        <p>Preço: <span>R$ 45,55</span></p>
 
-                        <p>Descrição: <span>jade</span></p>
 
-                        <div>
-                            <p>Categoria: <span>Plantas internas</span></p>
-                            <p>Rega: <span>2x por semana</span></p>
-                            <p>Altura: 40cm</p>
+
+
+
+
+                        <div className='card-valores-categoria'>
+                            <p className='preco'>R$ 45,55</p>
+
+                            <p className='categoria'>Categoria: <span className='categoria-valor'>Plantas internas</span></p>
+                            <p className='categoria'>Rega: <span className='categoria-valor'>2x por semana</span></p>
+                            <p className='categoria'>Altura: <span className='categoria-valor'>40cm</span></p>
                         </div>
                     </div>
 
 
-                    <button type='button'>
-                        
+                    <button type='button' className='btn-card-produtos'>
+
                         Adicionar ao carrinho
-                        
+
                     </button>
 
                 </div>
@@ -50,7 +64,7 @@ function Produtos() {
                 <h2>Descrição</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nostrum sequi voluptatibus laborum ut error nisi optio eius. Deserunt dolores aliquid culpa reprehenderit nisi officia, debitis sint optio ex praesentium.</p>
             </section>
-            
+
             <section className='produto-cuidados'>
 
                 <h2>Cuidados</h2>

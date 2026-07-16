@@ -5,7 +5,8 @@
     flex-direction: column;
     
     flex: 1;
-
+    
+    
     padding: 40px 10px;
 }
 
@@ -20,30 +21,50 @@ section.produtos-card {
 
     
     margin: 0 auto;
-    gap: 10px;
+    gap: 5px;
     
+    justify-items: center;
+
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
     padding: 20px;
     max-width: 900px;
 }
+/*desc-img*/
 
 .produtos-card .descricao-imagem{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    
+    
     
 }
 
+
 .produtos-card img {
-    width: 100%;
+    
     height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+    width: 100%;   
+    object-fit: contain;
+    
 }
+
+/*card-desc*/
 
 .card-desc{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-
     
+
+    width: 100%;
+    padding: 0px 20px;
     gap: 20px;
 }
 
@@ -61,3 +82,72 @@ section.produtos-card {
     color: var(--green-primary);
 }
 
+.card-valores .avaliacoes {
+    display: flex;
+    
+    gap: 14px;
+}
+
+.avaliacoes .estrelas {
+    display: flex;
+    gap: 7px;
+
+    font-size: 1.3em;
+    color: #F2C832;
+}
+
+.avaliacoes .avaliacoes-quantidade {
+    font-size: .95rem;
+    font-weight: 400;
+    color:#777;
+}
+
+
+/*valores-categoria*/
+
+.card-valores-categoria {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+
+.card-valores-categoria .preco {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green-primary);
+}
+.card-valores-categoria .categoria {
+    display: flex;
+    flex-direction: column;
+    color: #777;
+}
+
+.categoria .categoria-valor {
+    
+    color: black;
+}
+
+
+
+.btn-card-produtos {
+    font-family: inherit;
+    font-size: 1.1em;
+    background-color: var(--green-primary);
+
+    cursor: pointer;
+    padding: 12px 10px;
+    color: white;
+    border-radius: 10px;
+    transition: filter 0.3s ease ;
+}
+
+.btn-card-produtos:hover {
+    
+    filter: brightness(90%)
+}
+
+
+
+/**/

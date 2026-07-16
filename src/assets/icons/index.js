@@ -7,7 +7,8 @@ export {
   FaRegHeart,
   FaPlus,
   FaMinus,
-  FaCheck 
+  FaCheck,
+  FaStar
 } from "react-icons/fa";
 /* categorias, setas*/
 
