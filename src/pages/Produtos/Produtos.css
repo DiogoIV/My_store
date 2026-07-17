@@ -6,8 +6,8 @@
     
     flex: 1;
     
-    
-    padding: 40px 10px;
+    gap: 20px;
+    padding: 4rem 10px;
 }
 
 
@@ -40,19 +40,15 @@ section.produtos-card {
     justify-content: center;
 
     border-radius: 10px;
-    height: 100%;
-    width: 100%;
-    
-    
-    
+      
 }
 
 
 .produtos-card img {
     
-    height: 100%;
-    width: 100%;   
-    object-fit: contain;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
     
 }
 
@@ -150,4 +146,19 @@ section.produtos-card {
 
 
 
-/**/
+/*produtos-descrição*/
+
+
+
+.produto-descricao{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.produto-descricao h2, .produtos-relactionados h2{
+    color: var(--green-primary);
+    font-weight: 600;
+    font-size: 1.6em;
+}
+

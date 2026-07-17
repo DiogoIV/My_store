@@ -1,25 +1,32 @@
 import './Produtos.css'
 import { useParams } from 'react-router-dom'
-import { jasmim } from '../../assets/imagens/produtos/flores'
+import { produtos } from '../../data'
+
+
 import { FaStar } from 'react-icons/fa'
 
 function Produtos() {
     const { id } = useParams()
 
+    console.log(`valor do id da url ${id}`)
+
+    const produtosSelecionado = produtos.find(produto => produto.id === id)
+
+    console.log(produtosSelecionado)
     return (
         <main className='container-principal-produtos'>
 
             <section className='produtos-card'>
 
                 <div className='descricao-imagem'>
-                    <img src={jasmim} alt="" />
+                    <img src={produtosSelecionado.imagem} alt={produtosSelecionado.alt} />
                 </div>
 
                 <div className='card-desc'>
 
                     <div className='card-valores'>
 
-                        <h1>Jasmim </h1>
+                        <h1>{produtosSelecionado.nome}</h1>
 
                         <div className='avaliacoes'>
                             <div className='estrelas'>
@@ -30,7 +37,7 @@ function Produtos() {
                                 <FaStar/>
                             </div>
 
-                            <span className='avaliacoes-quantidade'>4.8 (42 avaliações)</span>
+                            <span className='avaliacoes-quantidade'>{`${produtosSelecionado.avaliacao} (${produtosSelecionado.totalAvaliacoes} avaliações)`}</span>
                         </div>
 
 
@@ -40,11 +47,13 @@ function Produtos() {
 
 
                         <div className='card-valores-categoria'>
-                            <p className='preco'>R$ 45,55</p>
+                            <p className='preco'> R$    {produtosSelecionado.preco.toFixed(2)}</p>
 
-                            <p className='categoria'>Categoria: <span className='categoria-valor'>Plantas internas</span></p>
-                            <p className='categoria'>Rega: <span className='categoria-valor'>2x por semana</span></p>
-                            <p className='categoria'>Altura: <span className='categoria-valor'>40cm</span></p>
+                            <p className='categoria'>Categoria: <span className='categoria-valor'>{produtosSelecionado.categoria}</span>
+                            </p>
+
+                            <p className='categoria'>Rega: <span className='categoria-valor'>{produtosSelecionado.regamento}</span></p>
+                            <p className='categoria'>Altura: <span className='categoria-valor'>{produtosSelecionado.altura}</span></p>
                         </div>
                     </div>
 
@@ -61,18 +70,17 @@ function Produtos() {
 
 
             <section className='produto-descricao'>
+                
                 <h2>Descrição</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo nostrum sequi voluptatibus laborum ut error nisi optio eius. Deserunt dolores aliquid culpa reprehenderit nisi officia, debitis sint optio ex praesentium.</p>
+                <p>{produtosSelecionado.descricaoLonga}</p>
+
             </section>
 
-            <section className='produto-cuidados'>
+            <section className='produto-descricao'>
 
                 <h2>Cuidados</h2>
 
-                <span>Luz</span>
-                <span>Rega</span>
-                <span>Solo</span>
-                <span>Temperatura</span>
+                <p>{produtosSelecionado.cuidados}</p>
             </section>
 
             <section className='produtos-relactionados'>
