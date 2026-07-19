@@ -91,7 +91,6 @@ export function CartProvider({ children }) {
     const resultadoResumo = resumoPedido()
     const quantidadeCart = contadorCart()
 
-    console.log(resultadoResumo)
 
     return (
         <CartContext.Provider value={{
