@@ -47,7 +47,7 @@ function MeusPedidos() {
                             Total: <span className='pedido-valores'>R${ped.total.total.toFixed(2)}</span>
                         </p>
 
-                        <Link to="" className='btn-detalhes'>
+                        <Link to="/detalhespedidos" className='btn-detalhes'>
                             Ver detalhes
                         </Link>
 

@@ -24,7 +24,7 @@ function OrderSucess() {
             </div>
         )
     })
-    console.log(cart)
+    
     return (
 
         <main className='container-ordersucess'>
@@ -81,7 +81,7 @@ function OrderSucess() {
                     Ver meus pedidos
                 </Link>
 
-                <Link to="/" className='btn-secondary btn-pedidos' onClick={ () => setCart([])}>
+                <Link to="/order" className='btn-secondary btn-pedidos' onClick={ () => setCart([])}>
                     Continuar comprando
                 </Link>
             </section>

@@ -18,6 +18,7 @@ import Checkout from './pages/Checkout/Checkout.jsx'
 import CheckoutLayout from './pages/Checkout/CheckoutLayout.jsx'
 import OrderSuccess from './pages/Checkout/OrderSuccess.jsx'
 import MeusPedidos from './pages/MeusPedidos/MeusPedidos.jsx';
+import DetalhesPedidos from './pages/MeusPedidos/DetalhesPedidos.jsx';
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -83,6 +84,11 @@ const router = createBrowserRouter([
       {
         path: "sucesso",
         element: <OrderSuccess/>
+      },
+
+      {
+        path: "detalhespedidos",
+        element: <DetalhesPedidos/>
       }
       
     ]

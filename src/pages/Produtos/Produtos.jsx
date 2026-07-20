@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext/CartContext'
 
+import { Link } from 'react-router-dom'
+
 import './Produtos.css'
 import { useParams } from 'react-router-dom'
 import { produtos } from '../../data'
@@ -29,8 +31,9 @@ function Produtos() {
     const produtosRelacio = produtosRelacionados()
 
     const cardProdutosRelacio = produtosRelacio.map((el) => {
+
         return (
-            <div className="produto-relacionado-card" key={el.id}>
+            <Link to={`/produtos/${el.id}`} className="produto-relacionado-card" key={el.id}>
 
                 <div className="produto-relacionado-img">
                     <img src={el.imagem} alt={el.nome} />
@@ -44,15 +47,10 @@ function Produtos() {
                         R$ {el.preco.toFixed(2)}
                     </span>
 
-                    <button
-                        onClick={() => adicionarProduto(el)}
-                    >
-                        Adicionar ao carrinho
-                    </button>
-
+                    
                 </div>
 
-            </div>
+            </Link>
         )
     })
 
@@ -124,7 +122,7 @@ function Produtos() {
             <section className='produtos-relacionados'>
                 <h2>Produtos relacionados</h2>
 
-                <div className='container-card-relacionados'>
+                <div to=""className='container-card-relacionados'>
                     {cardProdutosRelacio}
                 </div>
 
