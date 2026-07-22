@@ -5,7 +5,7 @@ import { PedidoContext } from '../../Context/pedidoContext/PedidoContext'
 
 function MeusPedidos() {
     const {pedidos} = useContext(PedidoContext)
-    console.log('meus pedidos',pedidos)
+
 
     const cartPedidos = pedidos.map(ped => 
          (
@@ -47,7 +47,7 @@ function MeusPedidos() {
                             Total: <span className='pedido-valores'>R${ped.total.total.toFixed(2)}</span>
                         </p>
 
-                        <Link to="/detalhespedidos" className='btn-detalhes'>
+                        <Link to={`/detalhespedidos/${ped.id}`} className='btn-detalhes'>
                             Ver detalhes
                         </Link>
 
