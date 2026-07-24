@@ -5,8 +5,7 @@ export const PedidoContext = createContext();
 export function PedidoProvider({ children }) {
 
     const [pedidos, setPedidos] = useState([]);
-
-    console.log('pedidos do context', pedidos)
+    console.log(pedidos)
 
     function adicionarPedido(pedido) {
         setPedidos(prevPedidos => [
@@ -18,6 +17,8 @@ export function PedidoProvider({ children }) {
     function limparPedido() {
         setPedidos([]);
     }
+
+
 
 
     return (
