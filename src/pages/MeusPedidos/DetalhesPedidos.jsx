@@ -16,7 +16,13 @@ function DetalhesPedidos() {
     const {pedidos} = useContext(PedidoContext)
 
     const produto = pedidos.find(el=> el.id === id)
-    /*Coloque o map agora para pecorrer produto e mostras os pedidos */
+    const cardProduto = produto.map(el => 
+        (
+            <div>
+                
+            </div>
+        )
+    )
     
 
     return (
