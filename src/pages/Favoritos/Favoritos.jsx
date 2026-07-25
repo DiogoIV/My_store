@@ -1,11 +1,18 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { CartContext } from '../../Context/CartContext/CartContext'
+
 import './Favoritos.css'
 import { produtos } from '../../data'
 import { FaRegHeart } from 'react-icons/fa'
 
+
 function Favoritos () {
     
     const [favorito, setFavorito] = useState(produtos)
+
+    const {adicionarProduto} = useContext(CartContext)
     
     function removercart (ID) {
         const itensRemovidos = favorito.filter(item => item.id !== ID);
@@ -17,7 +24,7 @@ function Favoritos () {
     const cartfavorito = favorito.map(el => {
         return (
             <div className='card-favoritos' key={el.id} >
-                <div className='primary-favoritos'>
+                <Link to={`/produtos/${el.id}`} className='primary-favoritos'>
 
                     <img src={el.imagem} alt={el.alt} />
                     
@@ -27,11 +34,11 @@ function Favoritos () {
                         <span>{el.preco}</span>
                     </div>
                     
-                </div>
+                </Link>
 
                 <div className='secudary-favoritos'>
 
-                    <button>Adicionar ao carrinho</button>
+                    <button onClick={()=> adicionarProduto(el)}>Adicionar ao carrinho</button>
 
                     <button onClick={()=> removercart(el.id)}>
                         Remover dos favoritos

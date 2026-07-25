@@ -13,13 +13,13 @@ import { produtos } from '../../data'
 
 function DetalhesPedidos() {
 
-    const {id} = useParams()
+    const { id } = useParams()
     const ID = Number(id)
-    
 
-    const {pedidos} = useContext(PedidoContext)
-    
-    
+
+    const { pedidos } = useContext(PedidoContext)
+
+
     const produto = pedidos.find(el => el.id == ID)
     const produtoCart = produto.produtos.map(item => (
 
@@ -45,32 +45,31 @@ function DetalhesPedidos() {
 
     ))
 
-    console.log(produto)
-
-
-    
-    
 
     return (
         <main className='container-detalhes-pedidos'>
 
             <section className='sessao-detalhes-pedidos'>
 
-                <Link to="/meuspedidos" className='btn-voltar'>
+                <Link to="/meuspedidos" className='btn-detalhes-voltar'>
                     <FaArrowLeft /> Voltar para Meus Pedidos
                 </Link>
 
-                <div className='detalhes-pedidos'>
-                    <h1>Detalhes do Pedido</h1>
-
-                    <div className='detalhes-pedidos-valores'>
-                        <p>Pedido: <span>{produto.status}</span></p>
-                        
-                        
-                    </div>
+                <div className='detalhes-titulo'>
+                    <h1 className='detalhes-t1'>Detalhes do Pedido</h1>
                 </div>
 
-                <p className='detalhes-data'>Data: <span>{produto.data}</span></p>
+                <div className='detalhes-status'>
+                    
+
+
+                    <p>Pedido: <span>{produto.status}</span></p>
+                    <p className='detalhes-data'>Data: <span>{produto.data}</span></p>
+
+
+                </div>
+
+
 
             </section>
 
@@ -94,8 +93,10 @@ function DetalhesPedidos() {
                     <p>Subtotal ............... <span>R${produto.total.subtotal.toFixed(2)}</span></p>
                     <p>Frete ............... <span>R${produto.total.frete.toFixed(2)}</span></p>
                     <p>Total ............... <span>R${produto.total.total.toFixed(2)}</span></p>
-                    
+
                 </div>
+
+
             </section>
 
 

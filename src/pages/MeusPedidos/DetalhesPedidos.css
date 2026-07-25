@@ -1,4 +1,5 @@
 .container-detalhes-pedidos {
+    padding: 1rem 10px;
     flex: 1;
 }
 
@@ -6,8 +7,49 @@
 /*sessao-detalhes-pedidos*/
 
 .sessao-detalhes-pedidos {
-
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
 }
+
+.sessao-detalhes-pedidos >.detalhes-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.btn-detalhes-voltar {
+    display: flex;
+    align-items: center;  
+    gap: 2px;
+    text-decoration: none;
+    
+    color: #4B5563;
+}
+
+.btn-detalhes-voltar:hover {
+    text-decoration: underline;
+}
+
+.detalhes-titulo {
+    margin-top: 20px;
+}
+
+.detalhes-t1 {
+    font-weight: 300;
+}
+
+
+.sessao-detalhes-pedidos  .detalhes-status {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 1rem;
+}
+
+
 
 
 /*sessao-detalhes-produtos*/
