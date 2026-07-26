@@ -11,11 +11,11 @@ import {
     FaSearch
 } from '../../assets/icons'
 
-import { produtos} from "../../data";
+import { produtos } from "../../data";
 
-function Header({modo, className }) {
-    
-    const {contadorCart} = useContext(CartContext)
+function Header({ modo, className }) {
+
+    const { contadorCart } = useContext(CartContext)
 
     /*pesquisa*/
     const [pesquisa, setpesquisa] = useState("")
@@ -28,19 +28,23 @@ function Header({modo, className }) {
 
 
     const produtoExibir = produtoSelecionado.map(el => {
+        console.log(el.id)
         return (
 
-            <li className="lista_pesquisa" key={el.id}>
+            <Link to={`/produtos/${el.id}`} 
+            className="lista_pesquisa" 
+            key={el.id}
+            >
                 <div className="container_img-pesquisa">
                     <img src={el.imagem} alt={el.alt} />
                 </div>
                 <div className="container_desc-pesquisa">
                     <h3>{el.nome}</h3>
                     <p>{el.descricao}</p>
-                    <span className="precos_pesquisa">{el.preco}</span>
+                    <span className="precos_pesquisa">R$ {el.preco.toFixed(2)}</span>
                 </div>
 
-            </li>
+            </Link>
         )
     })
 
@@ -50,7 +54,9 @@ function Header({modo, className }) {
     return (
         <header className={modo === "login" ? "container-header-login" : "container-header"}>
             {/*Logo Principal*/}
-            <Link to="/" className="logo">
+            <Link to="/" 
+            className="logo" 
+            >
                 <FaLeaf className="icon_logo" />
                 <h1> Planta Shop</h1>
             </Link>
@@ -59,8 +65,14 @@ function Header({modo, className }) {
             {modo !== "login" && (
                 <>
                     <div className="search-bar">
-                        <form id="container-search">
-                            <input type="text" placeholder="Buscar plantas..." id="input_search" value={pesquisa} onChange={(el) => setpesquisa(el.target.value)} onFocus={() => setExibir(true)} onBlur={() => setExibir(false)} />
+                        <form id="container-search" onSubmit={(e) => e.preventDefault()}>
+                            <input type="text"
+                                placeholder="Buscar plantas..."
+                                id="input_search"
+                                value={pesquisa}
+                                onChange={(el) => setpesquisa(el.target.value)}
+                                onFocus={() => setExibir(true)}
+                                onBlur={()=> setTimeout(()=> setExibir(false), 200)} />
 
                             {exibir && <div className="overlay" />}
 
@@ -108,8 +120,8 @@ function Header({modo, className }) {
                         </NavLink>
 
 
-                        
-                   </nav>
+
+                    </nav>
                 </>
             )}
 

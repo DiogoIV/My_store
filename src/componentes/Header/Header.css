@@ -127,6 +127,9 @@ div.search-bar input#input_search {
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+
+    text-decoration: none;
+    color: inherit;
 }
 
 .lista_pesquisa:hover {
@@ -146,7 +149,7 @@ div.search-bar input#input_search {
 .container_pesquisa .container_desc-pesquisa h3 {
 
     border-radius: 10px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--green-primary);
     font-size: 1em;
 }
@@ -159,7 +162,7 @@ div.search-bar input#input_search {
 
 
 .precos_pesquisa {
-    font-weight: bold;
+    font-weight: 500;
     color: var(--green-primary);
 }
 

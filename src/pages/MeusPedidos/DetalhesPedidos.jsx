@@ -60,11 +60,20 @@ function DetalhesPedidos() {
                 </div>
 
                 <div className='detalhes-status'>
-                    
+
+                    <div className='status-pedido'>
+                        <p><strong>Pedido:</strong> #{produto.id} </p>
+
+                        <div className="pedido-status-detalhes">
+
+                            <span className="pedido-circle"></span>
+                            <span>{produto.status}</span>
+
+                        </div>
+                    </div>
 
 
-                    <p>Pedido: <span>{produto.status}</span></p>
-                    <p className='detalhes-data'>Data: <span>{produto.data}</span></p>
+                    <p className='detalhes-data'><strong>Data:</strong> <span>{produto.data}</span></p>
 
 
                 </div>
