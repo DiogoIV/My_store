@@ -55,27 +55,20 @@ function DetalhesPedidos() {
                     <FaArrowLeft /> Voltar para Meus Pedidos
                 </Link>
 
-                <div className='detalhes-titulo'>
-                    <h1 className='detalhes-t1'>Detalhes do Pedido</h1>
-                </div>
-
-                <div className='detalhes-status'>
-
-                    <div className='status-pedido'>
-                        <p><strong>Pedido:</strong> #{produto.id} </p>
-
-                        <div className="pedido-status-detalhes">
-
-                            <span className="pedido-circle"></span>
-                            <span>{produto.status}</span>
-
-                        </div>
+                <div className='detalhes-pedidos-container'>
+                    <div className='detalhes-titulo'>
+                        <h1 className='detalhes-t1'>Detalhes do Pedido</h1>
                     </div>
-
-
-                    <p className='detalhes-data'><strong>Data:</strong> <span>{produto.data}</span></p>
-
-
+                    <div className='detalhes-status'>
+                        <div className='status-pedido'>
+                            <p><strong>Pedido:</strong> #{produto.id} </p>
+                            <div className="pedido-status-detalhes">
+                                <span className="pedido-circle"></span>
+                                <span>{produto.status}</span>
+                            </div>
+                        </div>
+                        <p className='detalhes-data'><strong>Data:</strong> <span>{produto.data}</span></p>
+                    </div>
                 </div>
 
 
@@ -86,7 +79,7 @@ function DetalhesPedidos() {
 
             <section className='sessao-detalhes-produtos'>
 
-                <h2>Produtos do pedido</h2>
+                <h2 className='titulo-detalhes-produtos'>Produtos do pedido</h2>
 
                 <div className='detalhes-valores-produtos'>
                     {produtoCart}

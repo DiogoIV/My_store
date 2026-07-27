@@ -1,16 +1,31 @@
 .container-detalhes-pedidos {
-    padding: 1rem 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2rem 1rem;
     flex: 1;
 }
 
 
 /*sessao-detalhes-pedidos*/
 
+.detalhes-pedidos-container, .detalhes-resumo, .sessao-detalhes-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 24px;
+    
+}
+
 .sessao-detalhes-pedidos {
     display: flex;
     flex-direction: column;
     
-    gap: 5px;
+    gap: 20px;
 }
 
 .sessao-detalhes-pedidos >.detalhes-header {
@@ -35,12 +50,10 @@
 
 
 
-.detalhes-titulo {
-    margin-top: 20px;
-}
+
 
 .detalhes-t1 {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2.1rem;
 }
 
@@ -54,7 +67,7 @@
 
     max-width: 500px;
     
-    background-color: #F3F4F6;
+    background-color: #FFFFFF;
     border: 1px solid #E5E7EB;
     color: #374151;
 }
@@ -84,16 +97,27 @@
 
 /*sessao-detalhes-produtos*/
 
-.sessao-detalhes-produtos{
 
+.titulo-detalhes-produtos  {
+    font-weight: 300;
+    font-size: 1.8rem;
+   
+   
 }
 
-.sessao-detalhes-pedidos .detalhes-valores-produtos {
-
+.detalhes-valores-produtos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    
+    
 }
 
 .detalhes-cart {
-
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .detalhes-img img {
