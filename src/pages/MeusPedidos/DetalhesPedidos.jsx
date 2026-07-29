@@ -29,14 +29,14 @@ function DetalhesPedidos() {
                 <img src={item.imagem} alt={item.alt} />
             </div>
 
-            <div>
+            <div className='detalhes-valores'>
 
                 <h2>{item.nome}</h2>
-                <p>Quantidade: <span>{item.quantidade}</span></p>
+                <p>Quantidade: <span className='detalhes-resumo-cart'>{item.quantidade}</span></p>
 
-                <p>Preço unitário: <span>R$ {item.preco.toFixed(2)}</span></p>
+                <p>Preço unitário: <span className='detalhes-resumo-cart'>R$ {item.preco.toFixed(2)}</span></p>
 
-                <p>Subtotal: <span>R$ {(item.quantidade * item.preco).toFixed(2)}</span></p>
+                <p className='detalhes-subtotal'>Subtotal:<span >R$ {(item.quantidade * item.preco).toFixed(2)}</span></p>
 
 
             </div>

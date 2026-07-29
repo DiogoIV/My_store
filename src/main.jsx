@@ -22,6 +22,7 @@ import DetalhesPedidos  from './pages/MeusPedidos/DetalhesPedidos.jsx'
 
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Carousel from './pages/Carousel/Carousel.jsx';
 
 const router = createBrowserRouter([
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: "detalhespedidos/:id",
         element: <DetalhesPedidos/>
+      },
+      {
+        path: "carousel/:id",
+        element: <Carousel/>
       }
     ]
   },

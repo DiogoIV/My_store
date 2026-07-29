@@ -102,10 +102,13 @@
     
 }
 
-.desc-carousel button {
+.desc-carousel .btn-ver-mais {
     color: white;
     font-weight: 700;
     background-color: var(--green-primary);
+    
+    text-decoration: none;
+    
     
     border-radius: 5px;
     border: none;
@@ -117,11 +120,11 @@
    
 }
 
-.desc-carousel button {
+.desc-carousel .btn-ver-mais {
     transition: .3s ease;
 }
 
-.desc-carousel button:hover {
+.desc-carousel .btn-ver-mais:hover {
     filter: brightness(1.1);
 }
 

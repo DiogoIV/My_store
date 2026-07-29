@@ -14,7 +14,9 @@ import './Main.css'
 
 
 import { IoIosArrowBack, IoIosArrowForward, PiCactusBold } from '../../assets/icons'
+
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -123,7 +125,7 @@ function Main({ produtos, categorias }) {
                     <p>
                         {destaquesatual.desc}
                     </p>
-                    <button>Ver mais</button>
+                    <Link to={`/carousel/${destaquesatual.id}`}className="btn-ver-mais">Ver mais</Link>
                 </div>
 
                 <div className="carousel-controls">
