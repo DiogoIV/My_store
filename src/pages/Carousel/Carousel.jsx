@@ -6,7 +6,13 @@ import './Carousel.css'
 function Carousel () {
     const {id} = useParams()
     return(
-        <h1>ola</h1>
+
+        <main className='container-principal-carousel'>
+
+            
+
+        </main>
+
     )
 }
 

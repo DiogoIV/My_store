@@ -17,7 +17,7 @@
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 14px;
-    padding: 24px;
+    padding: 30px;
     
 }
 
@@ -104,7 +104,7 @@
 }
 
 .titulo-detalhes-produtos  {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.6rem;
    
    
@@ -161,10 +161,14 @@
     flex: 1;
 }
 
+.btn-card-detalhes {
+    text-decoration: none;
+    color: var(--green-primary);
+}
+
 .detalhes-valores > h2 {
     font-weight: 700;
     font-size: 1.3rem;
-    color: var(--green-primary);
 }
 
 .detalhes-valores > p {
@@ -180,5 +184,51 @@ p.detalhes-subtotal {
 }
 
 /*detalhes resumo*/
+
+.detalhes-resumo {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 14px;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.resumo-valores div {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+.detalhes-resumo h2 {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+
+.detalhes-resumo .resumo-valores {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.detalhes-resumo-valores {
+    font-weight: 600;
+}
+
+.valores-span {
+    font-weight: 400;
+}
+
+
+
+.detalhes-resumo-total {
+    border-top: 1px solid rgb(78, 75, 75);
+    font-weight: 700;
+}
+
 
 

@@ -21,17 +21,21 @@ function DetalhesPedidos() {
 
 
     const produto = pedidos.find(el => el.id == ID)
+
     const produtoCart = produto.produtos.map(item => (
 
         <div className='detalhes-cart'>
 
-            <div className='detalhes-img'>
+            <Link to={`/produtos/${item.id}`} className='detalhes-img'>
                 <img src={item.imagem} alt={item.alt} />
-            </div>
+            </Link>
 
             <div className='detalhes-valores'>
 
-                <h2>{item.nome}</h2>
+                <Link to={`/produtos/${item.id}`} className='btn-card-detalhes'>
+                    <h2>{item.nome}</h2>
+                </Link>
+
                 <p>Quantidade: <span className='detalhes-resumo-cart'>{item.quantidade}</span></p>
 
                 <p>Preço unitário: <span className='detalhes-resumo-cart'>R$ {item.preco.toFixed(2)}</span></p>
@@ -88,13 +92,35 @@ function DetalhesPedidos() {
             </section>
 
             <section className='detalhes-resumo'>
+
                 <h2>Resumo</h2>
 
                 <div className='resumo-valores'>
 
-                    <p>Subtotal ............... <span>R${produto.total.subtotal.toFixed(2)}</span></p>
-                    <p>Frete ............... <span>R${produto.total.frete.toFixed(2)}</span></p>
-                    <p>Total ............... <span>R${produto.total.total.toFixed(2)}</span></p>
+                    <div className='detalhes-resumo-valores'>
+
+                        <span>Subtotal </span>
+
+                        <span  className='valores-span'>R${produto.total.subtotal.toFixed(2)}</span>
+
+                    </div>
+
+                    <div className='detalhes-resumo-valores'>
+
+                        <span>Frete</span>
+
+                        <span className='valores-span'>R$ {produto.total.frete.toFixed(2)}</span>
+
+                    </div>
+
+                    <div className='detalhes-resumo-total'>
+
+                        <span>Total</span>
+
+                        <span> R${produto.total.total.toFixed(2)}
+                        </span>
+
+                    </div>
 
                 </div>
 

@@ -36,21 +36,20 @@ section.produtos-card {
 .produtos-card .descricao-imagem {
 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    
 
-    max-width: 500px;
+    width: 100%;
 
 
 }
 
+.descricao-imagem img {
 
-.produtos-card img {
-
-    height: 400px;
+    height: 420px;
 
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 10px;
 
 }
 
