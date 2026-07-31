@@ -1,14 +1,12 @@
-import {
-    jardim,
-    mulher_cheirando,
-    plantas_decoracao,
-    plantas_regar,
-    imagem_hero_sala
-} from "../../assets/imagens/carrousel";
+
 
 import { ambiente_decorado_destaque, restaurante_decorado_destaque, sala_decorado_destaque } from '../../assets/imagens/ofertas_destaques'
+
 import ProductCard from "../ProductCard/ProductCard";
 
+import { destaques } from "../../data/destaques/destaque";
+
+console.log(destaques, 'destaque')
 
 import './Main.css'
 
@@ -25,42 +23,7 @@ import { Link } from "react-router-dom";
 
 function Main({ produtos, categorias }) {
     /*destaques*/
-    const destaques = [
-        {
-            id: 1,
-            titulo: 'Plantas para seu ambiente',
-            desc: 'Encontre espécies para decorar sua casa.',
-            img: plantas_decoracao,
-            alt: "planta para decorar ambientes"
-
-        },
-
-        {
-            id: 2,
-            titulo: 'Plantas reduzem o estresse ',
-            desc: 'Ambientes com plantas ajudam no bem-estar e trazem sensação de calma.',
-            img: mulher_cheirando,
-            alt: "mulher cheirando a planta"
-
-        },
-
-        {
-            id: 3,
-            titulo: 'Plantas verdes para interiores',
-            desc: 'Crie ambientes mais aconchegantes.',
-            img: imagem_hero_sala,
-            alt: "sala decorada"
-        },
-
-        {
-            id: 4,
-            titulo: 'Regue e conserve suas plantas',
-            desc: 'Cuide de  suas plantas e veja elas brilharem',
-            img: plantas_regar,
-            alt: "regar as plantas"
-        }
-
-    ]
+   
 
     const [index, setIndex] = useState(0)
 
@@ -81,15 +44,15 @@ function Main({ produtos, categorias }) {
 
     /*categorias*/
     const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
-   
-    
+
+
 
     const categoriasredender = categorias.map((cat) => {
         const Icon = cat.icon
         return (
             <div className="card_categorie" key={cat.id}>
-                <button className={`btn_categorie ${cat.nome === categoriaSelecionada ? 'active' : ''}`} onClick={()=> setCategoriaSelecionada(cat.nome)}>
-                    <Icon className="icon_categorie"/>
+                <button className={`btn_categorie ${cat.nome === categoriaSelecionada ? 'active' : ''}`} onClick={() => setCategoriaSelecionada(cat.nome)}>
+                    <Icon className="icon_categorie" />
 
                     <span className="desc-categorie">
                         {cat.nome}
@@ -100,7 +63,7 @@ function Main({ produtos, categorias }) {
         )
     })
     /* cards*/
-    
+
     const produtosFiltrados = categoriaSelecionada === "Todos" ? produtos : produtos.filter(el => el.categoria === categoriaSelecionada)
 
 
@@ -125,7 +88,7 @@ function Main({ produtos, categorias }) {
                     <p>
                         {destaquesatual.desc}
                     </p>
-                    <Link to={`/carousel/${destaquesatual.id}`}className="btn-ver-mais">Ver mais</Link>
+                    <Link to={`/carousel/${destaquesatual.slug}`} className="btn-ver-mais">Ver mais</Link>
                 </div>
 
                 <div className="carousel-controls">

@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         element: <DetalhesPedidos/>
       },
       {
-        path: "carousel/:id",
+        path: "carousel/:slug",
         element: <Carousel/>
       }
     ]
