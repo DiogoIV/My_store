@@ -19,7 +19,9 @@ function Carousel() {
 
             <section className='carousel-destaque'>
 
-                <img src={destaque.img} alt={destaque.alt} className='carousel-img-destaque' />
+                <div className='carousel-container-img'>
+                    <img src={destaque.img} alt={destaque.alt} className='carousel-img-destaque' />
+                </div>
 
                 <div className='carousel-destaque-desc'>
 
