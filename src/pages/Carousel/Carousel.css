@@ -2,22 +2,48 @@
     display: flex;
     flex-direction: column;
 
-    gap: 20px;
+    gap: 40px;
     
     
     flex: 1;
     padding: 3rem 10px;
 }
 
+.container-principal-carousel section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-principal-carousel h1 {
+    color: var(--green-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.container-principal-carousel h2 {
+    color: var(--green-primary);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+
+.container-principal-carousel p {
+    line-height: 1.7;
+    color: #374151;
+}
+
 
 
 /*carousel-destaque*/
 
-.carousel-destaque {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+.container-principal-carousel .carousel-destaque {
+    gap: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
+
+
 
 .carousel-container-img {
     display: flex;
@@ -25,40 +51,34 @@
 }
 
 .carousel-destaque img {
+    width: 100%;
     max-width: 1200px;
     height: 400px;
-    width: 100%;
-
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-/*carousel-destaque-desc*/
+/*dicas*/
 
-.carousel-destaque-desc {
+.carousel-dicas-desc {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 20px;
+
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: .8rem;
+}
+
+.carousel-dicas-desc ul {
+    list-style: inside;
+}
+
+.carousel-dicas-desc ul li::marker {
+    color: var(--green-primary);
+    font-size: 1.4em;
     
 }
 
-.carousel-destaque-desc h1 {
-    color: var(--green-primary);
-    font-weight: 600;
-    text-align: center;
-    
-}
 
-/*carousel-decoracao*/
-
-.carousel-decoracao {
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-}
-
-
-.carousel-decoracao h2 {
-    color: var(--green-primary);
-}

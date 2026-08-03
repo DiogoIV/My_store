@@ -66,7 +66,9 @@ function Carousel() {
                 <div className='carousel-dicas-desc'>
 
                     {destaque.dicas.itens.map(item =>
-                        <p>{item}</p>
+                        <ul>
+                            <li>{item}</li>
+                        </ul>
                     )}
                 </div>
 
@@ -74,11 +76,9 @@ function Carousel() {
 
             <section className='carousel-ambiente'>
 
-
-
                 <h2>{destaque.ambiente.titulo}</h2>
 
-                <div>
+                <div className='carousel-ambiente-desc'>
 
                     <p>{destaque.ambiente.texto1}</p>
 
@@ -88,7 +88,7 @@ function Carousel() {
 
             </section>
 
-            <section>
+            <section className='carousel-conclusao'>
 
                 <h2>Comece aos poucos</h2>
 
