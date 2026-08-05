@@ -34,7 +34,7 @@ function Carousel() {
 
             </section>
 
-            <section className='carousel-decoracao'>
+            <section className='carousel-decoracao carrousel-sessoes'>
 
                 <h2>{destaque.decoracao.titulo}</h2>
 
@@ -44,7 +44,7 @@ function Carousel() {
 
             </section>
 
-            <section className='carousel-local'>
+            <section className='carousel-local carrousel-sessoes'>
 
 
                 <h2 className='carousel-local-titulo'>{destaque.local.titulo}</h2>
@@ -59,7 +59,7 @@ function Carousel() {
 
             </section>
 
-            <section className='carousel-dicas'>
+            <section className='carousel-dicas carrousel-sessoes'>
 
                 <h2>{destaque.dicas.titulo}</h2>
 
@@ -74,7 +74,7 @@ function Carousel() {
 
             </section>
 
-            <section className='carousel-ambiente'>
+            <section className='carousel-ambiente carrousel-sessoes'>
 
                 <h2>{destaque.ambiente.titulo}</h2>
 
@@ -88,7 +88,7 @@ function Carousel() {
 
             </section>
 
-            <section className='carousel-conclusao'>
+            <section className='carousel-conclusao carrousel-sessoes'>
 
                 <h2>Comece aos poucos</h2>
 

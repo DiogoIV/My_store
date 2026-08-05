@@ -229,7 +229,7 @@ span.desc-categorie {
 
     border: none;
     background: none;
-
+    
     transition: transform 0.3s ease;
 }
 
@@ -281,23 +281,33 @@ span.desc-categorie {
 /* cards*/
 
 .container_products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    gap: 30px;
+    
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     background: #ffffff;
     padding: 10px;
     
+} 
+
+.container-products-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+    justify-content: center;
+   
+    width: 100%;
+    gap: 30px;
+    padding: 10px;
 }
 
 .btn-exibir {
-    display: block;
-    margin: 2rem auto 0;
+    display: inline;
+    
 
     background: transparent;
     border: none;
@@ -306,6 +316,7 @@ span.desc-categorie {
     font-size: 1rem;
     font-weight: 500;
 
+    padding: 10px;
     cursor: pointer;
     transition: opacity .2s ease;
 }

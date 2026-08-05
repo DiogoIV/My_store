@@ -116,11 +116,14 @@ function Main({ produtos, categorias }) {
             </section>
 
             <section className="container_products">
-                {cards}
+
+                <div className='container-products-cards'>
+                    {cards}
+                </div>
                 {categoriaSelecionada === "Todos" && (
 
                     <button onClick={()=> setMais(!vermais)} className='btn-exibir'>
-                        {vermais ? 'Mostrar menos': "mostrar mais ↓"}
+                        {vermais ? 'Mostrar menos ▲': "Mostrar mais ▼"}
                     </button>
                 )
                 

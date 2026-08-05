@@ -6,7 +6,8 @@
     
     
     flex: 1;
-    padding: 3rem 10px;
+    
+    padding-bottom: 3rem;
 }
 
 .container-principal-carousel section {
@@ -15,11 +16,11 @@
     gap: 10px;
 }
 
-.container-principal-carousel h1 {
-    color: var(--green-primary);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+.carrousel-sessoes {
+    padding: 5px 20px;
 }
+
+
 
 .container-principal-carousel h2 {
     color: var(--green-primary);
@@ -29,21 +30,45 @@
 
 
 .container-principal-carousel p {
-    line-height: 1.7;
+    line-height: 2em;
     color: #374151;
 }
-
 
 
 /*carousel-destaque*/
 
 .container-principal-carousel .carousel-destaque {
-    gap: 4rem;
+    gap: 3rem;
     text-align: center;
     margin-bottom: 2rem;
+    background: linear-gradient(
+    180deg,
+    #4f7f57 0%,
+    #5d8d64 100%
+    );
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .08);
+    padding: 3rem 1rem 5rem;
 }
 
+.carousel-destaque-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 
+.carousel-destaque h1 {
+    color: #FFF;
+    font-size: clamp(2.5rem, 3vw, 2.7rem);
+    font-weight: 600;
+    letter-spacing: -.03em;
+    
+}
+
+.carousel-destaque p {
+    color: rgba(255,255,255,.88);
+    font-size: 1.1rem;
+    
+}
 
 .carousel-container-img {
     display: flex;
@@ -59,6 +84,12 @@
 }
 
 /*dicas*/
+
+.container-principal-carousel .carousel-dicas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;  
+}
 
 .carousel-dicas-desc {
     background: #F9FAFB;
