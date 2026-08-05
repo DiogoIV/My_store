@@ -13,7 +13,7 @@ import './Main.css'
 
 import { IoIosArrowBack, IoIosArrowForward, PiCactusBold } from '../../assets/icons'
 
-import { useState } from "react";
+import { use, useState } from "react";
 import { Link } from "react-router-dom";
 
 
@@ -64,7 +64,17 @@ function Main({ produtos, categorias }) {
     })
     /* cards*/
 
-    const produtosFiltrados = categoriaSelecionada === "Todos" ? produtos : produtos.filter(el => el.categoria === categoriaSelecionada)
+    const [vermais, setMais] = useState(false)
+
+    function verificar( ) {
+        if (!vermais) {
+            return produtos.slice(0,8)
+        } else {
+            return produtos
+        }
+    }
+
+    const produtosFiltrados = categoriaSelecionada === "Todos" ? verificar() : produtos.filter(el => el.categoria === categoriaSelecionada)
 
 
     const cards = produtosFiltrados.map((el) => {
@@ -107,6 +117,14 @@ function Main({ produtos, categorias }) {
 
             <section className="container_products">
                 {cards}
+                {categoriaSelecionada === "Todos" && (
+
+                    <button onClick={()=> setMais(!vermais)} className='btn-exibir'>
+                        {vermais ? 'Mostrar menos': "mostrar mais ↓"}
+                    </button>
+                )
+                
+                }
             </section>
 
             <section className="container_destaques">

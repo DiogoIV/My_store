@@ -287,12 +287,31 @@ span.desc-categorie {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    gap: 40px;
+    gap: 30px;
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     background: #ffffff;
     padding: 10px;
     
+}
+
+.btn-exibir {
+    display: block;
+    margin: 2rem auto 0;
+
+    background: transparent;
+    border: none;
+
+    color: var(--green-primary);
+    font-size: 1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.btn-exibir:hover {
+    opacity: .7;
 }
 
 /* destaques */
