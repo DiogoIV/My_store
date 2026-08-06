@@ -15,8 +15,8 @@
     flex-flow: column;
 
 
-    padding: 10px;
-    gap: 40px;
+    padding: 2rem 10px 4rem 10px;
+    gap: 60px;
     background-color: var(--background);
 
 }
@@ -331,7 +331,7 @@ span.desc-categorie {
     display: flex;
     flex-direction: column;
     gap: 25px;
-
+    
     padding: 20px;
     max-width: 1200px;
     width: 100%;
@@ -339,34 +339,39 @@ span.desc-categorie {
     
 }
 
-.desc_destaques {
-    align-self: flex-start;
-}
+
 
 .desc_destaques h2 {
     color: var(--green-primary);
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 8px;
+    text-align: center;
 }
 
 .desc_destaques p {
     color: var(--text);
     opacity: 0.8;
     font-size: 1rem;
+    text-align: center;
 }
 
 .container_img-destaques {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 220px 220px;
+
+    gap: 20px;
 }
+
 
 .img_destaques {
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 
+    
     transition: transform .3s ease;
 }
 
@@ -377,6 +382,18 @@ span.desc-categorie {
 .img_destaques img {
     display: block;
     width: 100%;
-    height: 220px;
+    height: 100%;
     object-fit: cover;
+}
+
+.img-destaques-01 {
+    grid-row: 1/-1;
+    
+}
+
+
+
+.img-destaques-03 {
+    
+    grid-column: 2/2;
 }

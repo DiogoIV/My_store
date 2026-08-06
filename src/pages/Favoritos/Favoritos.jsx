@@ -26,7 +26,8 @@ function Favoritos () {
             <div className='card-favoritos' key={el.id} >
                 <Link to={`/produtos/${el.id}`} className='primary-favoritos'>
 
-                    <img src={el.imagem} alt={el.alt} />
+                    <div className='primary-img'>
+                        <img src={el.imagem} alt={el.alt} /></div>
                     
                     <div className='primary-valores'>
                         <h3>{el.nome}</h3>

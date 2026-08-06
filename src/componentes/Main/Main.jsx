@@ -133,20 +133,24 @@ function Main({ produtos, categorias }) {
             <section className="container_destaques">
 
                 <div className="desc_destaques">
-                    <h2>Ideias para transformar seu espaço</h2>
-                    <p>Ideias para decorar e trazer mais natureza para o seu espaço.</p>
+                    <h2>Inspire-se para transformar seu espaço</h2>
+                    <p>Veja como plantas podem transformar diferentes ambientes.</p>
                 </div>
 
-                <div className="container_img-destaques">
-                    <div className="img_destaques">
+                <div className="container_img-destaques ">
+
+                    <div className="img_destaques img-destaques-01">
                         <img src={sala_decorado_destaque} alt="sala_decorada" />
                     </div>
+
                     <div className="img_destaques">
                         <img src={restaurante_decorado_destaque} alt="Restaurante_decorado" />
                     </div>
-                    <div className="img_destaques">
+
+                    <div className="img_destaques img-destaques-03">
                         <img src={ambiente_decorado_destaque} alt="ambiente_decorado" />
                     </div>
+
                 </div>
 
             </section>
