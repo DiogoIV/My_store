@@ -27,12 +27,13 @@ function Favoritos () {
                 <Link to={`/produtos/${el.id}`} className='primary-favoritos'>
 
                     <div className='primary-img'>
-                        <img src={el.imagem} alt={el.alt} /></div>
+                        <img src={el.imagem} alt={el.alt} />
+                    </div>
                     
                     <div className='primary-valores'>
                         <h3>{el.nome}</h3>
                         <p>{el.descricao}</p>
-                        <span>{el.preco}</span>
+                        <span>R$ {el.preco.toFixed(2)}</span>
                     </div>
                     
                 </Link>

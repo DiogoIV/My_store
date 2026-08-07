@@ -4,9 +4,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 20px;
+    padding: 20px 20px 5rem 20px;
     flex: 1;
-    
+
 }
 
 /*desc-favoritos*/
@@ -15,13 +15,13 @@
     display: flex;
     gap: 5px;
     padding: 15px;
-    
+
 }
 
 
 .desc-favoritos h2 {
     font-weight: 300;
-    
+
     font-size: 1.8em;
 }
 
@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     font-size: 1.5em;
-    
+
     color: var(--green-light);
     padding: 8px;
     border-radius: 50%;
@@ -41,9 +41,11 @@
 
 .section-favoritos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+    justify-content: center;
+
     gap: 2rem;
-    margin-bottom: 4rem;
+
 }
 
 
@@ -52,17 +54,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10px;
-    
-    
-    max-width: 450px;
+    gap: 20px;
+
+
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #ddd;
     background: #ffffff00;
-    
-    min-width: 350px;
-    
+
+
+
     gap: 20px;
     transition: .3s;
 }
@@ -83,9 +84,9 @@
 
 .primary-img {
     height: 80px;
-    width: 200px;
+    width: 80px;
 
-    
+    flex-shrink: 0;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -94,11 +95,17 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
-    
-    
+
+
 }
 
-.primary-valores h3{
+.primary-valores {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.primary-valores h3 {
     font-size: 1.2em;
     font-weight: 500;
 }
@@ -110,20 +117,47 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex: 0 1 40px;
-    
+
+
 }
 
 .secudary-favoritos button {
     cursor: pointer;
     font-family: inherit;
-    padding: 10px;
+    padding: 10px 20px;
 
-    
+    min-height: 50px;
+    max-height: 80px;
     background-color: var(--green-primary);
-    color: #ddd;  
+    color: #ddd;
     border-radius: 10px;
     border: none;
-    
+    transition: filter 0.3s ease;
+
 }
 
+.secudary-favoritos button:hover {
+    filter: brightness(1.1);
+}
+
+
+
+
+
+@media(max-width: 1110px) {
+    .section-favoritos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        
+        justify-content: center;
+
+        gap: 2rem;
+
+    }
+}
+
+@media(max-width: 780px) {
+    .section-favoritos {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+    }
+}

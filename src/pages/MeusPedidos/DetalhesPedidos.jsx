@@ -61,7 +61,7 @@ function DetalhesPedidos() {
 
                 <div className='detalhes-pedidos-container'>
                     <div className='detalhes-titulo'>
-                        <h1 className='detalhes-t1'>Detalhes do Pedido</h1>
+                        <h1 className='detalhes-t1'>Status</h1>
                     </div>
                     <div className='detalhes-status'>
                         <div className='status-pedido'>
