@@ -20,6 +20,10 @@ import OrderSuccess from './pages/Checkout/OrderSuccess.jsx'
 import MeusPedidos from './pages/MeusPedidos/MeusPedidos.jsx';
 import DetalhesPedidos  from './pages/MeusPedidos/DetalhesPedidos.jsx'
 
+import SobreSite from './pages/Sobre/SobreSite.jsx';
+import Politicas from './pages/Sobre/Politicas.jsx';
+import Contato from './pages/Sobre/Contato.jsx';
+
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Carousel from './pages/Carousel/Carousel.jsx';
@@ -58,6 +62,19 @@ const router = createBrowserRouter([
       {
         path: "carousel/:slug",
         element: <Carousel/>
+      },
+      {
+        path: "sobresite",
+        element: <SobreSite/>
+      },
+      {
+        path: "politicas",
+        element: <Politicas/>
+      },
+
+      {
+        path: "contato",
+        element: <Contato/>
       }
     ]
   },
