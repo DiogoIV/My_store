@@ -1,56 +1,57 @@
 
+import './SobreSite.css'
 
 function SobreSite() {
     return (
-        <main>
+        <main className='container-principal-sobre'>
 
-            <section>
+            <section className='sessao-sobresite'>
 
                 <h1>Sobre o nosso Site</h1>
                 <p>Um espaço para que ama plantas e natureza.</p>
 
             </section>
 
-            <section>
+            <section className='sessao-proposta'>
 
-                <div>
-                    img
-                </div>
 
-                <div>
-                    
-                    <h2>Nossa proposta</h2>
 
-                    <p>Tornar mais simples econtrar plantas e transformar ambientes</p>
+                <h2>Nossa proposta</h2>
 
-                </div>
+                <p>Tornar mais simples encontrar plantas que combinem com diferentes ambientes e estilos, oferecendo uma experiência prática para quem deseja trazer mais natureza para o dia a dia. Além dos produtos, buscamos inspirar novas possibilidades de decoração e ajudar você a encontrar plantas que façam sentido para o seu espaço.</p>
+
+
 
             </section>
 
-            <section>
+            <section className='sessao-service'>
 
-                <h2>o que vocë econtra</h2>
+                <div className='service-titulo-principal'>
 
-                <div>
+                    <h2>O que você encontra</h2>
+
+                </div>
+
+                <div className='service-desc'>
                     <h3>Plantas</h3>
                     <p>
                         Encontre espécies para diferentes ambientes.
                     </p>
                 </div>
 
-                <div>
+                <div className='service-desc'>
                     <h3>Inspiração</h3>
                     <p>Ideias para decorar seus ambientes.</p>
                 </div>
 
-                <div>
+                <div className='service-desc'>
                     <h3>Cuidados</h3>
                     <p>Informações para cuidas das plantas</p>
                 </div>
 
             </section>
 
-            <section>
+            <section className='service-objetivo'>
 
                 <h2>Feito para amantes de plantas</h2>
 

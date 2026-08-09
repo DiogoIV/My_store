@@ -1,0 +1,148 @@
+.container-principal-sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+
+
+    flex: 1;
+    padding: 4rem 20px;
+}
+
+.container-principal-sobre p {
+    font-size: 17px;
+    line-height: 1.6rem;
+}
+
+/*sessao-sobresite*/
+
+.sessao-sobresite {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+
+    border-radius: 20px;
+    background-color: var(--green-primary);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-left: 8px solid var(--green-light);
+
+    padding: 50px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+
+
+
+}
+
+.sessao-sobresite h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+}
+
+.sessao-sobresite p {
+    font-size: 17px;
+    
+}
+
+
+
+
+/*sessao-proposta*/
+
+.sessao-proposta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 40px;
+}
+
+.sessao-proposta h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+}
+
+.sessao-proposta p {
+    
+}
+
+
+/*sessao-service*/
+
+.sessao-service {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+
+    max-width: 1200px;
+    margin: 2rem auto;
+
+    
+    
+}
+
+.service-titulo-principal {
+    grid-column: 1/-1;  
+    
+}
+
+.service-titulo-principal h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+
+    
+}
+
+.service-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+    align-self: stretch;
+    
+}
+
+.service-desc h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--green-primary);
+}
+
+
+/*service-objetivo*/
+
+.service-objetivo {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    background-color: var(--green-primary);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    padding: 20px;
+
+    border-radius: 20px;
+    
+}
+
+.service-objetivo h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: white;
+}
