@@ -1,0 +1,152 @@
+.container-principal-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    flex: 1;
+    padding: 3rem 20px 4rem;
+    box-sizing: border-box;
+}
+
+.container-principal-contato h2 {
+    margin: 0;
+
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.container-principal-contato p {
+    margin: 0;
+
+    max-width: 900px;
+    font-size: 17px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}
+
+.container-principal-contato  section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ========================= */
+/* INTRODUÇÃO */
+/* ========================= */
+
+.sessao-contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sessao-contato h1 {
+    margin: 0;
+
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: var(--green-primary);
+}
+
+.sessao-contato p {
+    max-width: 700px;
+}
+
+
+/* ========================= */
+/* ATENDIMENTO */
+/* ========================= */
+
+.sessao-atendimento {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 1000px;
+
+    
+}
+
+
+/* ========================= */
+/* CARD DE ATENDIMENTO */
+/* ========================= */
+
+.card-atendimento {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 25px;
+
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    
+}
+
+.card-atendimento-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.card-atendimento-item h3 {
+    margin: 0;
+
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.card-atendimento-item p,
+.card-atendimento-item a {
+    margin: 0;
+
+    font-size: 16px;
+    color: #4b5563;
+}
+
+.card-atendimento-item a {
+    color: var(--green-primary);
+    text-decoration: none;
+}
+
+.card-atendimento-item a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+    .container-principal-contato {
+        padding: 2rem 15px 3rem;
+    }
+
+    .sessao-contato h1 {
+        font-size: 1.9rem;
+    }
+
+    .card-atendimento {
+        padding: 20px;
+    }
+}

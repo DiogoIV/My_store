@@ -81,7 +81,7 @@ function OrderSucess() {
                     Ver meus pedidos
                 </Link>
 
-                <Link to="/order" className='btn-secondary btn-pedidos' onClick={ () => setCart([])}>
+                <Link to="/" className='btn-secondary btn-pedidos' onClick={ () => setCart([])}>
                     Continuar comprando
                 </Link>
             </section>

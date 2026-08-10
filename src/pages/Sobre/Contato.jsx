@@ -1,10 +1,12 @@
 
+import './contato.css'
 
 function Contato() {
     return (
-        <main>
 
-            <section>
+        <main className='container-principal-contato'>
+
+            <section className='sessao-contato'>
 
                 <h1>Entre em contato</h1>
 
@@ -14,31 +16,29 @@ function Contato() {
 
             </section>
 
-            <section>
+            <section className='sessao-atendimento'>
 
                 <h2>Atendimento</h2>
 
-                <div>
+                <div className='card-atendimento'>
 
-                    <h3>E-mail</h3>
-
-                    <a href="mailto:atendimento@exemplo.com">atendimento@exemplo.com</a>
-                </div>
-
-                <div>
-
-                    <h3>WhatsApp:</h3>
-
-                    <a href="https://wa.me/5511999999999"
-                        target="_blank"
-                        rel="noopener noreferrer">
-                            (11) 9999-9999
-                    </a>
-                </div>
-
-                <div>
-                    <h3>Horário de atendimento:</h3>
-                    <p>Segunda a sexta, das 9h às 18h</p>
+                    <div className='card-atendimento-item'>
+                        <h3>E-mail</h3>
+                        <a href="mailto:atendimento@exemplo.com">atendimento@exemplo.com</a>
+                    </div>
+                    <div className='card-atendimento-item'>
+                        <h3>WhatsApp:</h3>
+                        <a href="https://wa.me/5511999999999"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                                (11) 9999-9999
+                        </a>
+                    </div>
+                    <div className='card-atendimento-item'>
+                        <h3>Horário de atendimento:</h3>
+                        <p>Segunda a sexta, das 9h às 18h</p>
+                    
+                    </div>
                 </div>
 
             </section>

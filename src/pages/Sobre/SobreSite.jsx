@@ -18,7 +18,9 @@ function SobreSite() {
 
                 <h2>Nossa proposta</h2>
 
-                <p>Tornar mais simples encontrar plantas que combinem com diferentes ambientes e estilos, oferecendo uma experiência prática para quem deseja trazer mais natureza para o dia a dia. Além dos produtos, buscamos inspirar novas possibilidades de decoração e ajudar você a encontrar plantas que façam sentido para o seu espaço.</p>
+                <p>Tornar mais simples encontrar plantas que combinem com diferentes ambientes e estilos, oferecendo uma experiência prática para quem deseja trazer mais natureza para o dia a dia.</p> 
+                
+                <p>Além dos produtos, buscamos inspirar novas possibilidades de decoração e ajudar você a encontrar plantas que façam sentido para o seu espaço.</p>
 
 
 

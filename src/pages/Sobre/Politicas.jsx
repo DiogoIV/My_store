@@ -1,18 +1,20 @@
 
+import './politicas.css'
+
 
 
 function Politicas() {
     return (
         
-        <main>
+        <main className='container-principal-politicas'>           
 
-            <section>
+            <section className='sessao-politicas'>
 
                 <h1>Política de Privacidade</h1>
 
-                <div>
+                <div className='politicas-introducao'>
 
-                    <h2>1. Introdução</h2>
+                    <h2>Introdução</h2>
 
                     <p>
                         A sua privacidade é importante para nós. Esta Política de Privacidade explica como coletamos, utilizamos e protegemos as informações fornecidas durante a utilização do nosso site.
@@ -26,6 +28,7 @@ function Politicas() {
                     <p>
                         Podemos coletar informações fornecidas pelo usuário durante o cadastro, realização de pedidos ou contato conosco, como:
                     </p>
+
                     <ul>
                         <li>Nome;</li>
                         <li>E-mail;</li>
@@ -33,12 +36,13 @@ function Politicas() {
                         <li>Endreço de entrega;</li>
                         <li>Informações relacionadas aos pedidos.</li>
                     </ul>
+
                     <p>Também podemos coletar informações técnicas relacionadas à utilização do site, como dispositivo, navegador e dados necessários para melhorar a experiência de navegação.</p>
                 </div>
 
                 <div>
 
-                    <h2>3. Como utilizamos suas informações</h2>
+                    <h2>Como utilizamos suas informações</h2>
 
                     <p>
                         As informações coletadas podem ser utilizadas para:
@@ -59,7 +63,7 @@ function Politicas() {
                 
                 <div>
 
-                    <h2>5. Segurança</h2>
+                    <h2>Segurança</h2>
 
                     <p>
                        Adotamos medidas técnicas e organizacionais para proteger as informações dos usuários contra acesso não autorizado, alteração, divulgação ou destruição indevida. 
@@ -73,7 +77,7 @@ function Politicas() {
 
                 <div>
 
-                    <h2>6. Cookies</h2>
+                    <h2>Cookies</h2>
                     
                     <p>Nosso site pode utilizar cookies e tecnologias semelhantes para manter determinadas funcionalidades, melhorar a navegação e compreender como os usuários utilizam o site.</p>
 
@@ -81,7 +85,7 @@ function Politicas() {
                 </div>
 
                 <div>
-                    <h2>7. Seus direitos</h2>
+                    <h2>Seus direitos</h2>
 
                     <p>O usuário pode solicitar informações sobre seus dados pessoais, bem como pedir sua correção ou atualização quando necessário.</p>
                     
@@ -92,7 +96,7 @@ function Politicas() {
 
                 <div>
 
-                    <h2>8. Alterações nesta política</h2>
+                    <h2>Alterações nesta política</h2>
 
                     <p>Esta Política de Privacidade poderá ser atualizada para refletir mudanças no funcionamento do site ou em nossas práticas.</p>
 
@@ -104,7 +108,7 @@ function Politicas() {
 
                 <div>
 
-                    <h2>9. Contato</h2>
+                    <h2>Contato</h2>
 
                     <p>Caso tenha dúvidas sobre esta Política de Privacidade ou sobre o tratamento de seus dados, entre em contato conosco por meio dos canais disponíveis na página de contato do site.</p>
 

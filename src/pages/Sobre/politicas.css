@@ -1,0 +1,58 @@
+.container-principal-politicas {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 6rem 20px;
+
+    flex: 1;
+}
+
+/*sessao-politicas*/
+
+.sessao-politicas {
+    display: flex;
+    flex-direction: column;
+
+
+    
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 20px;
+    padding: 20px 15px;
+    background-color: white;
+    gap: 20px;
+}
+
+.sessao-politicas h1 {
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 40px;
+    margin-bottom: 30px;
+}
+
+.sessao-politicas h2 {
+    font-weight: 500;
+    font-size: 1.6em;
+}
+
+.sessao-politicas p {
+    line-height: 1.4em;
+}
+
+.sessao-politicas li {
+    list-style: inside;
+    padding-left: 15px;
+}
+
+.sessao-politicas div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+
