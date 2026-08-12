@@ -4,6 +4,8 @@ import Header from '../../componentes/Header/Header'
 import './Register.css'
 import { validarRegistro } from '../../utils/Validacao'
 
+import Register from '../../api/auth'
+
 function Register() {
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -12,13 +14,22 @@ function Register() {
 
     const [confirmarSenha, setConfirmarSenha] = useState('')
 
-    function validacao(e) {
+    async function validacao(e) {
         e.preventDefault()
         const erros = validarRegistro(nome, email, senha, confirmarSenha)
         if (erros) {
             setErro(erros)
             return 
         }
+
+        const dadosRegister =  {
+            nome: nome,
+            email: email, 
+            senha: senha,
+            confirmarSenha: confirmarSenha
+        }
+
+        const mensagem = await Register(dadosRegister)
 
         setErro('')
     }
