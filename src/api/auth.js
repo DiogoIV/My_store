@@ -1,26 +1,39 @@
 
 /*Criar Conta*/
 
-async function Register(dadosRegister) {
+async function Cadrasto(dadosRegister) {
 
     try {
+
         const res = await fetch('http://localhost:3000/register', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
+
                 nome: dadosRegister.nome,
                 email: dadosRegister.email,
                 senha: dadosRegister.senha,
                 confirmarSenha: dadosRegister.confirmarSenha
+
             })
         })
 
         const dados = await res.json()
 
         if(res.ok) {
-            return dados.mensagem || 'Registrado com Sucesso!'
+
+            return {
+                mensagem: dados.mensagem || 'Registrado com Sucesso!',
+                tipo: 'Sucesso'
+            }
+            
+            
         } else {
-            return dados.mensagem || 'Erro ao realizar Cadastro'
+            
+           return {
+                mensagem: dados.mensagem || 'Erro ao realizar cadastro',
+                tipo: 'erro'
+            }
         }
 
 
@@ -33,4 +46,4 @@ async function Register(dadosRegister) {
 
 }
 
-export default Register
+export default Cadrasto

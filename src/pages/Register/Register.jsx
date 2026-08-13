@@ -4,19 +4,26 @@ import Header from '../../componentes/Header/Header'
 import './Register.css'
 import { validarRegistro } from '../../utils/Validacao'
 
-import Register from '../../api/auth'
+import Cadrasto from '../../api/auth'
 
 function Register() {
+
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
     const [erro, setErro] = useState('')
 
+    const [mensagem, setMesagem] = useState('')
+    const [tipo, setTipo] = useState('')
+
     const [confirmarSenha, setConfirmarSenha] = useState('')
 
     async function validacao(e) {
+
         e.preventDefault()
+
         const erros = validarRegistro(nome, email, senha, confirmarSenha)
+
         if (erros) {
             setErro(erros)
             return 
@@ -29,7 +36,10 @@ function Register() {
             confirmarSenha: confirmarSenha
         }
 
-        const mensagem = await Register(dadosRegister)
+        const resultado = await Cadrasto(dadosRegister)
+
+        setMesagem(resultado.mensagem)
+        setTipo(resultado.tipo)
 
         setErro('')
     }
@@ -82,8 +92,15 @@ function Register() {
                         </div>
 
                         {erro && (
+                            
                             <span className='mensagem-erro'>
                                 {erro}
+                            </span>                                                   
+                        )}
+
+                        {mensagem && (
+                            <span className={`mensagem ${tipo}`}>
+                                {mensagem}
                             </span>
                         )}
 
