@@ -38,8 +38,10 @@ async function Cadrasto(dadosRegister) {
 
 
     } catch (error) {
+
         console.error("Falha na requisição:", error)
         throw error
+        
     }
     
 

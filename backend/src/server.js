@@ -13,6 +13,8 @@ app.use(cors())
 app.use('/auth', authRouter)
 
 
+app.listen(process.env.PORT, ()=> console.log('rodando'))
+
 
 
 

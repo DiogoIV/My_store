@@ -42,6 +42,7 @@ function Register() {
         setTipo(resultado.tipo)
 
         setErro('')
+
     }
 
 
@@ -51,7 +52,7 @@ function Register() {
 
             <main className='container-principal'>
 
-                <section className='container-register'>
+                <section className='container-register' >
 
                     <form action="" method="post" className='form-register' onSubmit={validacao}>
 
@@ -88,15 +89,8 @@ function Register() {
                         </div>
 
                         <div className='container-btn'>
-                            <button type="submit" className='btn'>Criar conta</button>
-                        </div>
-
-                        {erro && (
-                            
-                            <span className='mensagem-erro'>
-                                {erro}
-                            </span>                                                   
-                        )}
+                            <button  className='btn'>Criar conta</button>
+                        </div>                    
 
                         {mensagem && (
                             <span className={`mensagem ${tipo}`}>
