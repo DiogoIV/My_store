@@ -26,11 +26,14 @@ router.post('/cadastro', (req, res ) => {
         return res.status(400).json({mensagem: 'campos obrigatórios'})
     }
 
-    const erroFormato = validarFormatos(nome, email, senha)
 
     if(senha !== confirmarSenha) {
         return res.status(400).json({mensagem: 'Senhas não coincidem'})
     }
+    
+
+    const erroFormato = validarFormatos(nome, email, senha)
+
     
     if(erroFormato) {
         return res.status(400).json({mensagem: erroFormato})

@@ -1,11 +1,13 @@
 
 /*Criar Conta*/
 
-async function Cadrasto(dadosRegister) {
+/*ERRO front n ta chamndo back end*/
+
+async function Cadastro(dadosRegister) {
 
     try {
 
-        const res = await fetch('http://localhost:3000/cadrasto', {
+        const res = await fetch('http://localhost:3000/auth/cadastro', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -20,32 +22,41 @@ async function Cadrasto(dadosRegister) {
 
         const dados = await res.json()
 
-        if(res.ok) {
+
+
+        if (res.ok) {
 
             return {
                 mensagem: dados.mensagem || 'Registrado com Sucesso!',
-                tipo: 'Sucesso'
+                tipo: 'sucesso'
             }
-            
-            
+
+
         } else {
-            
-           return {
+
+            return {
                 mensagem: dados.mensagem || 'Erro ao realizar cadastro',
                 tipo: 'erro'
             }
         }
 
+        console.log('RESPOSTA:', res.status)
+        console.log('DADOS:', dados)
 
     } catch (error) {
-
         console.error("Falha na requisição:", error)
-        throw error
-        
+
+        return {
+            mensagem: 'Erro ao conectar com o servidor',
+            tipo: 'erro'
+        }
+
     }
-    
+
 
 
 }
 
-export default Cadrasto
+
+
+export default Cadastro

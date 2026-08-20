@@ -137,6 +137,14 @@
 
 /*aviso*/
 
+.aviso-erro {
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 0px;
+    background-color: rgba(255, 0, 0, 0.08);
+}
+
 .mensagem-erro, .mensagem.erro {
     display: block;
 

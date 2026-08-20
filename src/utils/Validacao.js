@@ -9,14 +9,23 @@ export function validarRegistro(
     senha,
     confirmarSenha
 ) {
-    if (!nome) return 'Preencha o nome'
-    if (!email) return 'Preencha o e-mail'
-    if (!senha) return 'Preencha a senha'
-    if (!confirmarSenha) return 'Confirme a senha'
-    if (senha !== confirmarSenha) return 'As senhas não coincidem'
 
-    return ''
+   const valores = {
+        nome: nome === '' ?  ' ⚠ Campo obrigatório': null,
+        email: email === '' ? '⚠ campo obrigatório': null,
+        senha: senha === '' ? '⚠ campo obrigatório' : null,
+        confirmarSenha: confirmarSenha === '' ? '⚠ campo obrigatório' : null,
+        validarSenha: senha !== confirmarSenha ? '⚠ Senhas não conscidem' : null
+
+   }
+
+    return valores
+
 }
+
+
+
+
 
 export function ValidarEmail (email) {
     if(!email) {
