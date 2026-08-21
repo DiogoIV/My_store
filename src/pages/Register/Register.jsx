@@ -44,8 +44,8 @@ function Register() {
 
         const erros = validarRegistro(nome, email, senha, confirmarSenha)
 
-        if (erros) {
-
+        if (erros.nome || erros.email|| erros.senha|| erros.confirmarSenha) {
+            
             setErro(
 
                 ({
@@ -60,6 +60,8 @@ function Register() {
 
             return
         }
+
+        console.log('passou dos erros')
 
         const dadosRegister = {
             nome: nome,
@@ -88,7 +90,7 @@ function Register() {
 
                 <section className='container-register' >
 
-                    <form action="" method="post" className='form-register' onSubmit={validacao}>
+                    <form action=""  className='form-register' onSubmit={validacao}>
 
                         <h1 className='titulo-register'>Criar conta</h1>
 

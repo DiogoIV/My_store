@@ -2,6 +2,12 @@
 
 /* validacao ao enviar*/
 
+const Regexs = {
+    nome: /^(?:\p{L}{2,})(?:\s+\p{L}{2,})*/u,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    senha: /(?=.*[A-Za-z]))(?=.*[0-9])(?=.*[^A-Z-a-z0-9])\S{8,}$/
+}
+
 
 export function validarRegistro(
     nome,

@@ -14,6 +14,8 @@ function validarFormatos (nome, email, senha) {
 
 const BancodeDados = []
 
+
+
 const router = Router()
 
 
@@ -31,11 +33,13 @@ router.post('/cadastro', (req, res ) => {
         return res.status(400).json({mensagem: 'Senhas não coincidem'})
     }
     
+   
 
     const erroFormato = validarFormatos(nome, email, senha)
 
     
     if(erroFormato) {
+
         return res.status(400).json({mensagem: erroFormato})
 
     }

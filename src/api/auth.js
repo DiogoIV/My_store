@@ -1,7 +1,7 @@
 
 /*Criar Conta*/
 
-/*ERRO front n ta chamndo back end*/
+
 
 async function Cadastro(dadosRegister) {
 
