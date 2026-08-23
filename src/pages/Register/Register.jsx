@@ -4,7 +4,7 @@ import Header from '../../componentes/Header/Header'
 
 import './Register.css'
 
-import { validarRegistro } from '../../utils/Validacao'
+import { validarRegistro} from '../../utils/Validacao'
 
 import Cadastro from '../../api/auth'
 
@@ -61,7 +61,7 @@ function Register() {
             return
         }
 
-        console.log('passou dos erros')
+       
 
         const dadosRegister = {
             nome: nome,
@@ -98,7 +98,7 @@ function Register() {
 
                             <label htmlFor="usu">Nome</label>
 
-                            <input type="text" id="usu" autoComplete="username" placeholder='Nome'
+                            <input type="text" id="usu" autoComplete="name" placeholder='Nome'
                                 value={nome}
                                 onChange={(e) => setNome(e.target.value)}
                             />
@@ -109,7 +109,7 @@ function Register() {
 
                         <div className="campo">
                             <label htmlFor="email">E-mail</label>
-                            <input type="text" id="email" autoComplete="email" placeholder='Email'
+                            <input type="email" id="email" autoComplete="email" placeholder='Email'
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -118,7 +118,7 @@ function Register() {
 
                         <div className="campo">
                             <label htmlFor="senha">Senha</label>
-                            <input type="password" id="senha" autoComplete="new-password" placeholder='nova Senha'
+                            <input type="password" id="senha" autoComplete="new-password" placeholder='Nova senha'
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
                             />
