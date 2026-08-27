@@ -27,7 +27,7 @@ function Register() {
     const [mensagem, setMesagem] = useState('')
     const [tipo, setTipo] = useState('')
 
-    console.log('minha mensagem', mensagem)
+    
 
     const [confirmarSenha, setConfirmarSenha] = useState('')
 
@@ -72,7 +72,7 @@ function Register() {
 
         const resultado = await Cadastro(dadosRegister)
 
-        console.log('RESULTADO:', resultado)
+        
         
         setMesagem(resultado.mensagem)
         setTipo(resultado.tipo)

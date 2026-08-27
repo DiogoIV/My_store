@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { conexao } from '../config/database.js'
+import conexao from '../config/database.js'
 
 import { validarNome, validarEmail, validarSenha } from "../validacao/Validacao.js";
 
@@ -50,17 +50,33 @@ router.post('/cadastro', async (req, res) => {
 
     /* Conexão com o Banco de Dados */
 
+    const partesNome = nome.split(' ')
+
+    const primeiroNome = partesNome[0]
+
+    const sobrenome = partesNome.slice(1).join(' ')
+
     try {
 
         await conexao.query(
-            'INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)',
-            [nome, email, senha]
+            'INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES (?, ?, ?, ?)',
+            [primeiroNome, sobrenome, email, senha]
         )
 
         res.status(201).json({ mensagem: 'Cadastrado com sucesso!' })
 
     } catch (error) {
 
+        if (error.errno === 1062) {
+            return res.status(409).json({
+                mensagem: 'Este email já está cadastrado'
+            })
+        }
+        res.status(500).json({
+            mensagem: 'Erro interno do servidor'
+        })
+
+        console.error('Erro de conexão ao Banco de dados', error)
 
     }
 

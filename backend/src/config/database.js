@@ -3,6 +3,7 @@ import 'dotenv/config'
 
 
 const conexao = mysql.createPool({
+    database: process.env.DB_NAME,
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
     user: process.env.DB_USER,

@@ -40,8 +40,7 @@ async function Cadastro(dadosRegister) {
             }
         }
 
-        console.log('RESPOSTA:', res.status)
-        console.log('DADOS:', dados)
+        
 
     } catch (error) {
         console.error("Falha na requisição:", error)
