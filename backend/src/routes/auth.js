@@ -3,7 +3,7 @@ import conexao from '../config/database.js'
 
 import { validarNome, validarEmail, validarSenha } from "../validacao/Validacao.js";
 
-
+/*mude a Regex nome */
 
 
 
