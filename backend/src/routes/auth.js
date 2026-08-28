@@ -1,9 +1,10 @@
 import { Router } from "express";
+import bcrypt from 'bcrypt'
 import conexao from '../config/database.js'
 
 import { validarNome, validarEmail, validarSenha } from "../validacao/Validacao.js";
 
-/*mude a Regex nome */
+
 
 
 
@@ -21,6 +22,7 @@ function validarFormatos(nome, email, senha) {
 const router = Router()
 
 
+/*Rota cadastro*/
 
 router.post('/cadastro', async (req, res) => {
 
@@ -56,11 +58,15 @@ router.post('/cadastro', async (req, res) => {
 
     const sobrenome = partesNome.slice(1).join(' ')
 
+    const senhaHash = await bcrypt.hash(senha, 10)
+
     try {
 
         await conexao.query(
+
             'INSERT INTO usuarios (nome, sobrenome, email, senha) VALUES (?, ?, ?, ?)',
-            [primeiroNome, sobrenome, email, senha]
+            [primeiroNome, sobrenome, email, senhaHash]
+
         )
 
         res.status(201).json({ mensagem: 'Cadastrado com sucesso!' })
@@ -72,17 +78,24 @@ router.post('/cadastro', async (req, res) => {
                 mensagem: 'Este email já está cadastrado'
             })
         }
+
+        console.error('Erro de conexão ao Banco de dados', error)
+        
         res.status(500).json({
             mensagem: 'Erro interno do servidor'
         })
 
-        console.error('Erro de conexão ao Banco de dados', error)
+        
 
     }
 
 
 
 })
+
+/*Rota Login*/
+
+
 
 
 
