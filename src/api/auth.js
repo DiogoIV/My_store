@@ -72,10 +72,15 @@ async function Logar(dadosLogin) {
     
     const dados = await res.json()
 
-    
+    const resposta =  {
+        ok: res.ok,
+        mensagem: dados.mensagem,
+    }
+
+    return resposta
     
 }
 
 
 
-export default Cadastro
+export  {Logar, Cadastro}

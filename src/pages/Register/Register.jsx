@@ -6,7 +6,7 @@ import './Register.css'
 
 import { validarRegistro} from '../../utils/Validacao'
 
-import Cadastro from '../../api/auth'
+import {Cadastro} from '../../api/auth'
 
 function Register() {
 

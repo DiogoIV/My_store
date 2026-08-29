@@ -3,34 +3,54 @@ import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 import './Login.css'
 
-import { ValidarEmail, ValidarSenha} from '../../utils/Validacao'
-import Footer from '../../componentes/Footer/Footer'
+import { ValidarEmail, ValidarSenha } from '../../utils/Validacao'
+import { validarEmail, validarSenha } from '../../../backend/src/validacao/Validacao'
+
 
 
 function Login() {
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
-    const [erro, setErro] = useState('')
+    const [erro, setErro] = useState({
+        email: '',
+        senha: ''
+    })
+    const [mensagem, setMensagem] = useState('')
 
-    console.log(senha)
 
-    function validacao(e) {
+
+    async function validacao(e) {
+
         e.preventDefault()
-        if (!ValidarEmail(email)) {
-            setErro('Preencha o e-mail')
-            return false
-        }
-        
-        if(!ValidarSenha(senha)) {
-            setErro('Preencha a Senha')
-            return false
-        }
 
         setErro('')
-        return true
+
+        /*valide a regex */
+
+
+        
+
+        
+
+
+
+        try {
+
+            const dadosInputs = {email: email, senha: senha}
+            const mensagens = await Logar(dadosInputs)
+            setMensagem(mensagens)
+
+        } catch (erro) {
+
+            console.error('Erro ao acessar Rota Logar', erro)
+
+        }
+
+
+        return
     }
-    
-    
+
+
 
     return (
         <>
@@ -67,8 +87,8 @@ function Login() {
                         </div>
 
 
-                        
-                        
+
+
                         <div className='campo container-btn'>
                             <button type="submit" className="btn-login btn">
                                 Entrar
@@ -88,12 +108,12 @@ function Login() {
                         </p>
 
 
-                        
+
                     </form>
                 </section>
             </main>
 
-            
+
 
         </>
 

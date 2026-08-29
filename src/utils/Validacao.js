@@ -35,13 +35,11 @@ export function validarRegistro(
 
 
 
-
-
-
 export function ValidarEmail(email) {
     if (!email) {
         return false
     }
+
     return true
 }
 
