@@ -137,53 +137,9 @@
 
 /*aviso*/
 
-.aviso-erro {
-    color: #b91c1c;
-    font-size: 15px;
-    font-weight: 500;
-    
-    padding: 2px 0px;
-    background-color: rgba(255, 0, 0, 0.08);
-}
 
-.mensagem-erro, .mensagem.erro {
-    display: block;
 
-    width: 100%;
 
-    padding: 5px;
-
-    border-radius: 8px;
-
-    background-color: rgba(255, 0, 0, 0.1);
-    border: 1px solid rgba(255, 0, 0, 0.3);
-
-    color: #b91c1c;
-
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.mensagem.sucesso {
-    display: block;
-
-    width: 100%;
-
-    padding: 5px;
-
-    border-radius: 8px;
-
-    background-color: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-
-    color: var(--green-light);
-    
-
-    text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-}
 
 
 

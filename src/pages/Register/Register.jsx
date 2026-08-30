@@ -1,12 +1,15 @@
+/*Configure o erro que vem do backend para aparecer nos inputs  e em baixo corretamente.*/
+
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 
 import './Register.css'
 
-import { validarRegistro} from '../../utils/Validacao'
+import { validarRegistro } from '../../utils/Validacao'
 
-import {Cadastro} from '../../api/auth'
+import { Cadastro } from '../../api/auth'
+
 
 function Register() {
 
@@ -27,7 +30,7 @@ function Register() {
     const [mensagem, setMesagem] = useState('')
     const [tipo, setTipo] = useState('')
 
-    
+
 
     const [confirmarSenha, setConfirmarSenha] = useState('')
 
@@ -44,24 +47,24 @@ function Register() {
 
         const erros = validarRegistro(nome, email, senha, confirmarSenha)
 
-        if (erros.nome || erros.email|| erros.senha|| erros.confirmarSenha) {
-            
-            setErro(
+        if (erros.nome || erros.email || erros.senha || erros.confirmarSenha) {
 
-                ({
-                    ...erro,
+            setErro(
+                {
+
                     nome: erros.nome,
                     email: erros.email,
                     senha: erros.senha,
                     confirmarSenha: erros.confirmarSenha,
                     validarSenha: erros.validarSenha
 
-                }))
+                }
+            )
 
             return
         }
 
-       
+
 
         const dadosRegister = {
             nome: nome,
@@ -72,8 +75,8 @@ function Register() {
 
         const resultado = await Cadastro(dadosRegister)
 
-        
-        
+
+
         setMesagem(resultado.mensagem)
         setTipo(resultado.tipo)
 
@@ -90,7 +93,7 @@ function Register() {
 
                 <section className='container-register' >
 
-                    <form action=""  className='form-register' onSubmit={validacao}>
+                    <form action="" className='form-register' onSubmit={validacao}>
 
                         <h1 className='titulo-register'>Criar conta</h1>
 
@@ -103,7 +106,7 @@ function Register() {
                                 onChange={(e) => setNome(e.target.value)}
                             />
 
-                            {erro.nome && <span className='aviso-erro'>{erro.nome}</span>}
+                            {erro.nome && <span className='aviso-erro-padrao'>{erro.nome}</span>}
 
                         </div>
 
@@ -113,7 +116,7 @@ function Register() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            {erro.email && <span className='aviso-erro'>{erro.email}</span>}
+                            {erro.email && <span className='aviso-erro-padrao'>{erro.email}</span>}
                         </div>
 
                         <div className="campo">
@@ -123,7 +126,7 @@ function Register() {
                                 onChange={(e) => setSenha(e.target.value)}
                             />
 
-                            {erro.senha && <span className='aviso-erro'>{erro.senha}</span>}
+                            {erro.senha && <span className='aviso-erro-padrao'>{erro.senha}</span>}
 
                         </div>
 
@@ -134,9 +137,9 @@ function Register() {
                                 onChange={(e) => setConfirmarSenha(e.target.value)}
                             />
 
-                            {erro.confirmarSenha && <span className='aviso-erro'>{erro.confirmarSenha}</span>}
+                            {erro.confirmarSenha && <span className='aviso-erro-padrao'>{erro.confirmarSenha}</span>}
 
-                            {erro.validarSenha && <span className='aviso-erro'>{erro.validarSenha}</span>}
+                            {erro.validarSenha && <span className='aviso-erro-padrao'>{erro.validarSenha}</span>}
 
                         </div>
 

@@ -11,7 +11,7 @@ const Regexs = {
 
 
 
-export function validarRegistro(
+function validarRegistro(
     nome,
     email,
     senha,
@@ -19,11 +19,11 @@ export function validarRegistro(
 ) {
 
     const valores = {
-        nome: nome === '' ? ' ⚠ Campo obrigatório' : null || !Regexs.nome.test(nome) ? ' ⚠ Formato de nome inválido': null,
+        nome: nome === '' ? ' ⚠ Campo obrigatório' : null || !Regexs.nome.test(nome) ? ' ⚠ Formato de nome inválido' : null,
 
-        email: email === '' ? '⚠ campo obrigatório' : null || !Regexs.email.test(email) ? '⚠ E-mail inválido (ex: nome@email.com)': null,
-        
-        senha: senha === '' ? '⚠ campo obrigatório' : null || !Regexs.senha.test(senha) ? ' ⚠ Mín. 8 caracteres, letra, número e símbolo': null,
+        email: email === '' ? '⚠ campo obrigatório' : null || !Regexs.email.test(email) ? '⚠ E-mail inválido (ex: nome@email.com)' : null,
+
+        senha: senha === '' ? '⚠ campo obrigatório' : null || !Regexs.senha.test(senha) ? ' ⚠ Mín. 8 caracteres, letra, número e símbolo' : null,
         confirmarSenha: confirmarSenha === '' ? '⚠ campo obrigatório' : null,
         validarSenha: senha !== confirmarSenha ? '⚠ Senhas não conscidem' : null
 
@@ -35,18 +35,30 @@ export function validarRegistro(
 
 
 
-export function ValidarEmail(email) {
-    if (!email) {
-        return false
+function ValidarLogin(email, senha) {
+    const validacaoLogin = {
+        email: email === '' ? '⚠ Campo obrigatório' : !Regexs.email.test(email) ? '⚠ E-mail inválido (ex: nome@email.com)' : null,
+
+        senha: senha === '' ? ' ⚠ Campo obrigatório' : null 
     }
 
-    return true
+    return validacaoLogin
 }
 
-export function ValidarSenha(senha) {
-    if (!senha) {
-        return false
+function validarEsqueciSenha(email) {
+
+    if (email === '') {
+        return 'Campo obrigatório'
+    } 
+
+    if(Regexs.email.test(!email)) {
+        return 'Formato de email inválido'
     }
 
-    return true
+    return null
 }
+
+
+export {validarRegistro, ValidarLogin, validarEsqueciSenha}
+
+

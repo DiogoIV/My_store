@@ -1,14 +1,18 @@
+/*
+    ligue ao backend e coloque os erros nos inputs que vem do backend
+*/
+
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 import './Login.css'
 
-import { ValidarEmail, ValidarSenha } from '../../utils/Validacao'
-import { validarEmail, validarSenha } from '../../../backend/src/validacao/Validacao'
+import { ValidarLogin } from '../../utils/Validacao'
 
 
 
 function Login() {
+
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
     const [erro, setErro] = useState({
@@ -24,15 +28,20 @@ function Login() {
         e.preventDefault()
 
         setErro('')
+        const erroLogin =  ValidarLogin(email,senha)
 
-        /*valide a regex */
+        if(erroLogin.email|| erroLogin.senha) {
 
+            setErro (
+                {
+                    email: erroLogin.email,
+                    senha: erroLogin.senha
+                }
 
-        
-
-        
-
-
+            )
+            
+            return
+        }
 
         try {
 
@@ -73,6 +82,11 @@ function Login() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
+                            {erro.email && 
+                                <div className='aviso-erro-padrao'>
+                                    {erro.email}
+                                </div>
+                            }
                         </div>
 
                         <div className="campo">
@@ -84,6 +98,12 @@ function Login() {
                                 placeholder="Digite sua senha"
                                 onChange={(e) => setSenha(e.target.value)}
                             />
+
+                            {erro.senha && 
+                                <div className='aviso-erro-padrao'>
+                                    {erro.senha}
+                                </div>
+                            }
                         </div>
 
 
@@ -97,9 +117,9 @@ function Login() {
                                 <Link to="/esqueci-senha" className='link-esqueci-senha'>Esqueci minha senha</Link>
                             </button>
                         </div>
-                        {erro && (
+                        {mensagem && (
                             <span className='mensagem-erro'>
-                                {erro}
+                                {mensagem}
                             </span>
                         )}
                         <p className="texto-cadastro">

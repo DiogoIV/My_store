@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 import './EsqueciSenha.css'
 
-import { ValidarEmail } from '../../utils/Validacao'
+import { validarEsqueciSenha } from '../../utils/Validacao'
 
 function EsqueciSenha() {
     const [email, setEmail] = useState('')
@@ -13,9 +13,10 @@ function EsqueciSenha() {
     function validacao (e) {
         e.preventDefault()
 
-        if(!ValidarEmail(email)) {
-            setErro('Preencha o email')
-            return 
+        const erroEsqueci = validarEsqueciSenha(email)
+
+        if(erroEsqueci) {
+            setErro(erroEsqueci)
         }
     }
 
