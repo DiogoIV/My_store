@@ -1,4 +1,4 @@
-/*Configure o erro que vem do backend para aparecer nos inputs  e em baixo corretamente.*/
+
 
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
