@@ -27,7 +27,10 @@ function Register() {
     }
     const [erro, setErro] = useState(errosRegister)
 
-    const [mensagem, setMesagem] = useState('')
+    const [mensagem, setMesagem] = useState({
+        campo: '',
+        mensagem: ''
+    })
     const [tipo, setTipo] = useState('')
 
 
@@ -47,7 +50,9 @@ function Register() {
 
         const erros = validarRegistro(nome, email, senha, confirmarSenha)
 
-        if (erros.nome || erros.email || erros.senha || erros.confirmarSenha) {
+        console.log(erros)
+
+        if (erros.nome || erros.email || erros.senha || erros.confirmarSenha|| erros.validarSenha) {
 
             setErro(
                 {
@@ -64,7 +69,7 @@ function Register() {
             return
         }
 
-
+        console.log(erros)
 
         const dadosRegister = {
             nome: nome,
@@ -77,7 +82,12 @@ function Register() {
 
 
 
-        setMesagem(resultado.mensagem)
+        setMesagem({
+            campo: resultado.campo,
+            mensagem: resultado.mensagem
+
+        })
+
         setTipo(resultado.tipo)
 
 
@@ -117,6 +127,8 @@ function Register() {
                                 onChange={(e) => setEmail(e.target.value)}
                             />
                             {erro.email && <span className='aviso-erro-padrao'>{erro.email}</span>}
+
+                            {mensagem.campo === 'email' && <span className='aviso-erro-padrao'>{mensagem.mensagem}</span>}
                         </div>
 
                         <div className="campo">
@@ -137,9 +149,17 @@ function Register() {
                                 onChange={(e) => setConfirmarSenha(e.target.value)}
                             />
 
-                            {erro.confirmarSenha && <span className='aviso-erro-padrao'>{erro.confirmarSenha}</span>}
+                            {erro.confirmarSenha ? (
+                                <span className="aviso-erro-padrao">
+                                    {erro.confirmarSenha}
+                                </span>
+                            ) : erro.validarSenha ? (
+                                <span className="aviso-erro-padrao">
+                                    {erro.validarSenha}
+                                </span>
+                            ) : null}
 
-                            {erro.validarSenha && <span className='aviso-erro-padrao'>{erro.validarSenha}</span>}
+
 
                         </div>
 
@@ -147,10 +167,12 @@ function Register() {
                             <button className='btn'>Criar conta</button>
                         </div>
 
-                        {mensagem && (
-                            <span className={`mensagem ${tipo}`}>
-                                {mensagem}
+                        {mensagem.campo !== 'email' && mensagem.mensagem && (
+
+                            <span className={`mensagem ${tipo} aviso-erro-padrao`}>
+                                {mensagem.mensagem}
                             </span>
+                            
                         )}
 
                         <p className='texto-cadastro'>

@@ -31,12 +31,19 @@ router.post('/cadastro', async (req, res) => {
     /*Validações*/
 
     if (nome === '' || email === '' || senha === '' || confirmarSenha === '') {
-        return res.status(400).json({ mensagem: 'campos obrigatórios' })
+        
+        return res.status(400).json({ 
+            campo: 'erro',
+            mensagem: ' ⚠ preenchas os campos corretamente!!!' 
+        })
     }
 
 
     if (senha !== confirmarSenha) {
-        return res.status(400).json({ mensagem: 'Senhas não coincidem' })
+        return res.status(400).json({ 
+            campo: 'erro',
+            mensagem: ' ⚠ Senhas não coincidem' 
+        })
     }
 
 
@@ -44,8 +51,11 @@ router.post('/cadastro', async (req, res) => {
 
 
     if (erroFormato) {
-
-        return res.status(400).json({ mensagem: erroFormato })
+        
+        return res.status(400).json({ 
+            campo: 'erro',
+            mensagem: erroFormato 
+        })
 
     }
 
@@ -69,20 +79,25 @@ router.post('/cadastro', async (req, res) => {
 
         )
 
-        res.status(201).json({ mensagem: 'Cadastrado com sucesso!' })
+        res.status(201).json({ 
+            campo: 'sucesso',
+            mensagem: 'Cadastrado com sucesso!' 
+        })
 
     } catch (error) {
 
         if (error.errno === 1062) {
             return res.status(409).json({
-                mensagem: 'Este email já está cadastrado'
+                campo:'email',
+                mensagem: ' ⚠ Este email já está cadastrado'
             })
         }
 
         console.error('Erro de conexão ao Banco de dados', error)
         
         res.status(500).json({
-            mensagem: 'Erro interno do servidor'
+            campo: 'erro',
+            mensagem: ' ⚠ Erro interno do servidor'
         })
 
         

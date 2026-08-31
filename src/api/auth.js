@@ -26,6 +26,7 @@ async function Cadastro(dadosRegister) {
 
             return {
                 mensagem: dados.mensagem || 'Registrado com Sucesso!',
+                campo: dados.campo,
                 tipo: 'sucesso'
             }
 
@@ -34,6 +35,7 @@ async function Cadastro(dadosRegister) {
 
             return {
                 mensagem: dados.mensagem || 'Erro ao realizar cadastro',
+                campo: dados.campo,
                 tipo: 'erro'
             }
         }
@@ -44,7 +46,7 @@ async function Cadastro(dadosRegister) {
         console.error("Falha na requisição:", error)
 
         return {
-            mensagem: 'Erro ao conectar com o servidor',
+            mensagem: 'Erro ao conectar com o servidor',     
             tipo: 'erro'
         }
 
@@ -74,7 +76,8 @@ async function Logar(dadosLogin) {
 
     const resposta =  {
         ok: res.ok,
-        mensagem: dados.mensagem,
+        campo: dados.campo,
+        mensagem: dados.mensagem
     }
 
     return resposta
