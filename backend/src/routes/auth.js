@@ -31,18 +31,18 @@ router.post('/cadastro', async (req, res) => {
     /*Validações*/
 
     if (nome === '' || email === '' || senha === '' || confirmarSenha === '') {
-        
-        return res.status(400).json({ 
+
+        return res.status(400).json({
             campo: 'erro',
-            mensagem: ' ⚠ preenchas os campos corretamente!!!' 
+            mensagem: ' ⚠ preenchas os campos corretamente!!!'
         })
     }
 
 
     if (senha !== confirmarSenha) {
-        return res.status(400).json({ 
+        return res.status(400).json({
             campo: 'erro',
-            mensagem: ' ⚠ Senhas não coincidem' 
+            mensagem: ' ⚠ Senhas não coincidem'
         })
     }
 
@@ -51,10 +51,10 @@ router.post('/cadastro', async (req, res) => {
 
 
     if (erroFormato) {
-        
-        return res.status(400).json({ 
+
+        return res.status(400).json({
             campo: 'erro',
-            mensagem: erroFormato 
+            mensagem: erroFormato
         })
 
     }
@@ -79,28 +79,28 @@ router.post('/cadastro', async (req, res) => {
 
         )
 
-        res.status(201).json({ 
+        res.status(201).json({
             campo: 'sucesso',
-            mensagem: 'Cadastrado com sucesso!' 
+            mensagem: 'Cadastrado com sucesso!'
         })
 
     } catch (error) {
 
         if (error.errno === 1062) {
             return res.status(409).json({
-                campo:'email',
+                campo: 'email',
                 mensagem: ' ⚠ Este email já está cadastrado'
             })
         }
 
         console.error('Erro de conexão ao Banco de dados', error)
-        
+
         res.status(500).json({
             campo: 'erro',
             mensagem: ' ⚠ Erro interno do servidor'
         })
 
-        
+
 
     }
 
@@ -110,8 +110,53 @@ router.post('/cadastro', async (req, res) => {
 
 /*Rota Login*/
 
+router.post('/login', async (req, res) => {
+
+    const { email, senha } = req.body
+
+    /*Validações*/
+
+    const erroEmail = validarEmail(email)
+
+    if (email === '' || senha === '') {
+        return res.status(400).json({ mensagem: 'Email ou senha inválido' })
+    }
+
+    if (erroEmail) {
+        return res.status(400).json({ mensagem: erroEmail })
+    }
 
 
+
+    const [resultado] = await conexao.query(
+        'SELECT * FROM usuarios WHERE email = ?',
+        [email]
+    )
+
+    if (resultado.length === 0) {
+
+        return res.status(401).json({
+            campo: 'login',
+            mensagem: 'E-mail ou senha inválidos'
+        })
+
+    }
+
+    const senhaCorreta = await bcrypt.compare(senha, resultado[0].senha)
+
+    if(!senhaCorreta) {
+
+        return res.status(401).json({mensagem: 'senha errada'})
+
+    }
+
+    return res.status(200).json({mensagem: 'Logado com sucesso!'})
+
+
+})
+
+
+/*aplique o jwt. depois crie o container, após o usuário fazer login.*/
 
 
 export default router

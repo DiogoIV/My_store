@@ -1,6 +1,4 @@
-/*
-    ligue ao backend e coloque os erros nos inputs que vem do backend
-*/
+
 
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
@@ -8,6 +6,7 @@ import Header from '../../componentes/Header/Header'
 import './Login.css'
 
 import { ValidarLogin } from '../../utils/Validacao'
+import { Logar } from '../../api/auth'
 
 
 
@@ -19,7 +18,11 @@ function Login() {
         email: '',
         senha: ''
     })
-    const [mensagem, setMensagem] = useState('')
+    const [mensagemAviso, setMensagemAviso] = useState({
+        ok: '',
+        campo: '',
+        mensagem: ''
+    })
 
 
 
@@ -28,6 +31,7 @@ function Login() {
         e.preventDefault()
 
         setErro('')
+
         const erroLogin =  ValidarLogin(email,senha)
 
         if(erroLogin.email|| erroLogin.senha) {
@@ -47,7 +51,7 @@ function Login() {
 
             const dadosInputs = {email: email, senha: senha}
             const mensagens = await Logar(dadosInputs)
-            setMensagem(mensagens)
+            setMensagemAviso(mensagens)
 
         } catch (erro) {
 
@@ -117,9 +121,9 @@ function Login() {
                                 <Link to="/esqueci-senha" className='link-esqueci-senha'>Esqueci minha senha</Link>
                             </button>
                         </div>
-                        {mensagem && (
+                        {mensagemAviso.mensagem && (
                             <span className='mensagem-erro'>
-                                {mensagem}
+                                {mensagemAviso.mensagem}
                             </span>
                         )}
                         <p className="texto-cadastro">
