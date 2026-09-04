@@ -53,6 +53,10 @@ function Login() {
             const mensagens = await Logar(dadosInputs)
             setMensagemAviso(mensagens)
 
+            if(mensagens.campo === 'Logado') {
+                localStorage.setItem('token', mensagens.token)
+            }
+
         } catch (erro) {
 
             console.error('Erro ao acessar Rota Logar', erro)

@@ -1,5 +1,7 @@
 import { Router } from "express";
 import bcrypt from 'bcrypt'
+
+import jwt from 'jsonwebtoken'
 import conexao from '../config/database.js'
 
 import { validarNome, validarEmail, validarSenha } from "../validacao/Validacao.js";
@@ -150,7 +152,15 @@ router.post('/login', async (req, res) => {
 
     }
 
-    return res.status(200).json({mensagem: 'Logado com sucesso!'})
+    const token = jwt.sign(
+        {id: resultado[0].id},
+        process.env.JWT_KEY
+    )
+
+    return res.status(200).json({
+        token: token,
+        campo: 'Logado'
+    })
 
 
 })

@@ -74,15 +74,22 @@ async function Logar(dadosLogin) {
     
     const dados = await res.json()
 
+    
+
     const resposta =  {
         ok: res.ok,
+        token: dados.token,
         campo: dados.campo,
         mensagem: dados.mensagem
     }
 
+    
+
     return resposta
     
 }
+
+/*Crei uma rota protegida de exemplo */
 
 
 
