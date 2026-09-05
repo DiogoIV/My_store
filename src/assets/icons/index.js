@@ -9,7 +9,8 @@ export {
   FaMinus,
   FaCheck,
   FaStar,
-  FaArrowLeft
+  FaArrowLeft,
+  FaRegUserCircle
 } from "react-icons/fa";
 /* categorias, setas*/
 

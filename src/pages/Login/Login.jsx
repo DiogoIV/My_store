@@ -1,6 +1,6 @@
 
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../componentes/Header/Header'
 import './Login.css'
@@ -23,6 +23,8 @@ function Login() {
         campo: '',
         mensagem: ''
     })
+
+    const navigate = useNavigate();
 
 
 
@@ -54,7 +56,11 @@ function Login() {
             setMensagemAviso(mensagens)
 
             if(mensagens.campo === 'Logado') {
+                
                 localStorage.setItem('token', mensagens.token)
+                
+                navigate('/')
+
             }
 
         } catch (erro) {

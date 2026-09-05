@@ -93,4 +93,7 @@ async function Logar(dadosLogin) {
 
 
 
+
+
+
 export  {Logar, Cadastro}

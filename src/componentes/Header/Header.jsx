@@ -1,3 +1,4 @@
+/*Crie o menu dropdown do usuario.*/
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
@@ -8,7 +9,8 @@ import {
     FaCartArrowDown,
     FaLeaf,
     FaRegHeart,
-    FaSearch
+    FaSearch,
+    FaRegUserCircle
 } from '../../assets/icons'
 
 import { produtos } from "../../data";
@@ -16,6 +18,8 @@ import { produtos } from "../../data";
 function Header({ modo, className }) {
 
     const { contadorCart } = useContext(CartContext)
+
+    const token = localStorage.getItem('token')
 
     /*pesquisa*/
     const [pesquisa, setpesquisa] = useState("")
@@ -29,11 +33,12 @@ function Header({ modo, className }) {
 
     const produtoExibir = produtoSelecionado.map(el => {
         console.log(el.id)
+
         return (
 
-            <Link to={`/produtos/${el.id}`} 
-            className="lista_pesquisa" 
-            key={el.id}
+            <Link to={`/produtos/${el.id}`}
+                className="lista_pesquisa"
+                key={el.id}
             >
                 <div className="container_img-pesquisa">
                     <img src={el.imagem} alt={el.alt} />
@@ -54,8 +59,8 @@ function Header({ modo, className }) {
     return (
         <header className={modo === "login" ? "container-header-login" : "container-header"}>
             {/*Logo Principal*/}
-            <Link to="/" 
-            className="logo" 
+            <Link to="/"
+                className="logo"
             >
                 <FaLeaf className="icon_logo" />
                 <h1> Planta Shop</h1>
@@ -72,7 +77,7 @@ function Header({ modo, className }) {
                                 value={pesquisa}
                                 onChange={(el) => setpesquisa(el.target.value)}
                                 onFocus={() => setExibir(true)}
-                                onBlur={()=> setTimeout(()=> setExibir(false), 200)} />
+                                onBlur={() => setTimeout(() => setExibir(false), 200)} />
 
                             {exibir && <div className="overlay" />}
 
@@ -102,9 +107,18 @@ function Header({ modo, className }) {
 
                     <nav className="user">
 
-                        <NavLink to='/login' className="link-user">
-                            <FaRegUser className="icon-user" />
-                        </NavLink>
+                        
+                        {token ? (
+                            <button className="link-user">
+                                <FaRegUserCircle className="icon-user" size={27}/>
+                                <p className="user-nome">Olá, <span>Diogo</span></p>
+                            </button>
+                        ) :
+                            <NavLink to='/login' className="link-user">
+                                <FaRegUser className="icon-user" />
+                            </NavLink>
+                        }
+
 
                         <NavLink to='/favoritos' className="link-user">
                             <FaRegHeart className="icon-user" />

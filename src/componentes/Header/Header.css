@@ -189,13 +189,16 @@ div.search-bar input#input_search {
 
 nav.user {
     display: flex;
-
+    align-items: center;
     justify-content: end;
     padding: 20px;
-    gap: 3em;
+    gap: 2em;
 }
 
 nav.user .link-user {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 
     padding: 8px;
     background: none;
@@ -216,6 +219,14 @@ nav.user .link-user {
     
     
 }
+
+.user-nome {
+    
+    color: var(--green-light);
+    
+}
+
+
 
 .cart{
      position: relative;
