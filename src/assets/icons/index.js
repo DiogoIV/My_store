@@ -16,7 +16,8 @@ export {
 
 export {
   IoIosArrowBack,
-  IoIosArrowForward
+  IoIosArrowForward,
+  IoIosArrowDown
 } from "react-icons/io";
 
 export{

@@ -1,4 +1,4 @@
-/*Crie o menu dropdown do usuario.*/
+
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
@@ -10,7 +10,8 @@ import {
     FaLeaf,
     FaRegHeart,
     FaSearch,
-    FaRegUserCircle
+    FaRegUserCircle,
+    IoIosArrowDown
 } from '../../assets/icons'
 
 import { produtos } from "../../data";
@@ -54,6 +55,9 @@ function Header({ modo, className }) {
     })
 
     const mostraDropdown = exibir && pesquisa.trim().length > 0
+
+    /*Dropdown menu perfil*/
+    const [menuPerfil, setMenuPerfil] = useState(false)
 
 
     return (
@@ -107,12 +111,50 @@ function Header({ modo, className }) {
 
                     <nav className="user">
 
-                        
+
                         {token ? (
-                            <button className="link-user">
-                                <FaRegUserCircle className="icon-user" size={27}/>
-                                <p className="user-nome">Olá, <span>Diogo</span></p>
-                            </button>
+                            <div>
+                                <button className="link-user" onClick={() => setMenuPerfil(!menuPerfil)}>
+
+                                    <FaRegUserCircle className="icon-user" size={28} />
+
+                                    <div className="user-nome">
+                                        <span>Diogo</span>
+                                    </div>
+
+                                    <IoIosArrowDown className="icon-user" size={16} />
+
+                                </button>
+
+                                {menuPerfil && (
+                                    
+                                    <ul className="drop-down-perfil">
+
+                                        <li>
+                                            <NavLink>Meu Perfil</NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink>Endereços</NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink>Dados Pessoais</NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink>Fale Conosco</NavLink>
+                                        </li>
+
+                                        <li>
+                                            <NavLink>Sair</NavLink>
+                                        </li>
+
+                                    </ul>
+                                )}
+
+
+                            </div>
                         ) :
                             <NavLink to='/login' className="link-user">
                                 <FaRegUser className="icon-user" />
