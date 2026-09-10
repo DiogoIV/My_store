@@ -136,7 +136,7 @@ function Header({ modo, className }) {
 
                     {/*Navegação*/}
 
-                    <nav className="user">
+                    <nav className={token ? "user user-token": "user"}>
 
 
                         {token ? (
@@ -159,24 +159,26 @@ function Header({ modo, className }) {
 
                                     <ul className="drop-down-perfil" >
 
-                                        <li>
+                                        <li className="valores-drop-down">
                                             <NavLink>Meu Perfil</NavLink>
                                         </li>
 
-                                        <li>
+                                        <li className="valores-drop-down">
                                             <NavLink>Endereços</NavLink>
                                         </li>
 
-                                        <li>
+                                        <li className="valores-drop-down">
                                             <NavLink>Dados Pessoais</NavLink>
                                         </li>
 
-                                        <li>
+                                        <li className="valores-drop-down">
                                             <NavLink>Fale Conosco</NavLink>
                                         </li>
-
-                                        <li>
-                                            <NavLink>Sair</NavLink>
+                                        
+                                        <li className="valores-drop-down valores-btn-sair">
+                                            <button className="btn-sair-drop">
+                                                Sair
+                                            </button>
                                         </li>
 
                                     </ul>
