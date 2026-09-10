@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
 import { useContext } from "react";
@@ -57,12 +57,39 @@ function Header({ modo, className }) {
     const mostraDropdown = exibir && pesquisa.trim().length > 0
 
     /*Dropdown menu perfil*/
+
+
     const [menuPerfil, setMenuPerfil] = useState(false)
+
+    const containerRef = useRef(null)
+
+    useEffect(() => {
+
+        function verificarClique(event) {
+
+            if (
+                containerRef.current &&
+                !containerRef.current.contains(event.target)
+            ) {
+                setMenuPerfil(false)
+            }
+
+        }
+
+        document.addEventListener('click', verificarClique)
+
+        return () => {
+            document.removeEventListener('click', verificarClique)
+        }
+
+    }, [])
 
 
     return (
         <header className={modo === "login" ? "container-header-login" : "container-header"}>
+
             {/*Logo Principal*/}
+
             <Link to="/"
                 className="logo"
             >
@@ -113,10 +140,12 @@ function Header({ modo, className }) {
 
 
                         {token ? (
-                            <div>
+                            <div ref={containerRef} className="container-menu-perfil"
+                            >
+
                                 <button className="link-user" onClick={() => setMenuPerfil(!menuPerfil)}>
 
-                                    <FaRegUserCircle className="icon-user" size={28} />
+                                    <FaRegUserCircle className="icon-user" size={27} />
 
                                     <div className="user-nome">
                                         <span>Diogo</span>
@@ -127,8 +156,8 @@ function Header({ modo, className }) {
                                 </button>
 
                                 {menuPerfil && (
-                                    
-                                    <ul className="drop-down-perfil">
+
+                                    <ul className="drop-down-perfil" >
 
                                         <li>
                                             <NavLink>Meu Perfil</NavLink>
