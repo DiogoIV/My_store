@@ -1,16 +1,22 @@
 
 
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Header from '../../componentes/Header/Header'
 import './Login.css'
 
 import { ValidarLogin } from '../../utils/Validacao'
 import { Logar } from '../../api/auth'
 
+import { AuthContext } from '../../Context/authContext/AuthContext'
+
+
+
 
 
 function Login() {
+
+    const { loggedIn } = useContext(AuthContext)
 
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
@@ -24,6 +30,7 @@ function Login() {
         mensagem: ''
     })
 
+
     const navigate = useNavigate();
 
 
@@ -34,31 +41,37 @@ function Login() {
 
         setErro('')
 
-        const erroLogin =  ValidarLogin(email,senha)
+        const erroLogin = ValidarLogin(email, senha)
 
-        if(erroLogin.email|| erroLogin.senha) {
+        if (erroLogin.email || erroLogin.senha) {
 
-            setErro (
+            setErro(
                 {
                     email: erroLogin.email,
                     senha: erroLogin.senha
                 }
 
             )
-            
+
             return
         }
 
         try {
 
-            const dadosInputs = {email: email, senha: senha}
+            const dadosInputs = { email: email, senha: senha }
             const mensagens = await Logar(dadosInputs)
             setMensagemAviso(mensagens)
 
-            if(mensagens.campo === 'Logado') {
-                
+            if (mensagens.campo === 'Logado') {
+
                 localStorage.setItem('token', mensagens.token)
+
                 
+
+                loggedIn()
+
+
+
                 navigate('/')
 
             }
@@ -96,7 +109,7 @@ function Login() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
-                            {erro.email && 
+                            {erro.email &&
                                 <div className='aviso-erro-padrao'>
                                     {erro.email}
                                 </div>
@@ -113,7 +126,7 @@ function Login() {
                                 onChange={(e) => setSenha(e.target.value)}
                             />
 
-                            {erro.senha && 
+                            {erro.senha &&
                                 <div className='aviso-erro-padrao'>
                                     {erro.senha}
                                 </div>

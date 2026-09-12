@@ -1,8 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
+import { AuthProvider } from './Context/authContext/AuthContext.jsx';
 import { CartProvider } from "./Context/CartContext/CartContext";
 import './styles/global.css'
 import { PedidoProvider } from './Context/pedidoContext/PedidoContext.jsx';
+
 
 import App from './App.jsx'
 import Cart from './pages/Cart/Cart.jsx'
@@ -18,7 +21,7 @@ import Checkout from './pages/Checkout/Checkout.jsx'
 import CheckoutLayout from './pages/Checkout/CheckoutLayout.jsx'
 import OrderSuccess from './pages/Checkout/OrderSuccess.jsx'
 import MeusPedidos from './pages/MeusPedidos/MeusPedidos.jsx';
-import DetalhesPedidos  from './pages/MeusPedidos/DetalhesPedidos.jsx'
+import DetalhesPedidos from './pages/MeusPedidos/DetalhesPedidos.jsx'
 
 import SobreSite from './pages/Sobre/SobreSite.jsx';
 import Politicas from './pages/Sobre/Politicas.jsx';
@@ -32,7 +35,7 @@ const router = createBrowserRouter([
 
   {
     path: '/',
-    element: <App/>,
+    element: <App />,
     children: [
       {
         index: true,
@@ -40,41 +43,41 @@ const router = createBrowserRouter([
       },
       {
         path: "carrinho",
-        element: <Cart/>
+        element: <Cart />
       },
 
       {
         path: "favoritos",
-        element: <Favoritos/>
+        element: <Favoritos />
       },
       {
-        path:"meuspedidos",
-        element: <MeusPedidos/>
+        path: "meuspedidos",
+        element: <MeusPedidos />
       },
       {
-        path:"produtos/:id",
-        element: <Produtos/>
+        path: "produtos/:id",
+        element: <Produtos />
       },
       {
         path: "detalhespedidos/:id",
-        element: <DetalhesPedidos/>
+        element: <DetalhesPedidos />
       },
       {
         path: "carousel/:slug",
-        element: <Carousel/>
+        element: <Carousel />
       },
       {
         path: "sobresite",
-        element: <SobreSite/>
+        element: <SobreSite />
       },
       {
         path: "politicas",
-        element: <Politicas/>
+        element: <Politicas />
       },
 
       {
         path: "contato",
-        element: <Contato/>
+        element: <Contato />
       }
     ]
   },
@@ -87,43 +90,46 @@ const router = createBrowserRouter([
 
   {
     path: '/register',
-    element: <Register/>
+    element: <Register />
   },
 
   {
     path: '/esqueci-senha',
-    element: <EsqueciSenha/>
+    element: <EsqueciSenha />
   },
 
   /*cart*/
 
   {
     path: '/checkout',
-    element: <CheckoutLayout/>,
+    element: <CheckoutLayout />,
     children: [
 
       {
         index: true,
-        element: <Checkout/>
+        element: <Checkout />
       },
-      
+
       {
         path: "sucesso",
-        element: <OrderSuccess/>
+        element: <OrderSuccess />
       }
 
-      
-      
+
+
     ]
   }
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartProvider>
-      <PedidoProvider>
-        <RouterProvider router={router} />
-      </PedidoProvider>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <PedidoProvider>
+          <RouterProvider router={router} />
+        </PedidoProvider>
+      </CartProvider>
+    </AuthProvider>
+
   </StrictMode>
 )

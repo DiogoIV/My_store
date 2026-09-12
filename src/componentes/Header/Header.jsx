@@ -1,9 +1,12 @@
-
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
 import './Header.css'
-import { useContext } from "react";
+
 import { CartContext } from "../../Context/CartContext/CartContext";
+import { AuthContext } from "../../Context/authContext/AuthContext";
+
+// arrume o  css do drop perfil
+
 import {
     FaRegUser,
     FaCartArrowDown,
@@ -23,6 +26,7 @@ function Header({ modo, className }) {
     const token = localStorage.getItem('token')
 
     /*pesquisa*/
+
     const [pesquisa, setpesquisa] = useState("")
     const [exibir, setExibir] = useState(false)
     const produtoSelecionado = produtos.filter((prod) => {
@@ -58,6 +62,7 @@ function Header({ modo, className }) {
 
     /*Dropdown menu perfil*/
 
+    const { isAuthenticated, loggedOut } = useContext(AuthContext)
 
     const [menuPerfil, setMenuPerfil] = useState(false)
 
@@ -98,6 +103,7 @@ function Header({ modo, className }) {
             </Link>
 
             {/*Barra de pesquisa*/}
+
             {modo !== "login" && (
                 <>
                     <div className="search-bar">
@@ -136,10 +142,10 @@ function Header({ modo, className }) {
 
                     {/*Navegação*/}
 
-                    <nav className={token ? "user user-token": "user"}>
+                    <nav className={isAuthenticated ? "user user-token" : "user"}>
 
 
-                        {token ? (
+                        {isAuthenticated ? (
                             <div ref={containerRef} className="container-menu-perfil"
                             >
 
@@ -174,14 +180,14 @@ function Header({ modo, className }) {
                                         <li className="valores-drop-down">
                                             <NavLink>Fale Conosco</NavLink>
                                         </li>
-                                        
-                                        <li className="valores-drop-down valores-btn-sair">
-                                            <button className="btn-sair-drop">
-                                                Sair
-                                            </button>
-                                        </li>
+
+                                        <button className="btn-sair-drop" onClick={loggedOut} className="valores-drop-down valores-btn-sair">
+                                            Sair
+                                        </button>
 
                                     </ul>
+                                
+
                                 )}
 
 
