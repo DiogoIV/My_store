@@ -166,7 +166,7 @@ router.post('/login', async (req, res) => {
 })
 
 
-/*aplique o jwt. depois crie o container, após o usuário fazer login.*/
+
 
 
 export default router

@@ -5,8 +5,6 @@ import './Header.css'
 import { CartContext } from "../../Context/CartContext/CartContext";
 import { AuthContext } from "../../Context/authContext/AuthContext";
 
-// arrume o  css do drop perfil
-
 import {
     FaRegUser,
     FaCartArrowDown,
@@ -166,7 +164,11 @@ function Header({ modo, className }) {
                                     <ul className="drop-down-perfil" >
 
                                         <li className="valores-drop-down">
-                                            <NavLink>Meu Perfil</NavLink>
+                                            <NavLink>Minha Conta</NavLink>
+                                        </li>
+
+                                        <li className="valores-drop-down">
+                                            <NavLink>Meus Pedidos</NavLink>
                                         </li>
 
                                         <li className="valores-drop-down">
@@ -181,7 +183,7 @@ function Header({ modo, className }) {
                                             <NavLink>Fale Conosco</NavLink>
                                         </li>
 
-                                        <button className="btn-sair-drop" onClick={loggedOut} className="valores-drop-down valores-btn-sair">
+                                        <button className="valores-btn-sair " onClick={loggedOut} >
                                             Sair
                                         </button>
 

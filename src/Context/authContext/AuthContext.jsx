@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
 
     function loggedOut() {
 
-        console.log('sair')
+        
         
         localStorage.removeItem('token')
         setIsAuthenticated(false)

@@ -192,11 +192,13 @@ div.search-bar input#input_search {
     align-items: center;
     justify-content: end;
     padding: 20px;
-    gap: 4em;
+    margin-right: 2rem;
+    gap: 3em;
 }
 
 .user.user-token {
-    gap: 20px;
+    gap: 22px;
+    margin-right: 5px;
 }
 
 nav.user .link-user {
@@ -266,9 +268,9 @@ span.badge {
     flex-direction: column;
     gap: 15px;
 
-    padding: 15px 10px;
+    padding: 15px 10px 5px 10px;
     width: 200px;
-
+    
     border-radius: 5px;
     background-color: #edf4ee;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
@@ -292,7 +294,7 @@ span.badge {
 
 }
 
-.valores-drop-down>a {
+.valores-drop-down > a {
     text-decoration: none;
     color: gray;
     font-size: 15px;
@@ -301,15 +303,22 @@ span.badge {
 .valores-btn-sair:last-child {
     border-top: 1px solid #ddd;
     padding-top: 12px;
+    padding-bottom: 10px;
 
 }
 
-.valores-btn-sair .btn-sair-drop {
-
+.valores-btn-sair  {
+    cursor: pointer;
     background: none;
     color: gray;
     font-size: 15px;
+    padding: 5px 0px;
 }
+
+ .valores-btn-sair:hover {
+    background-color: #d8eadb;
+    border-radius: 5px;
+ }
 
 
 
