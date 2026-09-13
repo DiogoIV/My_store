@@ -10,7 +10,10 @@ export {
   FaCheck,
   FaStar,
   FaArrowLeft,
-  FaRegUserCircle
+  FaRegUserCircle,
+  FaShoppingBag,
+  FaMapMarkerAlt,
+  FaRegCommentDots
 } from "react-icons/fa";
 /* categorias, setas*/
 

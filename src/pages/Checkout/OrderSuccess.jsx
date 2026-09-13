@@ -77,7 +77,7 @@ function OrderSucess() {
 
             <section className='campo-links'>
 
-                <Link to="/meuspedidos" className='btn-primary btn-pedidos'>
+                <Link to="/meus-pedidos" className='btn-primary btn-pedidos'>
                     Ver meus pedidos
                 </Link>
 

@@ -11,6 +11,7 @@ import App from './App.jsx'
 import Cart from './pages/Cart/Cart.jsx'
 import Favoritos from './pages/Favoritos/Favoritos.jsx'
 import Produtos from './pages/Produtos/Produtos.jsx';
+import MinhaConta from './pages/Perfil/MinhaConta/MinhaConta.jsx';
 import Home from './pages/Home/Home.jsx'
 
 import Login from './pages/Login/Login.jsx'
@@ -30,6 +31,10 @@ import Contato from './pages/Sobre/Contato.jsx';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Carousel from './pages/Carousel/Carousel.jsx';
+import DadosPessoais from './pages/Perfil/DadosPessoais/DadosPessoais.jsx';
+import Enderecos from './pages/Perfil/Enderecos/Enderecos.jsx';
+import FaleConosco from './pages/Perfil/FaleConosco/FaleConosco.jsx';
+
 
 const router = createBrowserRouter([
 
@@ -41,6 +46,32 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />
       },
+
+      {
+        path: "minha-conta",
+        element: <MinhaConta/>
+      },
+
+      {
+        path: "meus-pedidos",
+        element: <MeusPedidos />
+      },
+
+      {
+        path: "enderecos",
+        element: <Enderecos />
+      },
+
+      {
+        path: "dados-pessoais",
+        element: <DadosPessoais />
+      },  
+      
+      {
+        path: "fale-conosco",
+        element: <FaleConosco />
+      },
+
       {
         path: "carrinho",
         element: <Cart />
@@ -49,11 +80,8 @@ const router = createBrowserRouter([
       {
         path: "favoritos",
         element: <Favoritos />
-      },
-      {
-        path: "meuspedidos",
-        element: <MeusPedidos />
-      },
+      },     
+      
       {
         path: "produtos/:id",
         element: <Produtos />
