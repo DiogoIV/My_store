@@ -1,0 +1,76 @@
+
+.container-minha-conta { 
+    display: flex;
+    flex-direction: column;
+    
+
+    gap: 20px;
+    flex: 1;
+
+    padding: 20px 40px;
+}
+
+.container-minha-conta > h1 {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+
+/*sessao-introducao*/
+
+.sessao-introducao {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+    border-bottom: 1px solid var(--green-light);
+
+}
+
+.sessao-introducao .introducao-email {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sessao-introducao .introducao-btn-pessoais {
+    align-self: flex-start;
+    color: var(--green-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.introducao-btn-pessoais:hover {
+    color: var(--green-light);
+}
+
+
+
+
+
+
+
+/*sessao-meus-dados*/
+
+.sessao-meus-dados {
+    padding-top: 20px;
+}
+
+.sessao-meus-dados .container-atalhos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 20px;
+   
+
+    list-style: none;
+}
+
+.container-atalhos .btn-atalhos {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    background-color: gray;
+    
+}

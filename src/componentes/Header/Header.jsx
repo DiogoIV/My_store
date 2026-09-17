@@ -168,19 +168,19 @@ function Header({ modo, className }) {
                                         </li>
 
                                         <li className="valores-drop-down">
-                                            <NavLink to="meus-pedidos">Meus Pedidos</NavLink>
+                                            <NavLink to="minha-conta/meus-pedidos">Meus Pedidos</NavLink>
                                         </li>
 
                                         <li className="valores-drop-down">
-                                            <NavLink to="enderecos">Endereços</NavLink>
+                                            <NavLink to="minha-conta/enderecos">Endereços</NavLink>
                                         </li>
 
                                         <li className="valores-drop-down">
-                                            <NavLink to="dados-pessoais">Dados Pessoais</NavLink>
+                                            <NavLink to="minha-conta/dados-pessoais">Dados Pessoais</NavLink>
                                         </li>
 
                                         <li className="valores-drop-down">
-                                            <NavLink to="fale-conosco">Fale Conosco</NavLink>
+                                            <NavLink to="minha-conta/fale-conosco">Fale Conosco</NavLink>
                                         </li>
 
                                         <button className="valores-btn-sair " onClick={loggedOut} >

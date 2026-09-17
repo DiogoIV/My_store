@@ -53,22 +53,22 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "meus-pedidos",
+        path: "minha-conta/meus-pedidos",
         element: <MeusPedidos />
       },
 
       {
-        path: "enderecos",
+        path: "minha-conta/enderecos",
         element: <Enderecos />
       },
 
       {
-        path: "dados-pessoais",
+        path: "minha-conta/dados-pessoais",
         element: <DadosPessoais />
       },  
       
       {
-        path: "fale-conosco",
+        path: "minha-conta/fale-conosco",
         element: <FaleConosco />
       },
 

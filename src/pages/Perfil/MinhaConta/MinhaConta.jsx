@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { FaUser, FaShoppingBag, FaMapMarkerAlt, FaRegCommentDots } from "react-icons/fa"
+import { FaUser, FaShoppingBag, FaMapMarkerAlt, FaRegCommentDots, MdEmail } from "../../../assets/icons/index"
 
 import './minhaConta.css'
 
@@ -10,15 +10,29 @@ function MinhaConta() {
     return (
 
         <main className="container-minha-conta">
+
+            <h1>Minha Conta</h1>
+
+            <section className="sessao-introducao">
+
+                <h2>Bem-vindo, <span>Diogo Rodrigues da silva</span></h2>
+
+                <div className="introducao-email">
+                    <MdEmail/>
+                    <span>dingorodrigues100@gmail.com</span>
+                </div>
+                
+                <Link to="dados-pessoais" className="introducao-btn-pessoais">Editar dados</Link>
+
+            </section>
+
             
-            <section className="sessao-minha-conta">
-
-                <h1>Minha Conta</h1>
-
+            <section className="sessao-meus-dados">
+                
                 <ul className="container-atalhos">
 
                     <li>
-                        <Link to="/dados-pessoais">
+                        <Link to="dados-pessoais" className="btn-atalhos">
                             <FaUser/>
                             Dados Pessoais
                         </Link>
@@ -26,7 +40,7 @@ function MinhaConta() {
                     </li>
 
                     <li>
-                        <Link to="/meus-pedidos">
+                        <Link to="meus-pedidos" className="btn-atalhos">
                             <FaShoppingBag/>
                             Meus Pedidos
                         </Link>
@@ -34,7 +48,7 @@ function MinhaConta() {
                     </li>
 
                     <li>
-                        <Link to="/enderecos">
+                        <Link to="enderecos" className="btn-atalhos">
                             <FaMapMarkerAlt/>
                             Endereços
                         </Link>
@@ -42,7 +56,7 @@ function MinhaConta() {
                     </li>
 
                     <li>
-                        <Link to="/fale-conosco">
+                        <Link to="fale-conosco" className="btn-atalhos">
                             <FaRegCommentDots/>
                             Fale Conosco
                         </Link>

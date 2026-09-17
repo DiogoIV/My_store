@@ -53,3 +53,5 @@ export {
 } from "react-icons/fi"
 
 export { GiCottonFlower } from "react-icons/gi";
+
+export { MdEmail } from "react-icons/md";
