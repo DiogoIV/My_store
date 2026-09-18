@@ -1,16 +1,15 @@
-
-.container-minha-conta { 
+.container-minha-conta {
     display: flex;
     flex-direction: column;
-    
+
 
     gap: 20px;
     flex: 1;
 
-    padding: 20px 40px;
+    padding: 2rem 20px 4rem 20px;
 }
 
-.container-minha-conta > h1 {
+.container-minha-conta>h1 {
     font-size: 1.2em;
     font-weight: 500;
 }
@@ -40,7 +39,14 @@
     transition: color 0.3s ease;
 }
 
+
+
 .introducao-btn-pessoais:hover {
+    color: var(--green-light);
+}
+
+.introducao-icon-email {
+    font-size: 20px;
     color: var(--green-light);
 }
 
@@ -58,19 +64,60 @@
 
 .sessao-meus-dados .container-atalhos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: 250px;
-    gap: 20px;
-   
+    grid-template-columns: repeat(auto-fit, minmax(100px, 190px));
+    padding-left: 20px;
+    grid-auto-rows: 200px;
+    gap: 40px;
+
 
     list-style: none;
 }
 
 .container-atalhos .btn-atalhos {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    text-align: center;
     height: 100%;
     width: 100%;
     padding: 20px;
-    background-color: gray;
+
+    color: inherit;
+    text-decoration: none;
+
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    transition: .2s ease;
+}
+
+.btn-atalhos:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(100, 100, 111, 0.25);
+}
+
+.atalhos-icons {
+    font-size: 40px;
+    color: var(--green-light);
+}
+
+@media (max-width: 900px) {
+
+    .sessao-meus-dados .container-atalhos {
+        padding-left: 0px;
+        justify-content: center;
+    }
+
     
+}
+
+@media (max-width: 500px ) {
+    .sessao-meus-dados .container-atalhos {
+        padding-left: 0px;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
 }

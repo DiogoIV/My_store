@@ -18,7 +18,7 @@ function MinhaConta() {
                 <h2>Bem-vindo, <span>Diogo Rodrigues da silva</span></h2>
 
                 <div className="introducao-email">
-                    <MdEmail/>
+                    <MdEmail className="introducao-icon-email"/>
                     <span>dingorodrigues100@gmail.com</span>
                 </div>
                 
@@ -29,36 +29,40 @@ function MinhaConta() {
             
             <section className="sessao-meus-dados">
                 
+                
+
                 <ul className="container-atalhos">
+                    
 
                     <li>
                         <Link to="dados-pessoais" className="btn-atalhos">
-                            <FaUser/>
-                            Dados Pessoais
+                            <FaUser className="atalhos-icons"/>
+                            <p className="atalhos-texto">Dados Pessoais</p>
                         </Link>
 
                     </li>
 
                     <li>
                         <Link to="meus-pedidos" className="btn-atalhos">
-                            <FaShoppingBag/>
-                            Meus Pedidos
+                            <FaShoppingBag className="atalhos-icons"/>
+                            <p className="atalhos-texto">Meus Pedidos</p>
                         </Link>
 
                     </li>
 
                     <li>
                         <Link to="enderecos" className="btn-atalhos">
-                            <FaMapMarkerAlt/>
-                            Endereços
+                            <FaMapMarkerAlt className="atalhos-icons"/>
+                            <p className="atalhos-texto">Endereços</p>
                         </Link>
+                        
 
                     </li>
 
                     <li>
                         <Link to="fale-conosco" className="btn-atalhos">
-                            <FaRegCommentDots/>
-                            Fale Conosco
+                            <FaRegCommentDots className="atalhos-icons"/>
+                            <p className="atalhos-texto">Fale Conosco</p>
                         </Link>
 
                     </li>
