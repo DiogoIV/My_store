@@ -35,6 +35,9 @@ body {
     line-height: 1.3;
 }
 
+main {
+    min-height: 100dvh;
+}
 
 #root {
     display: flex;

@@ -1,0 +1,7 @@
+.container-principal-enderecos {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+    
+}
