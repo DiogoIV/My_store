@@ -1,59 +1,88 @@
+
 .container-principal-dados {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 
-    padding: 20px 20px 4rem 20px;
     flex: 1;
+    padding: 20px 20px 10rem;
 }
 
-.container-principal-dados>h1 {
-    padding: 20px 0px;
+.container-principal-dados > h1 {
+    padding: 20px 0;
     font-size: 1.2em;
     font-weight: 500;
 }
 
-.container-principal-dados  button:hover {
-    background-color: var(--green-light);
+
+/* ========================================
+   BOTÕES
+======================================== */
+
+.container-principal-dados button {
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 500;
+
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--green-primary);
     color: white;
+
+    transition: background-color .2s ease;
+}
+
+.container-principal-dados button:hover {
+    background-color: var(--green-light);
 }
 
 
-/*sessao-dados-valores*/
+/* ========================================
+   SESSÃO PRINCIPAL
+======================================== */
 
 .sessao-dados-valores {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-
-    background-color: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 10px;
-
-    padding: 30px 20px;
-    max-width: 1200px;
+    gap: 30px;
 
     width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+
+    padding: 30px;
+
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
+
+
+/* ========================================
+   VISUALIZAÇÃO DOS DADOS
+======================================== */
 
 .sessao-dados-valores .dados-valores {
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-
-    list-style: none;
     padding-left: 10px;
+    list-style: none;
 }
 
 .valores-pessoais {
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    padding: 8px 12px;
+
     border: 1px solid var(--green-light);
     border-radius: 10px;
-    padding: 5px 10px;
 }
 
 .dados-valores h3 {
@@ -61,99 +90,98 @@
 }
 
 .container-btn-editar-dados {
+    align-self: flex-end;
     margin-top: 10px;
-    align-self: end;
+}
+
+.btn-editar-dados {
+    padding: 10px 20px;
 }
 
 
-/*dados-valores-editar*/
+/* ========================================
+   EDIÇÃO DOS DADOS PESSOAIS
+======================================== */
 
 .dados-valores-editar {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 }
 
-.dados-valores-editar .valores-pessoais-editar {
+.valores-pessoais-editar {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
-.valores-pessoais-editar > label, .editar-senha-valores > label {
+.valores-pessoais-editar > label,
+.editar-senha-valores > label {
     font-size: 17px;
     font-weight: 600;
 }
 
-.valores-pessoais-editar > input, .editar-senha-valores > input {
-    border: 1px solid var(--green-light);
-    border-radius: 10px;
+.valores-pessoais-editar > input,
+.editar-senha-valores > input {
+    width: 100%;
+    box-sizing: border-box;
 
-    padding: 10px;
-    font-size: 16px;
-    transition: box-shadow .3s ease;
-    
-}
-
-.valores-pessoais-editar > input:focus {
-    outline: 2px solid var(--green-primary);
-    outline-offset: 2px;
-    transition: outline .3s ease;
-    border: none;
-
-}
-
-
-
-
-
-.dados-valores-editar .editar-email,
-.dados-valores-editar .editar-telefone {
-    grid-column: 1/-1;
-}
-
-
-
-.btn-c-s {
-    display: flex;
-    gap: 15px;
-    
-    justify-self: end;
-    grid-column: 2/2;
-    
-}
-
-.btn-c-s > button, .btn-c-a > button {
-    background-color: var(--green-primary);
-    color: white;
-
-    
-    cursor: pointer;
+    padding: 12px;
 
     font-family: inherit;
     font-size: 16px;
-    font-weight: 500;
 
-    padding: 10px 15px;
-    border: none;
+    border: 1px solid var(--green-light);
     border-radius: 8px;
 
-    transition: background-color .2s ease;
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.valores-pessoais-editar > input:focus,
+.editar-senha-valores > input:focus {
+    outline: 2px solid var(--green-primary);
+    outline-offset: 2px;
+
+    border-color: var(--green-primary);
+}
+
+
+/* E-mail e telefone ocupam a linha inteira */
+
+.dados-valores-editar .editar-email,
+.dados-valores-editar .editar-telefone {
+    grid-column: 1 / -1;
+}
+
+
+/* Botões cancelar / salvar */
+
+.btn-c-s {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    grid-column: 1 / -1;
+}
+
+.btn-c-s > button, .btn-c-a > button {
+    min-width: 139px;
+    padding: 12px 15px;
+    
 }
 
 
 
 
-
-/*sessao-seguranca*/
-
-
-
+/* ========================================
+   SEGURANÇA
+======================================== */
 
 .sessao-seguranca {
     display: flex;
     flex-direction: column;
-
     gap: 15px;
 }
 
@@ -161,27 +189,20 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-
-
 }
 
-.btn-alterar-senha,
-.btn-editar-dados {
-    background-color: var(--green-primary);
-    color: white;
+
+/* Alterar senha */
+
+.btn-alterar-senha {
     align-self: flex-end;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
 
-    transition: background-color .2s ease;
+    padding: 10px 20px;
 }
 
-    
+
+/* Formulário de alteração de senha */
+
 .seguranca-editar-senha {
     display: flex;
     flex-direction: column;
@@ -191,11 +212,49 @@
 .editar-senha-valores {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
 }
 
 .btn-c-a {
     display: flex;
+    justify-content: flex-end;
     gap: 20px;
-    align-self: end;
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 560px) {
+
+    .container-principal-dados {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .sessao-dados-valores {
+        padding: 20px;
+    }
+
+    .dados-valores-editar {
+        grid-template-columns: 1fr;
+    }
+
+    .dados-valores-editar .editar-email,
+    .dados-valores-editar .editar-telefone {
+        grid-column: auto;
+    }
+
+    .btn-c-s,
+    .btn-c-a {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .btn-c-s > button,
+    .btn-c-a > button {
+        flex: 1;
+        min-width: 0;
+    }
 }
