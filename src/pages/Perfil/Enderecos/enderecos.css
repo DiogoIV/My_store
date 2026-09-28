@@ -2,6 +2,51 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+
+    gap: 20px;
+    padding: 2rem 20px 4rem 20px;
+}
+
+.container-principal-enderecos > h1 {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+/*sessao-enderecos*/
+
+.container-principal-enderecos  > .sessao-enderecos {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+
     
+    padding: 30px;
+
+    gap: 20px;
+}
+
+.sessao-enderecos > .container-endereços {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     
+}
+
+ .container-endereços > .card-enderecos {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--green-light);
+    border-radius: 5px;
+
+    padding: 10px;
+    max-width: 450px;
+    
+}
+
+.card-enderecos > ul {
+    list-style: none;
 }

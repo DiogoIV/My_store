@@ -6,23 +6,25 @@ function Enderecos() {
         
         <main className='container-principal-enderecos'>
 
-            <h1>Enderecos</h1>
+            <h1>Endereços</h1>
 
             <section className='sessao-enderecos'>
 
-                <div className='enderecos-dados'>
-                    <h2>Endereço principal</h2>
+                <div className='container-endereços'>
 
-                    <ul>
-                        <li>Rua Miranda silva </li>
-                        <li>Cidade Tiradentes </li>
-                        <li>São Paulo - SP</li>
-                        <li>Cep: 00000 </li>
-                    </ul>
+                    <div className='card-enderecos'>
 
-                    <div className='dados-btn'>
-                        <button>Editar</button>
-                        <button>Excluir</button>
+                        <h2>Endereços principal</h2>
+                        <ul>
+                            <li>Rua Miranda silva </li>
+                            <li>Cidade Tiradentes </li>
+                            <li>São Paulo - SP</li>
+                            <li>Cep: 00000 </li>
+                        </ul>
+                        <div className='dados-btn'>
+                            <button>Editar</button>
+                            <button>Excluir</button>
+                        </div>
                     </div>
                 </div>
 
@@ -33,6 +35,7 @@ function Enderecos() {
                 </div>
 
             </section>
+            
 
         </main>
     )
