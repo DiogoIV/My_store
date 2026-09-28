@@ -1,43 +1,125 @@
 import './enderecos.css'
 
 
+import { FaPlus } from '../../../assets/icons/index'
+import { useState } from 'react';
+
 function Enderecos() {
+
+    const enderecos = [
+        {
+            id: 1,
+            titulo: "Casa",
+            nome: "Diogo Rodrigues",
+            rua: "Rua Miranda Silva",
+            numero: "123",
+            complemento: "Apto 42",
+            bairro: "Cidade Tiradentes",
+            cidade: "São Paulo",
+            estado: "SP",
+            cep: "08400-000",
+            padrao: true
+        },
+        {
+            id: 2,
+            titulo: "Trabalho",
+            nome: "Diogo Rodrigues",
+            rua: "Avenida Paulista",
+            numero: "1000",
+            complemento: "Sala 12",
+            bairro: "Bela Vista",
+            cidade: "São Paulo",
+            estado: "SP",
+            cep: "01310-100",
+            padrao: false
+        },
+        {
+            id: 3,
+            titulo: "Casa dos pais",
+            nome: "Diogo Rodrigues",
+            rua: "Rua das Flores",
+            numero: "250",
+            complemento: "",
+            bairro: "Itaquera",
+            cidade: "São Paulo",
+            estado: "SP",
+            cep: "08220-000",
+            padrao: false
+        }
+    ];
+
+    const [enderecoPadrao, setEnderecoPadrao] = useState(
+        enderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
+    );
+
+    const cardEndereco = enderecos.map(item => (
+                        <div className='card-enderecos' key={item.id}>
+                                <div className='card-titulos'>
+                                    <h2>{item.titulo}</h2>
+                                    {item.padrao && <span className='titulos-padrao'>(PADRÃO)</span>}                                    
+                                </div>
+
+                                <ul className='enderecos-dados'>
+                                    <li>{item.rua} {item.numero}</li>
+                                    <li>{item.bairro} </li>
+                                    <li>{item.cidade} - {item.estado}</li>
+                                    <li>{item.cep}</li>
+                                </ul>
+
+                                <div className='dados-btn'>
+                                    <button>EDITAR</button>
+                                    <button>EXCLUIR</button>
+                                    {!item.padrao && 
+                                    <button className='btn-padrao'>
+                                          TORNAR PADRÃO   
+                                    </button>}
+                                </div>
+                        </div>
+                            
+                        
+    ))
+
     return (
-        
-        <main className='container-principal-enderecos'>
+
+
+
+        < main className='container-principal-enderecos' >
 
             <h1>Endereços</h1>
 
             <section className='sessao-enderecos'>
-
-                <div className='container-endereços'>
-
-                    <div className='card-enderecos'>
-
-                        <h2>Endereços principal</h2>
-                        <ul>
-                            <li>Rua Miranda silva </li>
-                            <li>Cidade Tiradentes </li>
-                            <li>São Paulo - SP</li>
-                            <li>Cep: 00000 </li>
-                        </ul>
-                        <div className='dados-btn'>
-                            <button>Editar</button>
-                            <button>Excluir</button>
+                {enderecoPadrao ? (
+                    <>
+                        <div className='container-endereços'>
+                            {cardEndereco}                           
+                            
                         </div>
-                    </div>
-                </div>
 
-                <div>
-                    <button>
-                        + Adicionar endereço
-                    </button>
-                </div>
+
+
+                        <div className='btn-add-endereco'>
+                            <button>
+                                <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
+                            </button>
+                        </div>
+                    </>
+                ) :
+                    (
+                        <div>
+                            <p>Você não possui endereços cadastrados.</p>
+                            <button>
+                                <FaPlus /> Adicionar endereço
+                            </button>
+                        </div>
+                    )
+                }
+
+
 
             </section>
-            
 
-        </main>
+
+        </main >
     )
 }
 
