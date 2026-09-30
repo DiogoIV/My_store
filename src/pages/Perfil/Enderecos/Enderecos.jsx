@@ -7,6 +7,7 @@ import { useState } from 'react';
 function Enderecos() {
 
     const enderecos = [
+
         {
             id: 1,
             titulo: "Casa",
@@ -48,36 +49,52 @@ function Enderecos() {
         }
     ];
 
+    const [cardsEnderecos, setCardsEnderecos] = useState(enderecos)
+
+    function ExcluirEndereco(id) {
+        console.log('disparou')
+        setCardsEnderecos(cardsEnderecos.filter(item => item.id != id))
+
+    }
+ 
+    const cardEndereco = cardsEnderecos.map(item => (
+        <div className='card-enderecos' key={item.id}>
+            <div className='card-titulos'>
+                <h2>{item.titulo}</h2>
+                {item.padrao && <span className='titulos-padrao'>(PADRÃO)</span>}
+            </div>
+
+            <ul className='enderecos-dados'>
+                <li>{item.rua} {item.numero}</li>
+                <li>{item.bairro} </li>
+                <li>{item.cidade} - {item.estado}</li>
+                <li>{item.cep}</li>
+            </ul>
+
+            <div className='dados-btn'>
+                <button>EDITAR</button>
+                <button onClick={() => ExcluirEndereco(item.id)}>EXCLUIR</button>
+                {!item.padrao &&
+                    <button className='btn-padrao'>
+                        TORNAR PADRÃO
+                    </button>}
+            </div>
+        </div>
+
+
+    ))
+
+
+
+
+
     const [enderecoPadrao, setEnderecoPadrao] = useState(
         enderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
     );
 
-    const cardEndereco = enderecos.map(item => (
-                        <div className='card-enderecos' key={item.id}>
-                                <div className='card-titulos'>
-                                    <h2>{item.titulo}</h2>
-                                    {item.padrao && <span className='titulos-padrao'>(PADRÃO)</span>}                                    
-                                </div>
 
-                                <ul className='enderecos-dados'>
-                                    <li>{item.rua} {item.numero}</li>
-                                    <li>{item.bairro} </li>
-                                    <li>{item.cidade} - {item.estado}</li>
-                                    <li>{item.cep}</li>
-                                </ul>
 
-                                <div className='dados-btn'>
-                                    <button>EDITAR</button>
-                                    <button>EXCLUIR</button>
-                                    {!item.padrao && 
-                                    <button className='btn-padrao'>
-                                          TORNAR PADRÃO   
-                                    </button>}
-                                </div>
-                        </div>
-                            
-                        
-    ))
+
 
     return (
 
@@ -91,8 +108,8 @@ function Enderecos() {
                 {enderecoPadrao ? (
                     <>
                         <div className='container-endereços'>
-                            {cardEndereco}                           
-                            
+                            {cardEndereco}
+
                         </div>
 
 
