@@ -52,9 +52,25 @@ function Enderecos() {
     const [cardsEnderecos, setCardsEnderecos] = useState(enderecos)
 
     function ExcluirEndereco(id) {
-        console.log('disparou')
+       
         setCardsEnderecos(cardsEnderecos.filter(item => item.id != id))
 
+    }
+
+    function tornarPadrão(id) {
+        setCardsEnderecos(cardsEnderecos.map(item => 
+            (
+                item.id === id ? {
+                    ...item,
+                    padrao: true
+                }
+                :
+                {
+                    ...item,
+                    padrao: false
+                }
+            )
+    ))
     }
  
     const cardEndereco = cardsEnderecos.map(item => (
@@ -75,7 +91,7 @@ function Enderecos() {
                 <button>EDITAR</button>
                 <button onClick={() => ExcluirEndereco(item.id)}>EXCLUIR</button>
                 {!item.padrao &&
-                    <button className='btn-padrao'>
+                    <button className='btn-padrao' onClick={()=> tornarPadrão(item.id)}>
                         TORNAR PADRÃO
                     </button>}
             </div>
