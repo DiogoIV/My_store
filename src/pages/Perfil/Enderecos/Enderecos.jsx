@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 function Enderecos() {
 
+    /*cards endereço*/
+
     const enderecos = [
 
         {
@@ -51,65 +53,75 @@ function Enderecos() {
 
     const [cardsEnderecos, setCardsEnderecos] = useState(enderecos)
 
+    const [enderecoPadrao, setEnderecoPadrao] = useState(
+        enderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
+    );
+
     function ExcluirEndereco(id) {
-       
+
         setCardsEnderecos(cardsEnderecos.filter(item => item.id != id))
 
     }
 
     function tornarPadrão(id) {
-        setCardsEnderecos(cardsEnderecos.map(item => 
-            (
-                item.id === id ? {
-                    ...item,
-                    padrao: true
-                }
+        setCardsEnderecos(cardsEnderecos.map(item =>
+        (
+            item.id === id ? {
+                ...item,
+                padrao: true
+            }
                 :
                 {
                     ...item,
                     padrao: false
                 }
-            )
-    ))
+        )
+        ))
     }
- 
+
     const cardEndereco = cardsEnderecos.map(item => (
+
         <div className='card-enderecos' key={item.id}>
+
             <div className='card-titulos'>
+
                 <h2>{item.titulo}</h2>
                 {item.padrao && <span className='titulos-padrao'>(PADRÃO)</span>}
+
             </div>
 
             <ul className='enderecos-dados'>
+
                 <li>{item.rua} {item.numero}</li>
                 <li>{item.bairro} </li>
                 <li>{item.cidade} - {item.estado}</li>
                 <li>{item.cep}</li>
+
             </ul>
 
             <div className='dados-btn'>
+
                 <button>EDITAR</button>
+
                 <button onClick={() => ExcluirEndereco(item.id)}>EXCLUIR</button>
+
                 {!item.padrao &&
-                    <button className='btn-padrao' onClick={()=> tornarPadrão(item.id)}>
+                    <button className='btn-padrao' onClick={() => tornarPadrão(item.id)}>
                         TORNAR PADRÃO
                     </button>}
+
             </div>
+
         </div>
 
 
     ))
 
+    /*container flutante(editar/adicionar endereços)*/
 
+    const [exibirModal, setExibirModal] = useState(false)
 
-
-
-    const [enderecoPadrao, setEnderecoPadrao] = useState(
-        enderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
-    );
-
-
-
+    console.log(exibirModal, 'modal')
 
 
     return (
@@ -121,6 +133,7 @@ function Enderecos() {
             <h1>Endereços</h1>
 
             <section className='sessao-enderecos'>
+
                 {enderecoPadrao ? (
                     <>
                         <div className='container-endereços'>
@@ -131,7 +144,7 @@ function Enderecos() {
 
 
                         <div className='btn-add-endereco'>
-                            <button>
+                            <button onClick={() => setExibirModal(true)}>
                                 <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                             </button>
                         </div>
@@ -140,7 +153,7 @@ function Enderecos() {
                     (
                         <div>
                             <p>Você não possui endereços cadastrados.</p>
-                            <button>
+                            <button  >
                                 <FaPlus /> Adicionar endereço
                             </button>
                         </div>
@@ -150,6 +163,19 @@ function Enderecos() {
 
 
             </section>
+
+            {exibirModal &&
+
+
+                <div className='container-modal-enderecos'>
+                    <div className='modal-enderecos'>
+                        <form action="" className='form-modal-enderecos'>
+                            <h1>ola</h1>
+                        </form>
+                    </div>
+                </div>
+
+            }
 
 
         </main >

@@ -6,7 +6,6 @@ import ProductCard from "../ProductCard/ProductCard";
 
 import { destaques } from "../../data/destaques/destaque";
 
-console.log(destaques, 'destaque')
 
 import './Main.css'
 

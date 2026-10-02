@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
 
     const [isAuthenticated, setIsAuthenticated] = useState(false)
 
-    console.log(isAuthenticated, 'novo')
+    
 
     useEffect(() => {
 
