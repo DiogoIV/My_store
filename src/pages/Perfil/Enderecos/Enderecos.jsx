@@ -168,15 +168,18 @@ function Enderecos() {
 
 
                 <div className='container-modal-enderecos'>
+
                     <div className='modal-enderecos'>
 
-                        <h1>ola</h1>
+                        
 
                         <form action="" className='form-modal-enderecos'>
 
+                            <h1>Editar endereço</h1>
+
                             <div className='campo-identificacao'>
 
-                                <label htmlFor="identificacao">Identificação do Endereç
+                                <label htmlFor="identificacao">Identificação do Endereço
                                 </label>
 
                                 <input type="text" id="identificacao" />
