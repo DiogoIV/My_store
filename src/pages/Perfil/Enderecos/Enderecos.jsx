@@ -54,7 +54,7 @@ function Enderecos() {
     const [cardsEnderecos, setCardsEnderecos] = useState(enderecos)
 
     const [enderecoPadrao, setEnderecoPadrao] = useState(
-        enderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
+        cardsEnderecos.length > 0 ? enderecos.find(endereco => endereco.padrao) : null
     );
 
     function ExcluirEndereco(id) {
@@ -134,7 +134,7 @@ function Enderecos() {
 
             <section className='sessao-enderecos'>
 
-                {enderecoPadrao ? (
+                {enderecoPadrao > 0 ? (
                     <>
                         <div className='container-endereços'>
                             {cardEndereco}
@@ -151,11 +151,14 @@ function Enderecos() {
                     </>
                 ) :
                     (
-                        <div>
+                        <div className='container-off-endereço'>
                             <p>Você não possui endereços cadastrados.</p>
-                            <button  >
-                                <FaPlus /> Adicionar endereço
+
+                            <div className='btn-add-endereco'>
+                            <button onClick={() => setExibirModal(true)}>
+                                <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                             </button>
+                        </div>
                         </div>
                     )
                 }
@@ -173,11 +176,11 @@ function Enderecos() {
 
                         
 
-                        <form action="" className='form-modal-enderecos'>
+                        <form action="" className='form-modal-enderecos' onSubmit={(e)=> e.preventDefault()}>
 
-                            <h1>Editar endereço</h1>
+                            <h1>Adicionar endereço</h1>
 
-                            <div className='campo-identificacao'>
+                            <div className='campo-identificacao campos-editar-endereço'>
 
                                 <label htmlFor="identificacao">Identificação do Endereço
                                 </label>
@@ -186,14 +189,14 @@ function Enderecos() {
 
                             </div>
 
-                            <div className='campo-cep'>
+                            <div className='campo-cep campos-editar-endereço'>
 
                                 <label htmlFor="cep">CEP</label>
                                 <input type="number" id="cep" />
 
                             </div>
 
-                            <div className='campo-rua'>
+                            <div className='campo-rua campos-editar-endereço'>
 
                                 <label htmlFor="rua">Rua</label>
 
@@ -204,18 +207,20 @@ function Enderecos() {
 
 
 
-                            <div className='campo-rua'>
+                            <div className='campo-bairro campos-editar-endereço '>
                                 <label htmlFor="bairro">Bairro</label>
                                 <input type="text" id="bairro" />
                             </div>
 
 
                             <div className='campo-cidade'>
+
                                 <label htmlFor="cidade">Cidade</label>
                                 <input type="text" id="cidade" />
+
                             </div>
 
-                            <div className='campo-estado'>
+                            <div className='campo-estado campos-editar-endereço'>
                                 <label htmlFor="cidade">Estado</label>
                                 <input type="text" id="estado" />
                             </div>
@@ -223,7 +228,7 @@ function Enderecos() {
 
                             
 
-                            <div className='campo-numero'>
+                            <div className='campo-numero campos-editar-endereço'>
 
                                 <label htmlFor="numero">Número</label>
 
@@ -232,11 +237,18 @@ function Enderecos() {
                             </div>
 
 
-                            <div className='campo-complemento'>
+                            <div className='campo-complemento campos-editar-endereço'>
 
                                 <label htmlFor="complemento">Complemento</label>
 
                                 <input type="text" id="complemento" />
+
+                            </div>
+
+                            <div className='container-btn-editar'>
+
+                                <button onClick={()=> setExibirModal(false)}>Cancelar</button>
+                                <button>Salvar</button>
 
                             </div>
 
