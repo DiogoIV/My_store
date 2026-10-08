@@ -101,7 +101,7 @@ function Enderecos() {
 
             <div className='dados-btn'>
 
-                <button>EDITAR</button>
+                <button onClick={() => { setExibirModal(true), EscolherCard(item.id) }}>EDITAR</button>
 
                 <button onClick={() => ExcluirEndereco(item.id)}>EXCLUIR</button>
 
@@ -121,7 +121,19 @@ function Enderecos() {
 
     const [exibirModal, setExibirModal] = useState(false)
 
-    console.log(exibirModal, 'modal')
+    const [dadosFomularios, setDadosFormularios] = useState('')
+
+    console.log(dadosFomularios)
+
+    function EscolherCard(id) {
+
+        const valoresFormularios = cardsEnderecos.find(item => item.id === id)
+
+        setDadosFormularios(valoresFormularios)
+    }
+
+
+
 
 
     return (
@@ -134,7 +146,7 @@ function Enderecos() {
 
             <section className='sessao-enderecos'>
 
-                {enderecoPadrao > 0 ? (
+                {cardsEnderecos.length > 0 ? (
                     <>
                         <div className='container-endereços'>
                             {cardEndereco}
@@ -144,7 +156,7 @@ function Enderecos() {
 
 
                         <div className='btn-add-endereco'>
-                            <button onClick={() => setExibirModal(true)}>
+                            <button onClick={() => { setExibirModal(true), setDadosFormularios('')}}>
                                 <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                             </button>
                         </div>
@@ -155,10 +167,10 @@ function Enderecos() {
                             <p>Você não possui endereços cadastrados.</p>
 
                             <div className='btn-add-endereco'>
-                            <button onClick={() => setExibirModal(true)}>
-                                <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
-                            </button>
-                        </div>
+                                <button onClick={() => { setExibirModal(true); setDadosFormularios(''); }}>
+                                    <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
+                                </button>
+                            </div>
                         </div>
                     )
                 }
@@ -174,18 +186,20 @@ function Enderecos() {
 
                     <div className='modal-enderecos'>
 
-                        
 
-                        <form action="" className='form-modal-enderecos' onSubmit={(e)=> e.preventDefault()}>
 
-                            <h1>Adicionar endereço</h1>
+                        <form action="" className='form-modal-enderecos' onSubmit={(e) => e.preventDefault()}>
+
+                            <h1>{dadosFomularios === '' ? 'Adicionar Endereço' : 'Editar endereço'}</h1>
 
                             <div className='campo-identificacao campos-editar-endereço'>
 
                                 <label htmlFor="identificacao">Identificação do Endereço
                                 </label>
 
-                                <input type="text" id="identificacao" />
+                                {/*Começe a exibir aqui */}
+
+                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> e.target.value}/>
 
                             </div>
 
@@ -226,7 +240,7 @@ function Enderecos() {
                             </div>
 
 
-                            
+
 
                             <div className='campo-numero campos-editar-endereço'>
 
@@ -247,7 +261,7 @@ function Enderecos() {
 
                             <div className='container-btn-editar'>
 
-                                <button onClick={()=> setExibirModal(false)}>Cancelar</button>
+                                <button onClick={() => setExibirModal(false)}>Cancelar</button>
                                 <button>Salvar</button>
 
                             </div>
