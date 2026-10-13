@@ -123,15 +123,18 @@ function Enderecos() {
 
     const [dadosFomularios, setDadosFormularios] = useState('')
 
-    console.log(dadosFomularios)
+   
 
     function EscolherCard(id) {
 
         const valoresFormularios = cardsEnderecos.find(item => item.id === id)
 
+        console.log(valoresFormularios)
         setDadosFormularios(valoresFormularios)
     }
 
+
+    console.log(dadosFomularios)
 
 
 
@@ -199,14 +202,24 @@ function Enderecos() {
 
                                
 
-                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> setDadosFormularios(e.target.value)}/>
+                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        titulo: e.target.value
+                                    })
+                                )}/>
 
                             </div>
 
                             <div className='campo-cep campos-editar-endereço'>
 
                                 <label htmlFor="cep">CEP</label>
-                                <input type="number" id="cep" />
+                                <input type="text" id="cep" value={dadosFomularios.cep} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        cep: e.target.value
+                                    })
+                                )} />
 
                             </div>
 
@@ -214,7 +227,12 @@ function Enderecos() {
 
                                 <label htmlFor="rua">Rua</label>
 
-                                <input type="text" id="rua" />
+                                <input type="text" id="rua" value={dadosFomularios.rua} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        rua: e.target.value
+                                    })
+                                )}/>
 
                             </div>
 
@@ -223,20 +241,38 @@ function Enderecos() {
 
                             <div className='campo-bairro campos-editar-endereço '>
                                 <label htmlFor="bairro">Bairro</label>
-                                <input type="text" id="bairro" />
+                                <input type="text" id="bairro" 
+                                value={dadosFomularios.bairro} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        bairro: e.target.value
+                                    })
+                                )}/>
                             </div>
 
 
                             <div className='campo-cidade'>
 
                                 <label htmlFor="cidade">Cidade</label>
-                                <input type="text" id="cidade" />
+                                <input type="text" id="cidade" 
+                                value={dadosFomularios.cidade} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        cidade: e.target.value
+                                    })
+                                )}/>
 
                             </div>
 
                             <div className='campo-estado campos-editar-endereço'>
                                 <label htmlFor="cidade">Estado</label>
-                                <input type="text" id="estado" />
+                                <input type="text" id="estado" 
+                                value={dadosFomularios.estado} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        estado: e.target.value
+                                    })
+                                )}/>
                             </div>
 
 
@@ -246,7 +282,13 @@ function Enderecos() {
 
                                 <label htmlFor="numero">Número</label>
 
-                                <input type="text" id="numero" />
+                                <input type="text" id="numero" 
+                                value={dadosFomularios.numero} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        numero: e.target.value
+                                    })
+                                )}/>
 
                             </div>
 
@@ -255,7 +297,13 @@ function Enderecos() {
 
                                 <label htmlFor="complemento">Complemento</label>
 
-                                <input type="text" id="complemento" />
+                                <input type="text" id="complemento" 
+                                value={dadosFomularios.complemento} onChange={(e)=> setDadosFormularios(prev => 
+                                    ({
+                                        ...prev,
+                                        complemento: e.target.value
+                                    })
+                                )}/>
 
                             </div>
 
