@@ -197,9 +197,9 @@ function Enderecos() {
                                 <label htmlFor="identificacao">Identificação do Endereço
                                 </label>
 
-                                {/*Começe a exibir aqui */}
+                               
 
-                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> e.target.value}/>
+                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> setDadosFormularios(e.target.value)}/>
 
                             </div>
 
