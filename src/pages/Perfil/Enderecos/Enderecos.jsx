@@ -143,11 +143,10 @@ function Enderecos() {
             
 
             setCardsEnderecos((prev)=> {
-                prev.map((item) => {
+                return prev.map((item) => {
 
-                    if (item.id === dadosFomularios.id) {
-                        return     
-                    }
+                    return item.id === dadosFomularios.id ? dadosFomularios : item
+
                 }
             
             )
@@ -336,7 +335,7 @@ function Enderecos() {
                             <div className='container-btn-editar'>
 
                                 <button onClick={() => setExibirModal(false)}>Cancelar</button>
-                                <button onClick={() => SalvarEditarCard()}>Salvar</button>
+                                <button onClick={() =>{SalvarEditarCard(), setExibirModal(false) }}>Salvar</button>
 
                             </div>
 
