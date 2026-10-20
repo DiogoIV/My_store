@@ -1,7 +1,7 @@
 import './enderecos.css'
 
 
-import { FaPlus } from '../../../assets/icons/index'
+import { FaPlus, LuAsterisk } from '../../../assets/icons/index'
 import { useState } from 'react';
 
 function Enderecos() {
@@ -101,8 +101,9 @@ function Enderecos() {
 
             <div className='dados-btn'>
 
-                <button onClick={() => { setExibirModal(true), EscolherCard(item.id) 
-                setModoFormulario('editar')    
+                <button onClick={() => {
+                    setExibirModal(true), EscolherCard(item.id)
+                    setModoFormulario('editar')
                 }}>EDITAR</button>
 
                 <button onClick={() => ExcluirEndereco(item.id)}>EXCLUIR</button>
@@ -127,30 +128,49 @@ function Enderecos() {
 
     const [modoFormulario, setModoFormulario] = useState('')
 
-   
+
+
+    function validarCampos() {
+
+        if (dadosFomularios.bairro.trim() === "" || dadosFomularios.cep.trim() === "" || dadosFomularios.cidade.trim() === "" || dadosFomularios.estado.trim() === "" || dadosFomularios.nome.trim() === "" || dadosFomularios.numero.trim() === "" || dadosFomularios.rua.trim() === "" || dadosFomularios.titulo.trim() === "") {
+            alert('Preencha os campos obrigátorios (*)!')
+            return true
+        }
+
+        return false
+    }
 
     function EscolherCard(id) {
 
         const valoresFormularios = cardsEnderecos.find(item => item.id === id)
 
-        console.log(valoresFormularios)
+
         setDadosFormularios(valoresFormularios)
     }
 
+
     function SalvarEditarCard() {
 
-        if(modoFormulario === 'editar') {
-            
+        if (validarCampos()) {
+            setExibirModal(true)
+            return
+        }
 
-            setCardsEnderecos((prev)=> {
+
+        if (modoFormulario === 'editar') {
+
+
+            setCardsEnderecos((prev) => {
                 return prev.map((item) => {
 
                     return item.id === dadosFomularios.id ? dadosFomularios : item
 
                 }
-            
-            )
+
+                )
             })
+
+            setExibirModal(false)
         }
     }
 
@@ -180,8 +200,9 @@ function Enderecos() {
 
 
                         <div className='btn-add-endereco'>
-                            <button onClick={() => { setExibirModal(true), setDadosFormularios('')
-                            setModoFormulario('adicionar')    
+                            <button onClick={() => {
+                                setExibirModal(true), setDadosFormularios('')
+                                setModoFormulario('adicionar')
                             }}>
                                 <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                             </button>
@@ -193,8 +214,9 @@ function Enderecos() {
                             <p>Você não possui endereços cadastrados.</p>
 
                             <div className='btn-add-endereco'>
-                                <button onClick={() => { setExibirModal(true); setDadosFormularios('');
-                                setModoFormulario('adicionar')
+                                <button onClick={() => {
+                                    setExibirModal(true); setDadosFormularios('');
+                                    setModoFormulario('adicionar')
                                 }}>
                                     <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                                 </button>
@@ -218,46 +240,53 @@ function Enderecos() {
 
                         <form action="" className='form-modal-enderecos' onSubmit={(e) => e.preventDefault()}>
 
-                            <h1>{modoFormulario === 'editar' ? 'Editar endereço' : 'Adicionar endereço' }</h1>
+                            <h1>{modoFormulario === 'editar' ? 'Editar endereço' : 'Adicionar endereço'}</h1>
 
                             <div className='campo-identificacao campos-editar-endereço'>
 
-                                <label htmlFor="identificacao">Identificação do Endereço
+                                <label htmlFor="identificacao">
+                                    Identificação do Endereço <LuAsterisk className="icon-obr" />
                                 </label>
 
-                               
 
-                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e)=> setDadosFormularios(prev => 
-                                    ({
-                                        ...prev,
-                                        titulo: e.target.value
-                                    })
-                                )}/>
+
+                                <input type="text" id="identificacao" value={dadosFomularios.titulo} onChange={(e) => setDadosFormularios(prev =>
+                                ({
+                                    ...prev,
+                                    titulo: e.target.value
+                                })
+                                )} />
 
                             </div>
 
                             <div className='campo-cep campos-editar-endereço'>
 
-                                <label htmlFor="cep">CEP</label>
-                                <input type="text" id="cep" value={dadosFomularios.cep} onChange={(e)=> setDadosFormularios(prev => 
-                                    ({
-                                        ...prev,
-                                        cep: e.target.value
-                                    })
+                                <label htmlFor="cep">
+                                    CEP <LuAsterisk className="icon-obr" />
+                                </label>
+
+                                <input type="text" id="cep" value={dadosFomularios.cep} onChange={(e) => setDadosFormularios(prev =>
+                                ({
+                                    ...prev,
+                                    cep: e.target.value
+                                })
                                 )} />
 
                             </div>
 
                             <div className='campo-rua campos-editar-endereço'>
 
-                                <label htmlFor="rua">Rua</label>
+                                <label htmlFor="rua">
+                                    Rua
+                                    <LuAsterisk className="icon-obr" />
+                                </label>
 
-                                <input type="text" id="rua" value={dadosFomularios.rua} onChange={(e)=> setDadosFormularios(prev => 
-                                    ({
-                                        ...prev,
-                                        rua: e.target.value
-                                    })
-                                )}/>
+                                <input type="text" id="rua" value={dadosFomularios.rua} onChange={(e) => setDadosFormularios(prev =>
+                                ({
+                                    ...prev,
+                                    rua: e.target.value
+                                })
+                                )} />
 
                             </div>
 
@@ -265,39 +294,50 @@ function Enderecos() {
 
 
                             <div className='campo-bairro campos-editar-endereço '>
-                                <label htmlFor="bairro">Bairro</label>
-                                <input type="text" id="bairro" 
-                                value={dadosFomularios.bairro} onChange={(e)=> setDadosFormularios(prev => 
+
+                                <label htmlFor="bairro">
+                                    Bairro
+                                    <LuAsterisk className="icon-obr" />
+                                </label>
+
+                                <input type="text" id="bairro"
+                                    value={dadosFomularios.bairro} onChange={(e) => setDadosFormularios(prev =>
                                     ({
                                         ...prev,
                                         bairro: e.target.value
                                     })
-                                )}/>
+                                    )} />
                             </div>
 
 
                             <div className='campo-cidade'>
 
-                                <label htmlFor="cidade">Cidade</label>
-                                <input type="text" id="cidade" 
-                                value={dadosFomularios.cidade} onChange={(e)=> setDadosFormularios(prev => 
+                                <label htmlFor="cidade">
+                                    Cidade
+                                    <LuAsterisk className="icon-obr" />
+                                </label>
+                                <input type="text" id="cidade"
+                                    value={dadosFomularios.cidade} onChange={(e) => setDadosFormularios(prev =>
                                     ({
                                         ...prev,
                                         cidade: e.target.value
                                     })
-                                )}/>
+                                    )} />
 
                             </div>
 
                             <div className='campo-estado campos-editar-endereço'>
-                                <label htmlFor="cidade">Estado</label>
-                                <input type="text" id="estado" 
-                                value={dadosFomularios.estado} onChange={(e)=> setDadosFormularios(prev => 
+                                <label htmlFor="cidade">
+                                    Estado
+                                    <LuAsterisk className="icon-obr" />
+                                </label>
+                                <input type="text" id="estado"
+                                    value={dadosFomularios.estado} onChange={(e) => setDadosFormularios(prev =>
                                     ({
                                         ...prev,
                                         estado: e.target.value
                                     })
-                                )}/>
+                                    )} />
                             </div>
 
 
@@ -305,15 +345,18 @@ function Enderecos() {
 
                             <div className='campo-numero campos-editar-endereço'>
 
-                                <label htmlFor="numero">Número</label>
+                                <label htmlFor="numero">
+                                    Número
+                                    <LuAsterisk className="icon-obr" />
+                                </label>
 
-                                <input type="text" id="numero" 
-                                value={dadosFomularios.numero} onChange={(e)=> setDadosFormularios(prev => 
+                                <input type="text" id="numero"
+                                    value={dadosFomularios.numero} onChange={(e) => setDadosFormularios(prev =>
                                     ({
                                         ...prev,
                                         numero: e.target.value
                                     })
-                                )}/>
+                                    )} />
 
                             </div>
 
@@ -322,20 +365,25 @@ function Enderecos() {
 
                                 <label htmlFor="complemento">Complemento</label>
 
-                                <input type="text" id="complemento" 
-                                value={dadosFomularios.complemento} onChange={(e)=> setDadosFormularios(prev => 
+                                <input type="text" id="complemento"
+                                    value={dadosFomularios.complemento} onChange={(e) => setDadosFormularios(prev =>
                                     ({
                                         ...prev,
                                         complemento: e.target.value
                                     })
-                                )}/>
+                                    )} />
 
+                            </div>
+
+                            <div className='campo-obr'>
+                                <LuAsterisk className="icon-obr"/>
+                                <p>Campos obrigatórios</p>
                             </div>
 
                             <div className='container-btn-editar'>
 
                                 <button onClick={() => setExibirModal(false)}>Cancelar</button>
-                                <button onClick={() =>{SalvarEditarCard(), setExibirModal(false) }}>Salvar</button>
+                                <button onClick={() => SalvarEditarCard()}>Salvar</button>
 
                             </div>
 

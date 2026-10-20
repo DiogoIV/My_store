@@ -29,7 +29,8 @@ export{
 } from "react-icons/io5";
 
 export {
-  LuFlower
+  LuFlower,
+  LuAsterisk
 } from "react-icons/lu";
 
 export {
