@@ -1,7 +1,7 @@
 import './enderecos.css'
 
 
-import { FaPlus, LuAsterisk } from '../../../assets/icons/index'
+import { FaPlus, LuAsterisk, RiErrorWarningLine } from '../../../assets/icons/index'
 import { useState } from 'react';
 
 function Enderecos() {
@@ -102,7 +102,7 @@ function Enderecos() {
             <div className='dados-btn'>
 
                 <button onClick={() => {
-                    setExibirModal(true), EscolherCard(item.id)
+                    setExibirModal(true), EscolherCard(item.id), setExibirErro(false)
                     setModoFormulario('editar')
                 }}>EDITAR</button>
 
@@ -124,35 +124,59 @@ function Enderecos() {
 
     const [exibirModal, setExibirModal] = useState(false)
 
-    const [dadosFomularios, setDadosFormularios] = useState('')
+    const itemsDadosFormularios = {
+            titulo: "",
+            nome: "",
+            rua: "",
+            numero: "",
+            complemento: "",
+            bairro: "",
+            cidade: "",
+            estado: "",
+            cep: "",
+            
+    }
+
+    const [dadosFomularios, setDadosFormularios] = useState(itemsDadosFormularios)
 
     const [modoFormulario, setModoFormulario] = useState('')
 
+    const [exibirErro, setExibirErro] = useState(false)
+
+    
 
 
     function validarCampos() {
+       
+        
 
-        if (dadosFomularios.bairro.trim() === "" || dadosFomularios.cep.trim() === "" || dadosFomularios.cidade.trim() === "" || dadosFomularios.estado.trim() === "" || dadosFomularios.nome.trim() === "" || dadosFomularios.numero.trim() === "" || dadosFomularios.rua.trim() === "" || dadosFomularios.titulo.trim() === "") {
-            alert('Preencha os campos obrigátorios (*)!')
+        if (dadosFomularios.bairro.trim() === "" || dadosFomularios.cep.trim() === "" || dadosFomularios.cidade.trim() === "" || dadosFomularios.estado.trim() === "" || dadosFomularios.numero.trim() === "" || dadosFomularios.rua.trim() === "" || dadosFomularios.titulo.trim() === "") {
+            
             return true
         }
 
         return false
     }
 
-    function EscolherCard(id) {
+    
 
+    function EscolherCard(id) {
+        
         const valoresFormularios = cardsEnderecos.find(item => item.id === id)
 
-
+        
         setDadosFormularios(valoresFormularios)
     }
 
 
+
     function SalvarEditarCard() {
+        setExibirErro(false)
+        
 
         if (validarCampos()) {
             setExibirModal(true)
+            setExibirErro(true)
             return
         }
 
@@ -170,12 +194,14 @@ function Enderecos() {
                 )
             })
 
-            setExibirModal(false)
+            
         }
+
+        setExibirModal(false)
     }
 
 
-    console.log(dadosFomularios)
+
 
 
 
@@ -201,8 +227,10 @@ function Enderecos() {
 
                         <div className='btn-add-endereco'>
                             <button onClick={() => {
-                                setExibirModal(true), setDadosFormularios('')
-                                setModoFormulario('adicionar')
+                                setExibirModal(true); 
+                                setModoFormulario('adicionar');
+                                setDadosFormularios(itemsDadosFormularios);
+                                setExibirErro(false)
                             }}>
                                 <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                             </button>
@@ -215,8 +243,9 @@ function Enderecos() {
 
                             <div className='btn-add-endereco'>
                                 <button onClick={() => {
-                                    setExibirModal(true); setDadosFormularios('');
-                                    setModoFormulario('adicionar')
+                                    setExibirModal(true); setDadosFormularios(itemsDadosFormularios);
+                                    setModoFormulario('adicionar');
+                                    setExibirErro(false)
                                 }}>
                                     <FaPlus className='icon-add' /> ADICIONAR NOVO ENDEREÇO
                                 </button>
@@ -376,13 +405,24 @@ function Enderecos() {
                             </div>
 
                             <div className='campo-obr'>
-                                <LuAsterisk className="icon-obr"/>
+                                <LuAsterisk className="icon-obr" />
                                 <p>Campos obrigatórios</p>
                             </div>
 
+                            {exibirErro && <span className='aviso-erro-endereco'>
+
+                                <RiErrorWarningLine size={20} />
+
+                                <p>Preencha os campos obrigatórios (*)</p>
+
+                            </span>}
+
+
                             <div className='container-btn-editar'>
 
-                                <button onClick={() => setExibirModal(false)}>Cancelar</button>
+                                <button onClick={() => {setExibirModal(false)
+                                setExibirErro(false)
+                                }}>Cancelar</button>
                                 <button onClick={() => SalvarEditarCard()}>Salvar</button>
 
                             </div>

@@ -40,7 +40,8 @@ export {
 } from "react-icons/pi";
 
 export {
-  RiFlowerFill
+  RiFlowerFill,
+  RiErrorWarningLine 
 } from "react-icons/ri";
 
 export {
