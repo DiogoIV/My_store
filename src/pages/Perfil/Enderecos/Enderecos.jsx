@@ -170,7 +170,7 @@ function Enderecos() {
 
 
 
-    function SalvarEditarCard() {
+    function salvarEditarAdicionar() {
         setExibirErro(false)
         
 
@@ -178,6 +178,13 @@ function Enderecos() {
             setExibirModal(true)
             setExibirErro(true)
             return
+        }
+
+        if (modoFormulario === 'adicionar') {
+            setCardsEnderecos((prev)=> [
+                ...prev,
+                dadosFomularios
+            ])
         }
 
 
@@ -423,7 +430,7 @@ function Enderecos() {
                                 <button onClick={() => {setExibirModal(false)
                                 setExibirErro(false)
                                 }}>Cancelar</button>
-                                <button onClick={() => SalvarEditarCard()}>Salvar</button>
+                                <button onClick={() => salvarEditarAdicionar()}>Salvar</button>
 
                             </div>
 
