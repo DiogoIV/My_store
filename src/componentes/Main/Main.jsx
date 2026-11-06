@@ -1,4 +1,5 @@
 
+/*interligando home com  backend*/
 
 import { ambiente_decorado_destaque, restaurante_decorado_destaque, sala_decorado_destaque } from '../../assets/imagens/ofertas_destaques'
 

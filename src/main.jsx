@@ -33,7 +33,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Carousel from './pages/Carousel/Carousel.jsx';
 import DadosPessoais from './pages/Perfil/DadosPessoais/DadosPessoais.jsx';
 import Enderecos from './pages/Perfil/Enderecos/Enderecos.jsx';
-import FaleConosco from './pages/Perfil/FaleConosco/FaleConosco.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       
       {
         path: "minha-conta/fale-conosco",
-        element: <FaleConosco />
+        element: <Contato />
       },
 
       {
