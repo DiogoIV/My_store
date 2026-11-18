@@ -85,6 +85,7 @@ function Main({ produtos, categorias }) {
 
 
     return (
+
         <main className="container-main">
             <section className="container-carousel" >
 
@@ -102,8 +103,10 @@ function Main({ produtos, categorias }) {
                 </div>
 
                 <div className="carousel-controls">
+                    
                     <button className="btn_left" onClick={prev}>
                         <IoIosArrowBack />
+
                     </button>
 
 

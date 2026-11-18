@@ -1,0 +1,1 @@
+/*Conecte ao banco e pegue os nomes dos icones */
