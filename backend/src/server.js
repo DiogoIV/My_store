@@ -16,7 +16,7 @@ app.use('/auth', authRouter)
 app.use('/categorias', categoriasRouter)
 
 
-app.listen(process.env.PORT, ()=> console.log('Servidor Rodando na porta', process.env.PORT))
+app.listen(process.env.PORT || 3000, ()=> console.log('Servidor Rodando na porta', process.env.PORT))
 
 
 

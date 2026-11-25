@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import conexao from '../config/database.js'
 
-import { validarNome, validarEmail, validarSenha } from "../validacao/Validacao.js";
+import { validarNome, validarEmail, validarSenha } from "../validacao/validacao.js";
 
 
 
