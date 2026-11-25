@@ -1,13 +1,17 @@
 
-async function pegarCategorias () {
+async function pegarCategorias() {
 
-    try {
+    
+    const res = await fetch('http://localhost:3000/categorias')
+
+    const dados = await res.json()
+
+   
+
+    return dados.categoria
 
 
-
-
-    } catch(erro) {
-
-    }
 
 }
+
+export default pegarCategorias

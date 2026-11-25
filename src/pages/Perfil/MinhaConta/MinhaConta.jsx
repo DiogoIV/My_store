@@ -3,7 +3,6 @@ import { FaUser, FaShoppingBag, FaMapMarkerAlt, FaRegCommentDots, MdEmail } from
 
 import './minhaConta.css'
 
-//corrija a url meus-dados para minha-conta/meus-dados
 
 function MinhaConta() {
 

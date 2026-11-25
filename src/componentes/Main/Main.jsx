@@ -1,21 +1,21 @@
 
 /*interligando home com  backend*/
 
-import { ambiente_decorado_destaque, restaurante_decorado_destaque, sala_decorado_destaque } from '../../assets/imagens/ofertas_destaques'
 
-import ProductCard from "../ProductCard/ProductCard";
-
-import { destaques } from "../../data/destaques/destaque";
-
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import './Main.css'
 
+import { IoFlowerOutline, IoIosArrowBack, IoIosArrowForward, PiCactusBold, LuFlower, PiPlant } from '../../assets/icons'
 
-import { IoIosArrowBack, IoIosArrowForward, PiCactusBold } from '../../assets/icons'
+import { ambiente_decorado_destaque, restaurante_decorado_destaque, sala_decorado_destaque } from '../../assets/imagens/ofertas_destaques'
 
-import { use, useState } from "react";
-import { Link } from "react-router-dom";
+import { destaques } from "../../data/destaques/destaque";
 
+import ProductCard from "../ProductCard/ProductCard";
+
+import pegarCategorias from '../../api/categoriasApi.js';
 
 
 
@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 
 function Main({ produtos, categorias }) {
     /*destaques*/
-   
+
 
     const [index, setIndex] = useState(0)
 
@@ -43,12 +43,51 @@ function Main({ produtos, categorias }) {
     }
 
     /*categorias*/
+
     const [categoriaSelecionada, setCategoriaSelecionada] = useState("Todos");
 
+    const [categoriaDados, setCategoriaDados] = useState([])
 
 
-    const categoriasredender = categorias.map((cat) => {
-        const Icon = cat.icon
+    useEffect(() => {
+
+
+
+        const chamarApi = async () => {
+
+            try {
+
+                setCategoriaDados(await pegarCategorias())
+
+            } catch (error) {
+                console.error('Chamada invalida', error)
+                return
+            }
+
+        }
+
+        chamarApi()
+
+
+
+
+    }, [])
+
+
+
+
+    const iconesCategorias = {
+        Cactos: PiCactusBold,
+        Flores: LuFlower,
+        Suculentas: IoFlowerOutline,
+        'Plantas verdes': PiPlant
+    }
+
+
+    const categoriasredender = categoriaDados.map((cat) => {
+       
+        const Icon = iconesCategorias[cat.nome]
+       
         return (
             <div className="card_categorie" key={cat.id}>
                 <button className={`btn_categorie ${cat.nome === categoriaSelecionada ? 'active' : ''}`} onClick={() => setCategoriaSelecionada(cat.nome)}>
@@ -66,9 +105,9 @@ function Main({ produtos, categorias }) {
 
     const [vermais, setMais] = useState(false)
 
-    function verificar( ) {
+    function verificar() {
         if (!vermais) {
-            return produtos.slice(0,8)
+            return produtos.slice(0, 8)
         } else {
             return produtos
         }
@@ -103,7 +142,7 @@ function Main({ produtos, categorias }) {
                 </div>
 
                 <div className="carousel-controls">
-                    
+
                     <button className="btn_left" onClick={prev}>
                         <IoIosArrowBack />
 
@@ -125,11 +164,11 @@ function Main({ produtos, categorias }) {
                 </div>
                 {categoriaSelecionada === "Todos" && (
 
-                    <button onClick={()=> setMais(!vermais)} className='btn-exibir'>
-                        {vermais ? 'Mostrar menos ▲': "Mostrar mais ▼"}
+                    <button onClick={() => setMais(!vermais)} className='btn-exibir'>
+                        {vermais ? 'Mostrar menos ▲' : "Mostrar mais ▼"}
                     </button>
                 )
-                
+
                 }
             </section>
 
