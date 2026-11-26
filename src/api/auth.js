@@ -1,11 +1,14 @@
+const API_URL = import.meta.env.VITE_API_URL;
 
 /*Criar Conta*/
+
+
 
 async function Cadastro(dadosRegister) {
 
     try {
 
-        const res = await fetch('http://localhost:3000/auth/cadastro', {
+        const res = await fetch(`${API_URL}/auth/cadastro`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -60,7 +63,7 @@ async function Cadastro(dadosRegister) {
 
 async function Logar(dadosLogin) {
 
-    const res = await fetch('http://localhost:3000/auth/login', {
+    const res = await fetch(`${API_URL}/auth/login`, {
 
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

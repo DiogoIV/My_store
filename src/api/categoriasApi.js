@@ -2,7 +2,8 @@
 async function pegarCategorias() {
 
     
-    const res = await fetch('http://localhost:3000/categorias')
+    const res = await fetch(`${API_URL}/auth/categorias`
+)
 
     const dados = await res.json()
 
