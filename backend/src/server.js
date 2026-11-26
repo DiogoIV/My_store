@@ -15,8 +15,11 @@ app.use(cors())
 app.use('/auth', authRouter)
 app.use('/categorias', categoriasRouter)
 
+const PORT = process.env.PORT || 3000;
 
-app.listen(process.env.PORT || 3000, ()=> console.log('Servidor Rodando na porta', process.env.PORT))
+app.listen(PORT, () => {
+    console.log('Servidor Rodando na porta', PORT);
+});
 
 
 
