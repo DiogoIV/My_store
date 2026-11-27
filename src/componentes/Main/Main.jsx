@@ -60,8 +60,10 @@ function Main({ produtos, categorias }) {
                 setCategoriaDados(await pegarCategorias())
 
             } catch (error) {
+
                 console.error(`Chamada ínvalida ${error}`)
                 return
+                
             }
 
         }
